@@ -11,10 +11,6 @@ app.use(express.json())
 
 app.use("/v1/user", userRouter);
 
-app.get("/test", (req, res) => {
-    res.status(200).send("OK NOW let's goooo")
-})
-
 // TODO handle errors app.use(handleErrors);
 
 app.listen(Number(process.env.PORT), "0.0.0.0", () => {

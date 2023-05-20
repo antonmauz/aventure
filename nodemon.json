@@ -1,0 +1,7 @@
+{
+  "watch": [
+    "./src"
+  ],
+  "exec": "yarn build && node .",
+  "ext": "ts"
+}

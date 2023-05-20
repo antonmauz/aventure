@@ -14,11 +14,15 @@ export const databaseClient = new MongoClient(uri, {
 });
 
 const run = async () => {
-    // Connect the client to the server	(optional starting in v4.7)
-    await databaseClient.connect();
-    // Send a ping to confirm a successful connection
-    await databaseClient.db("admin").command({ping: 1});
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    try {
+        // Connect the client to the server	(optional starting in v4.7)
+        await databaseClient.connect();
+        // Send a ping to confirm a successful connection
+        await databaseClient.db("admin").command({ping: 1});
+        console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    } catch {
+        console.log("You haven't connected to MongoDB!");
+    }
 }
 
 run().catch(console.dir);

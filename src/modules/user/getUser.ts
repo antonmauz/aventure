@@ -1,4 +1,4 @@
-import {databaseService} from "../../services/database";
+import {databaseService} from "@services/database";
 import express from "express";
 
 export const getUser = async (req: express.Request, res: express.Response) => {

@@ -1,0 +1,18 @@
+{
+    "presets": [
+        "@babel/preset-typescript",
+        "@babel/preset-env"
+    ],
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "root": ".",
+                "alias": {
+                    "@services/database": "./src/services/database",
+                    "@modules/user": "./src/modules/user"
+                }
+            }
+        ]
+    ]
+}

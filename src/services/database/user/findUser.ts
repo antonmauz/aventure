@@ -1,9 +1,13 @@
-import {databaseClient} from "../common";
 import {DatabaseUser} from "../model/DatabaseUser";
-import {ObjectId} from "mongodb";
 
-export const findUserById = async (userId: string): Promise<DatabaseUser | null> => {
-    const user = await databaseClient.db("aventure_test").collection("user").findOne({_id: new ObjectId(userId)});
+export const findUserById = async (userId: string): Promise<any> => {
+    const user = await DatabaseUser.findById(userId).then((result) => {
+        console.log(result)
+
+        return result
+    })
+
+    console.log(user)
 
     if (user) {
         return user;

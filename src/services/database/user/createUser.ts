@@ -1,13 +1,16 @@
-import {databaseClient} from "../common";
 import {DatabaseUser} from "../model/DatabaseUser";
 
-type NewDatabaseUser = Omit<DatabaseUser, "_id">
+type NewDatabaseUser = {
+    name: string,
+    email: string,
+    password: string
+}
 
 export const createUser = async (newUser: NewDatabaseUser) => {
-    const createdUser = await databaseClient.db("aventure_test").collection("user").insertOne(newUser);
+    const createdUser = await DatabaseUser.create(newUser);
 
     if (createdUser) {
-        console.log(`New user created with the following id: ${createdUser.insertedId}`);
+        console.log(`New user created with the following id: ${createdUser}`);
         return
     }
 

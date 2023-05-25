@@ -1,8 +1,7 @@
-import {databaseClient} from "../common";
 import {DatabaseUser} from "../model/DatabaseUser";
 
-export const updateUserById = async (userId: string, updatedUser: Partial<DatabaseUser>) => {
-    const result = await databaseClient.db("aventure_test").collection("user")
+export const updateUserById = async (userId: string, updatedUser: Partial<typeof DatabaseUser>) => {
+    const result = await DatabaseUser
         .updateOne({_id: userId}, {$set: updatedUser});
 
     console.log(`${result.matchedCount} document(s) matched the query criteria.`);

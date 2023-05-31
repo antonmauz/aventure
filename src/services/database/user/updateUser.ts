@@ -1,6 +1,7 @@
 import {DatabaseUser} from "../model/DatabaseUser";
+import {DTOUser} from "../../../modules/model/DTOUser";
 
-export const updateUserById = async (userId: string, updatedUser: Partial<typeof DatabaseUser>) => {
+export const updateUserById = async (userId: string, updatedUser: Partial<DTOUser>) => {
     const result = await DatabaseUser
         .updateOne({_id: userId}, {$set: updatedUser});
 

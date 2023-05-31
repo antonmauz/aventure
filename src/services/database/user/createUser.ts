@@ -1,18 +1,18 @@
 import {DatabaseUser} from "../model/DatabaseUser";
+import {DTOUser} from "../../../modules/model/DTOUser";
 
-type NewDatabaseUser = {
-    name: string,
-    email: string,
+type NewDatabaseUser = Pick<DTOUser, "firstName" | "surname" | "email" | "disabilityVerification"> & {
     password: string
 }
 
 export const createUser = async (newUser: NewDatabaseUser) => {
-    const createdUser = await DatabaseUser.create(newUser);
+    try {
+        const createdUser = await DatabaseUser.create(newUser);
 
-    if (createdUser) {
         console.log(`New user created with the following id: ${createdUser}`);
-        return
+        return createdUser;
+    } catch (error) {
+        console.log("No new user created");
+        throw(error)
     }
-
-    console.log("No new user created");
 }

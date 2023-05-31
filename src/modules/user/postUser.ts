@@ -3,15 +3,25 @@ import express from "express";
 
 export const postUser = (
     async (req: express.Request, res: express.Response) => {
-        await databaseService.createUser({
-            name: "Dans",
-            email: "haha@gmail.com",
-            password: "123123"
-        }).catch((err) => {
-            // handle not created
-            throw err;
-        });
+        try {
+            const {firstName, surname, email, password, disabilityVerification} = req.body
 
-        res.status(200).send("OK");
+            await databaseService.createUser({
+                firstName,
+                surname,
+                email,
+                password,
+                disabilityVerification: disabilityVerification ? {
+                    idImage: disabilityVerification.idImageBase64,
+                    userImage: disabilityVerification.userImageBase64,
+                    status: "new"
+                } : undefined
+            })
+
+            res.status(200).send("OK");
+        } catch (error) {
+            res.status(400).send(error);
+        }
+
     }
 );

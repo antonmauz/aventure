@@ -9,9 +9,10 @@ export const getUser = async (req: express.Request, res: express.Response) => {
         return
     }
 
-    const user = await databaseService.findUserById(userId).catch((err) => {
+    const user = await databaseService.findUserById(userId).catch((error) => {
         // handle not found in DB
-        throw err;
+        res.status(400).send(error);
+        return;
     });
 
     res.status(200).json(user);

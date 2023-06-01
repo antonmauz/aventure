@@ -1,19 +1,20 @@
 import {DatabaseUser} from "../model/DatabaseUser";
+import {DTOUser} from "../../../modules/model/DTOUser";
 
-export const findUserById = async (userId: string): Promise<any> => {
-    const user = await DatabaseUser.findById(userId).then((result) => {
-        console.log(result)
+export const findUserById = async (userId: string): Promise<DTOUser> => {
+    const dbUser = await DatabaseUser.findById(userId).exec()
 
-        return result
-    })
+    console.log(dbUser?.toJSON())
 
-    console.log(user)
-
-    if (user) {
-        return user;
+    if (!dbUser) {
+        console.log(`No user found with the id '${userId}'`);
+        throw (`No user found with the id '${userId}'`)
     }
 
-    console.log(`No user found with the id '${userId}'`);
+    const dbUserJSON = dbUser.toJSON()
 
-    return null;
+    return {
+        id: dbUserJSON._id.toString(),
+        ...dbUserJSON
+    }
 }

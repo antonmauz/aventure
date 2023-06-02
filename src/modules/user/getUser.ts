@@ -1,19 +1,19 @@
-import {databaseService} from "@services/database";
+import { databaseService } from "@services/database";
 import express from "express";
 
 export const getUser = async (req: express.Request, res: express.Response) => {
-    const userId = req.query.userId
+  const userId = req.query.userId;
 
-    if (typeof userId !== "string") {
-        res.status(400).send("error");
-        return
-    }
+  if (typeof userId !== "string") {
+    res.status(400).send("error");
+    return;
+  }
 
-    const user = await databaseService.findUserById(userId).catch((error) => {
-        // handle not found in DB
-        res.status(400).send(error);
-        return;
-    });
+  const user = await databaseService.findUserById(userId).catch((error) => {
+    // handle not found in DB
+    res.status(400).send(error);
+    return;
+  });
 
-    res.status(200).json(user);
-}
+  res.status(200).json(user);
+};

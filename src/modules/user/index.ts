@@ -1,7 +1,7 @@
 import express from "express";
-import {getUser} from "./getUser";
-import {patchUser} from "./patchUser";
-import {postUser} from "./postUser";
+import { getUser } from "./getUser";
+import { patchUser } from "./patchUser";
+import { postUser } from "./postUser";
 
 const router = express.Router();
 

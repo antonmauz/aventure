@@ -1,1 +1,1 @@
-export type VerificationStatus = "new" | "accepted" | "declined"
+export type VerificationStatus = "new" | "accepted" | "declined";

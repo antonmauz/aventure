@@ -1,1 +1,1 @@
-export {connectDB} from "./connectDB"
+export { connectDB } from "./connectDB";

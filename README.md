@@ -54,6 +54,11 @@ Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
 The page will reload if you make edits.\
 
+### `yarn lint`
+
+It scans your code for errors, style violations, and other issues.
+It ensures code quality and consistency, helping you catch problems early in development.
+
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\

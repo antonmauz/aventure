@@ -1,4 +1,4 @@
-import { VerificationStatus } from "./VerificationStatus";
+import { VerificationStatus } from "@model";
 
 interface DisabilityVerification {
   idImage: string;

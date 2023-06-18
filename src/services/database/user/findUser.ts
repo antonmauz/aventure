@@ -1,7 +1,6 @@
-import { DatabaseUser } from "../model/DatabaseUser";
-import { DTOUser } from "../../../modules/model/DTOUser";
+import { DatabaseUser, IUser } from "../model/DatabaseUser";
 
-export const findUserById = async (userId: string): Promise<DTOUser> => {
+export const findUserById = async (userId: string): Promise<IUser> => {
   const dbUser = await DatabaseUser.findById(userId).exec();
 
   console.log(dbUser?.toJSON());
@@ -11,10 +10,5 @@ export const findUserById = async (userId: string): Promise<DTOUser> => {
     throw `No user found with the id '${userId}'`;
   }
 
-  const dbUserJSON = dbUser.toJSON();
-
-  return {
-    id: dbUserJSON._id.toString(),
-    ...dbUserJSON,
-  };
+  return dbUser;
 };

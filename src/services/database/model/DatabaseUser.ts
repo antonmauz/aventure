@@ -1,23 +1,42 @@
-import {model, Schema} from "mongoose";
+import { model, Schema } from "mongoose";
+import { VerificationStatus } from "@model";
+import { VERIFICATION_STATES } from "@constants";
 
-const verificationStates = ["new", "accepted", "declined"]
+interface IDisabilityVerification extends Document {
+  idImage: string;
+  userImage: string;
+  status: VerificationStatus;
+}
 
-const disabilityVerificationSchema = new Schema({
-    idImage: {type: String, required: true},
-    userImage: {type: String, required: true},
-    status: {type: String, enum: verificationStates, required: true}
-})
-
-const userSchema = new Schema(
-    {
-        firstName: {type: String, required: true},
-        surname: {type: String, required: true},
-        email: {type: String, required: true, unique: true},
-        password: {type: String, required: true},
-        birthday: {type: Date, required: false},
-        disabilityVerification: {type: disabilityVerificationSchema, required: false}
-    },
-    {timestamps: true}
+const disabilityVerificationSchema = new Schema<IDisabilityVerification>(
+  {
+    idImage: { type: String, required: true },
+    userImage: { type: String, required: true },
+    status: { type: String, enum: VERIFICATION_STATES, required: true },
+  },
+  { timestamps: true }
 );
 
-export const DatabaseUser = model("user", userSchema);
+export interface IUser extends Document {
+  firstName: string;
+  surname: string;
+  email: string;
+  password: string;
+  birthday?: Date;
+  disabilityVerification: IDisabilityVerification;
+}
+
+const userSchema = new Schema<IUser>(
+  {
+    firstName: { type: String, required: true },
+    surname: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    birthday: { type: Date, required: false },
+    disabilityVerification: { type: disabilityVerificationSchema, required: false },
+  },
+  { timestamps: true }
+);
+
+// 3. Create a Model.
+export const DatabaseUser = model<IUser>("user", userSchema);

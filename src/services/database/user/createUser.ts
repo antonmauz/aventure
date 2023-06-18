@@ -1,11 +1,10 @@
-import { DatabaseUser } from "../model/DatabaseUser";
-import { DTOUser } from "../../../modules/model/DTOUser";
+import { DatabaseUser, IUser } from "../model/DatabaseUser";
 
-type NewDatabaseUser = Pick<DTOUser, "firstName" | "surname" | "email" | "disabilityVerification"> & {
+type NewDatabaseUser = Pick<IUser, "firstName" | "surname" | "email" | "disabilityVerification"> & {
   password: string;
 };
 
-export const createUser = async (newUser: NewDatabaseUser) => {
+export const createUser = async (newUser: NewDatabaseUser): Promise<IUser> => {
   try {
     const createdUser = await DatabaseUser.create(newUser);
 

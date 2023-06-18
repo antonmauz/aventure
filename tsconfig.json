@@ -32,8 +32,14 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@services/database": [
-        "./src/services/database"
+      "@constants": [
+        "./src/constants"
+      ],
+      "@model": [
+        "./src/model"
+      ],
+      "@services": [
+        "./src/services"
       ],
       "@modules/user": [
         "./src/modules/user"

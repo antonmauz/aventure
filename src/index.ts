@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { userRouter } from "@modules/user";
 import cors from "cors";
-import { databaseService } from "@services/database";
+import { databaseService } from "@services";
 
 dotenv.config();
 

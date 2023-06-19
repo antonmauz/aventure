@@ -3,6 +3,9 @@ import dotenv from "dotenv";
 import { userRouter } from "@modules/user";
 import cors from "cors";
 import { databaseService } from "@services";
+import helmet from "helmet";
+
+const DATA_LIMIT = "1mb";
 
 dotenv.config();
 
@@ -10,7 +13,7 @@ databaseService.connectDB();
 
 const app = express();
 
-const DATA_LIMIT = "1mb";
+app.use(helmet());
 
 app.use(express.json({ limit: DATA_LIMIT }));
 app.use(express.urlencoded({ extended: false, limit: DATA_LIMIT }));

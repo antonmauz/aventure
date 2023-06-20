@@ -10,16 +10,10 @@ export const postUser = async (req: express.Request, res: express.Response) => {
       surname,
       email,
       password,
-      disabilityVerification: disabilityVerification
-        ? {
-            idImage: disabilityVerification.idImageBase64,
-            userImage: disabilityVerification.userImageBase64,
-            status: "new",
-          }
-        : undefined,
+      // TODO how to add subDocs/nestedDocs disabilityVerification,
     });
 
-    res.status(200).send("OK");
+    await res.status(200).send("OK");
   } catch (error) {
     res.status(400).send(error);
   }

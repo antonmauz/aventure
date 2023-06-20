@@ -9,8 +9,10 @@
             {
                 "root": ".",
                 "alias": {
-                    "@services/database": "./src/services/database",
-                    "@modules/user": "./src/modules/user"
+                    "@constants": "./src/constants",
+                    "@services": "./src/services",
+                    "@modules/user": "./src/modules/user",
+                    "@modules/blog": "./src/modules/blog"
                 }
             }
         ]

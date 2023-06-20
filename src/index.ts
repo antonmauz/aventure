@@ -4,6 +4,7 @@ import { userRouter } from "@modules/user";
 import cors from "cors";
 import { databaseService } from "@services";
 import helmet from "helmet";
+import { blogPostRouter } from "@modules/blog";
 
 const DATA_LIMIT = "1mb";
 
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false, limit: DATA_LIMIT }));
 app.use(cors());
 
 app.use("/v1/user", userRouter);
+app.use("/v1/blog", blogPostRouter);
 
 // TODO handle errors app.use(handleErrors);
 

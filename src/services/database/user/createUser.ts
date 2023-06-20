@@ -1,8 +1,6 @@
 import { DatabaseUser, IUser } from "../model/DatabaseUser";
 
-type NewDatabaseUser = Pick<IUser, "firstName" | "surname" | "email" | "disabilityVerification"> & {
-  password: string;
-};
+type NewDatabaseUser = Pick<IUser, "firstName" | "surname" | "email" | "password">;
 
 export const createUser = async (newUser: NewDatabaseUser): Promise<IUser> => {
   try {

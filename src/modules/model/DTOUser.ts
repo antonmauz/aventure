@@ -11,6 +11,7 @@ export interface DTOUser {
   firstName: string;
   surname: string;
   email: string;
+  profileImage?: string;
   birthday?: Date;
   disabilityVerification?: DisabilityVerification;
 }

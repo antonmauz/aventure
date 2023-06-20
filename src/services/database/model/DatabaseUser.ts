@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema, Document } from "mongoose";
 import { VerificationStatus } from "@model";
 import { VERIFICATION_STATES } from "@constants";
 
@@ -22,8 +22,9 @@ export interface IUser extends Document {
   surname: string;
   email: string;
   password: string;
+  profileImage?: string;
   birthday?: Date;
-  disabilityVerification: IDisabilityVerification;
+  disabilityVerification?: IDisabilityVerification;
 }
 
 const userSchema = new Schema<IUser>(
@@ -33,6 +34,7 @@ const userSchema = new Schema<IUser>(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     birthday: { type: Date, required: false },
+    profileImage: { type: String, required: false },
     disabilityVerification: { type: disabilityVerificationSchema, required: false },
   },
   { timestamps: true }

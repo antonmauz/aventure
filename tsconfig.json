@@ -43,6 +43,9 @@
       ],
       "@modules/user": [
         "./src/modules/user"
+      ],
+      "@modules/blog": [
+        "./src/modules/blog"
       ]
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */

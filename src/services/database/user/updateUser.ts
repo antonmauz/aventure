@@ -1,5 +1,5 @@
 import { DatabaseUser } from "../model/DatabaseUser";
-import { DTOUser } from "../../../modules/model/DTOUser";
+import { DTOUser } from "../../../controllers/model/DTOUser";
 
 export const updateUserById = async (userId: string, updatedUser: Partial<DTOUser>) => {
   const result = await DatabaseUser.updateOne({ _id: userId }, { $set: updatedUser });

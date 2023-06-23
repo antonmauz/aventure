@@ -1,20 +1,23 @@
 {
-    "presets": [
-        "@babel/preset-typescript",
-        "@babel/preset-env"
-    ],
-    "plugins": [
-        [
-            "module-resolver",
-            {
-                "root": ".",
-                "alias": {
-                    "@constants": "./src/constants",
-                    "@services": "./src/services",
-                    "@modules/user": "./src/modules/user",
-                    "@modules/blog": "./src/modules/blog"
-                }
-            }
-        ]
+  "presets": [
+    "@babel/preset-typescript",
+    "@babel/preset-env"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ".",
+        "alias": {
+          "@constants": "./src/constants",
+          "@config": "./src/config",
+          "@services": "./src/services",
+          "@controllers/user": "./src/controllers/user",
+          "@controllers/blog": "./src/controllers/blog",
+          "@controllers/authentication": "./src/controllers/authentication",
+          "@middlewares": "./src/middlewares"
+        }
+      }
     ]
+  ]
 }

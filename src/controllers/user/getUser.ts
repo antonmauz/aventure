@@ -1,10 +1,15 @@
 import { databaseService } from "@services";
 import express from "express";
 
-export const getUser = async (req: express.Request, res: express.Response) => {
-  const userId = req.query.userId;
+interface Request extends express.Request {
+  userId?: string;
+}
+
+export const getUser = async (req: Request, res: express.Response) => {
+  const { userId } = req;
 
   if (typeof userId !== "string") {
+    // TODO better error mapping
     res.status(400).send("error");
     return;
   }

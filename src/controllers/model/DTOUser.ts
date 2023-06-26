@@ -1,4 +1,5 @@
 import { VerificationStatus } from "@model";
+import { DTOAddress } from "./DTOAddress";
 
 interface DisabilityVerification {
   idImage: string;
@@ -11,7 +12,8 @@ export interface DTOUser {
   firstName: string;
   surname: string;
   email: string;
+  address?: DTOAddress;
   profileImage?: string;
-  birthday?: Date;
+  dateOfBirth?: Date;
   disabilityVerification?: DisabilityVerification;
 }

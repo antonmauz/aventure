@@ -1,20 +1,13 @@
 import express from "express";
-import { DatabaseUser } from "../../services/database/model/DatabaseUser";
 import { compareSync } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { authConfig } from "@config";
+import { databaseService } from "@services";
 
 export const signIn = (req: express.Request, res: express.Response) => {
-  DatabaseUser.findOne({
-    email: req.body.email,
-  })
-    .exec()
+  databaseService
+    .findUserByEmail(req.body.email)
     .then((user) => {
-      if (!user) {
-        console.log("User Not found.");
-        return res.status(404).send({ message: "User Not found." });
-      }
-
       const passwordIsValid = compareSync(req.body.password, user.password);
 
       if (!passwordIsValid) {

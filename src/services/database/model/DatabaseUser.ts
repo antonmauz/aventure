@@ -1,8 +1,9 @@
 import { model, Schema, Document } from "mongoose";
 import { VerificationStatus } from "@model";
 import { VERIFICATION_STATES } from "@constants";
+import { addressSchema, IAddress } from "./DatabaseAddress";
 
-interface IDisabilityVerification extends Document {
+interface IDisabilityVerification {
   idImage: string;
   userImage: string;
   status: VerificationStatus;
@@ -22,8 +23,9 @@ export interface IUser extends Document {
   surname: string;
   email: string;
   password: string;
+  address?: IAddress;
   profileImage?: string;
-  birthday?: Date;
+  dateOfBirth?: Date;
   disabilityVerification?: IDisabilityVerification;
 }
 
@@ -33,7 +35,8 @@ const userSchema = new Schema<IUser>(
     surname: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    birthday: { type: Date, required: false },
+    address: { type: addressSchema, required: false },
+    dateOfBirth: { type: Date, required: false },
     profileImage: { type: String, required: false },
     disabilityVerification: { type: disabilityVerificationSchema, required: false },
   },

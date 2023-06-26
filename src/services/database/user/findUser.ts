@@ -10,3 +10,14 @@ export const findUserById = async (userId: string): Promise<IUser> => {
 
   return dbUser;
 };
+
+export const findUserByEmail = async (email: string): Promise<IUser> => {
+  const dbUser = await DatabaseUser.findOne({ email }).exec();
+
+  if (!dbUser) {
+    console.log(`No user found with the email '${email}'`);
+    throw `No user found with the email '${email}'`;
+  }
+
+  return dbUser;
+};

@@ -14,6 +14,8 @@
           "@services": "./src/services",
           "@controllers/user": "./src/controllers/user",
           "@controllers/blog": "./src/controllers/blog",
+          "@controllers/restaurant": "./src/controllers/restaurant",
+          "@controllers/hotel": "./src/controllers/hotel",
           "@controllers/authentication": "./src/controllers/authentication",
           "@middlewares": "./src/middlewares"
         }

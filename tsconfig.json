@@ -1,4 +1,8 @@
 {
+  "ts-node": {
+    "transpileOnly": true,
+    "require": ["tsconfig-paths/register"]
+  },
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
@@ -44,14 +48,8 @@
       "@services": [
         "./src/services"
       ],
-      "@controllers/user": [
-        "./src/controllers/user"
-      ],
-      "@controllers/blog": [
-        "./src/controllers/blog"
-      ],
-      "@controllers/authentication": [
-        "./src/controllers/authentication"
+      "@controllers/*": [
+        "./src/controllers/*"
       ],
       "@middlewares": [
         "./src/middlewares"

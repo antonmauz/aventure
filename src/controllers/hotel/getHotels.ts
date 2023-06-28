@@ -1,10 +1,8 @@
 import { databaseService } from "@services";
 import express from "express";
-import { toDTOHOTEL } from "./toDTOHotel";
-
+import { toDTOHotel } from "./toDTOHotel";
 
 export const getHotels = async (req: express.Request, res: express.Response) => {
-
   const city = req.query.city ?? "";
 
   if (typeof city !== "string") {
@@ -13,8 +11,7 @@ export const getHotels = async (req: express.Request, res: express.Response) => 
   }
 
   const hotels = await databaseService.findHotelsByCity(city);
-  const mappedHotels = await Promise.all(hotels.map(toDTOHOTEL));
+  const mappedHotels = await Promise.all(hotels.map(toDTOHotel));
 
   res.status(200).json(mappedHotels);
 };
-

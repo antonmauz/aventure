@@ -7,7 +7,6 @@ import { connectDB } from "./common";
 import { createBlogPost } from "./blogPost/createBlogPost";
 import { findBlogPostById } from "./blogPost/findBlogPostById";
 import { findBlogPostsByTitle } from "./blogPost/findBlogPostsByTitle";
-import { createBlogComment } from "./blogPost/createBlogComment";
 
 export const databaseService = {
   // <-- COMMON -->
@@ -25,5 +24,4 @@ export const databaseService = {
   createBlogPost,
   findBlogPostById,
   findBlogPostsByTitle,
-  createBlogComment,
 };

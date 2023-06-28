@@ -7,6 +7,7 @@ import { connectDB } from "./common";
 import { createBlogPost } from "./blogPost/createBlogPost";
 import { findBlogPostById } from "./blogPost/findBlogPostById";
 import { findBlogPostsByTitle } from "./blogPost/findBlogPostsByTitle";
+import {findHotelsByCity} from "./hotel/findHotelByCity";
 
 export const databaseService = {
   // <-- COMMON -->
@@ -20,6 +21,7 @@ export const databaseService = {
   findRestaurantById,
   // <-- HOTEL -->
   findHotelById,
+  findHotelsByCity,
   // <-- BLOG -->
   createBlogPost,
   findBlogPostById,

@@ -7,13 +7,13 @@ type Topic = "trainTravel" | "hotel" | "restaurant" | "city" | "countrySide" | "
 interface Author {
   name: string;
   isVerified: boolean;
-  profileImage: DTOUser["profileImage"];
+  profileImage?: DTOUser["profileImage"];
 }
 
 interface BlogComment {
   author: Author;
-  createdAt: Date;
   text: string;
+  createdAt: Date;
 }
 
 export interface DTOBlogPost {

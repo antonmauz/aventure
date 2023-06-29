@@ -1,7 +1,7 @@
 import { DatabaseHotel } from "../model/DatabaseHotel";
 
 export const findHotelById = async (hotelId: string): Promise<any> => {
-  const hotel = await DatabaseHotel.findById( hotelId );
+  const hotel = await DatabaseHotel.findById(hotelId);
 
   if (hotel) {
     return hotel;

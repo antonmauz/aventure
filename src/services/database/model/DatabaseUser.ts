@@ -27,6 +27,7 @@ export interface IUser extends Document {
   profileImage?: string;
   dateOfBirth?: Date;
   disabilityVerification?: IDisabilityVerification;
+  createdAt: Date;
 }
 
 const userSchema = new Schema<IUser>(

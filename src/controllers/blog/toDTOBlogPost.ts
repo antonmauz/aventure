@@ -2,7 +2,9 @@ import { IBlogPost } from "../../services/database/model/DatabaseBlogPost";
 import { databaseService } from "@services";
 import { DTOBlogPost } from "../model/DTOBlogPost";
 
-const toAuthor = async (authorId: IBlogPost["authorId"]) => {
+const toAuthor = async (
+  authorId: IBlogPost["authorId"]
+): Promise<DTOBlogPost["comments"][number]["author"]> => {
   const { firstName, surname, disabilityVerification, profileImage } = await databaseService.findUserById(
     authorId
   );

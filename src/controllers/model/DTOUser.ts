@@ -16,4 +16,5 @@ export interface DTOUser {
   profileImage?: string;
   dateOfBirth?: Date;
   disabilityVerification?: DisabilityVerification;
+  createdAt: Date;
 }

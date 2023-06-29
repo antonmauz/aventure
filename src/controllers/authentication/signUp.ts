@@ -4,7 +4,7 @@ import { databaseService } from "@services";
 
 export const signUp = async (req: express.Request, res: express.Response) => {
   console.log(req.body);
-  
+
   await databaseService
     .createUser({
       firstName: req.body.firstName,

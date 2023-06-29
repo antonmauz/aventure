@@ -5,7 +5,7 @@ import { blogPostRouter } from "@controllers/blog";
 import { authenticationRouter } from "@controllers/authentication";
 import { restaurantRouter } from "@controllers/restaurant";
 import { authJwt } from "@middlewares";
-import { HotelRouter } from "@controllers/hotel";
+import { hotelRouter } from "@controllers/hotel";
 import cors from "cors";
 import { databaseService } from "@services";
 import helmet from "helmet";
@@ -26,7 +26,7 @@ app.use(cors());
 
 app.use("/v1/user", authJwt.verifyToken, userRouter);
 app.use("/v1/blog", blogPostRouter);
-app.use("/v1/hotel", HotelRouter);
+app.use("/v1/hotel", hotelRouter);
 app.use("/v1/auth", authenticationRouter);
 app.use("/v1/restaurant", restaurantRouter);
 

@@ -47,12 +47,14 @@ export interface IReview {
   createdAt: Date;
 }
 
-const reviewSchema = new Schema<IReview>({
-  authorId: { type: Types.ObjectId, ref: "user", required: true },
-  rating: { type: Number, required: true },
-  text: { type: "string", required: true },
-  createdAt: { type: Date, required: true },
-});
+const reviewSchema = new Schema<IReview>(
+  {
+    authorId: { type: Types.ObjectId, ref: "user", required: true },
+    rating: { type: Number, required: true },
+    text: { type: "string", required: true },
+  },
+  { timestamps: true }
+);
 
 export interface IHotel extends Document {
   id: string;

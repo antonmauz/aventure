@@ -9,6 +9,7 @@ import { findBlogPostById } from "./blogPost/findBlogPostById";
 import { findBlogPostsByTitle } from "./blogPost/findBlogPostsByTitle";
 import { findHotelsByCity } from "./hotel/findHotelByCity";
 import { createBlogComment } from "./blogPost/createBlogComment";
+import { createHotelReview } from "./hotel/createHotelReview";
 
 export const databaseService = {
   // <-- COMMON -->
@@ -23,6 +24,7 @@ export const databaseService = {
   // <-- HOTEL -->
   findHotelById,
   findHotelsByCity,
+  createHotelReview,
   // <-- BLOG -->
   createBlogPost,
   createBlogComment,

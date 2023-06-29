@@ -24,8 +24,8 @@ const toBlogComment = async ({
   const author = await toAuthor(authorId);
 
   return {
-    text,
     author,
+    text,
     createdAt,
   };
 };

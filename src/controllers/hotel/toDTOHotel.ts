@@ -21,6 +21,7 @@ const toReview = async ({
   createdAt,
 }: IHotel["reviews"][number]): Promise<DTOHotel["reviews"][number]> => {
   const author = await toAuthor(authorId);
+
   return {
     author,
     rating,

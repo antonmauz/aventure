@@ -1,7 +1,9 @@
 {
   "ts-node": {
     "transpileOnly": true,
-    "require": ["tsconfig-paths/register"]
+    "require": [
+      "tsconfig-paths/register"
+    ]
   },
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
@@ -48,8 +50,20 @@
       "@services": [
         "./src/services"
       ],
-      "@controllers/*": [
-        "./src/controllers/*"
+      "@controllers/user": [
+        "./src/controllers/user"
+      ],
+      "@controllers/blog": [
+        "./src/controllers/blog"
+      ],
+      "@controllers/restaurant": [
+        "./src/controllers/restaurant"
+      ],
+      "@controllers/hotel": [
+        "./src/controllers/hotel"
+      ],
+      "@controllers/authentication": [
+        "./src/controllers/authentication"
       ],
       "@middlewares": [
         "./src/middlewares"

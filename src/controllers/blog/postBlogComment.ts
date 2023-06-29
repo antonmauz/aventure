@@ -2,10 +2,12 @@ import { databaseService } from "@services";
 import express from "express";
 import { AuthenticatedRequest } from "../model/AuthenticatedRequest";
 
-export const postBlogPost = async (req: AuthenticatedRequest, res: express.Response) => {
+export const postBlogComment = async (req: AuthenticatedRequest, res: express.Response) => {
   try {
     const { userId } = req;
-    const newBlogPost = req.body;
+    const blogPostId = req.params.id;
+    const newBlogComment = req.body;
+    console.log(req);
 
     if (typeof userId !== "string") {
       // TODO better error mapping
@@ -13,8 +15,7 @@ export const postBlogPost = async (req: AuthenticatedRequest, res: express.Respo
       return;
     }
 
-    // TODO add correct authorId from request-headers
-    await databaseService.createBlogPost({ authorId: userId, ...newBlogPost });
+    await databaseService.createBlogComment(blogPostId, { authorId: userId, ...newBlogComment });
 
     res.status(200).send("OK");
   } catch (error) {

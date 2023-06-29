@@ -5,9 +5,9 @@ type NewDatabaseBlogPost = Pick<
   "authorId" | "title" | "text" | "bannerImage" | "destinations" | "topics"
 >;
 
-export const createBlogPost = async (newUser: NewDatabaseBlogPost): Promise<IBlogPost> => {
+export const createBlogPost = async (newBlogPost: NewDatabaseBlogPost): Promise<IBlogPost> => {
   try {
-    const createdBlogPost = await DatabaseBlogPost.create(newUser);
+    const createdBlogPost = await DatabaseBlogPost.create(newBlogPost);
 
     console.log(`New blogPost created with the following id: ${createdBlogPost}`);
     return createdBlogPost;

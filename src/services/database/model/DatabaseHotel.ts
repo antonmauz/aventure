@@ -1,5 +1,6 @@
 import { model, Schema, Types, Document } from "mongoose";
 import { IUser } from "./DatabaseUser";
+import { IAddress } from "./DatabaseAddress";
 
 const ACCESSIBILITY_AMENITIES = [
   "wcWithHandles",
@@ -16,7 +17,7 @@ const ACCESSIBILITY_AMENITIES = [
   "wideHallways",
   "handrails",
   "accessibleElevator",
-] as const
+] as const;
 
 const HOTEL_AMENITIES = [
   "bar",
@@ -25,28 +26,19 @@ const HOTEL_AMENITIES = [
   "swimmingPool",
   "wifi",
   "restaurant",
-] as const
+] as const;
 
 const STARS = [1, 2, 3, 4, 5] as const;
 
 type HotelAmenity = (typeof HOTEL_AMENITIES)[number];
-type AccessibilityAmenity = (typeof ACCESSIBILITY_AMENITIES)[number]
+type AccessibilityAmenity = (typeof ACCESSIBILITY_AMENITIES)[number];
 
-export interface IAddress {
-  street: string;
-  houseNumber: string;
-  city: string;
-  zipCode: string;
-}
-
-const addressSchema =  new Schema <IAddress>(
-  {
-    street: { type: "string", required:true},
-    houseNumber: { type: "string", required:true},
-    city: { type: "string", required:true},
-    zipCode: { type: "string", required:true},
-  }
-)
+const addressSchema = new Schema<IAddress>({
+  street: { type: "string", required: true },
+  number: { type: "string", required: true },
+  city: { type: "string", required: true },
+  zipCode: { type: "string", required: true },
+});
 
 export interface IReview {
   authorId: IUser["_id"];
@@ -55,16 +47,14 @@ export interface IReview {
   createdAt: Date;
 }
 
-const reviewSchema = new Schema <IReview>(
-  {
-    authorId: { type: Types.ObjectId, ref: "user", required: true },
-    rating: {type: Number, required: true},
-    text: { type: "string", required:true},
-    createdAt: {type:Date, required:true}
-  }
-)
+const reviewSchema = new Schema<IReview>({
+  authorId: { type: Types.ObjectId, ref: "user", required: true },
+  rating: { type: Number, required: true },
+  text: { type: "string", required: true },
+  createdAt: { type: Date, required: true },
+});
 
- export interface IHotel extends Document {
+export interface IHotel extends Document {
   id: string;
   name: string;
   address: IAddress;
@@ -76,32 +66,27 @@ const reviewSchema = new Schema <IReview>(
   images: string[];
   phoneNumber: string;
   accessibilityAmenities: AccessibilityAmenity[];
-  amenities:HotelAmenity[];
+  amenities: HotelAmenity[];
   affiliateLink: string;
 }
 
-
-const hotelSchema = new Schema <IHotel>(
+const hotelSchema = new Schema<IHotel>(
   {
     id: { type: String, required: true },
     name: { type: String, required: true },
-    address: {type:addressSchema, required: true},
-    reviews: {type:[reviewSchema], required: true},
-    stars: {type: Number, enum: STARS, required: true},
-    rating: {type: Number,  required: true},
+    address: { type: addressSchema, required: true },
+    reviews: { type: [reviewSchema], required: true },
+    stars: { type: Number, enum: STARS, required: true },
+    rating: { type: Number, required: true },
     highlights: { type: String, required: true },
-    isVerified: {type: Boolean, required:true},
-    images: {type: [String], required: true },
+    isVerified: { type: Boolean, required: true },
+    images: { type: [String], required: true },
     phoneNumber: { type: String, required: true },
-    accessibilityAmenities: {type: [String], enum: ACCESSIBILITY_AMENITIES, required: true},
-    amenities: {type: [String], enum: ACCESSIBILITY_AMENITIES, required: true},
-    affiliateLink: { type: String, required: true }
+    accessibilityAmenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: true },
+    amenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: true },
+    affiliateLink: { type: String, required: true },
   },
   { timestamps: true }
 );
 
 export const DatabaseHotel = model<IHotel>("hotel", hotelSchema);
-
-
-
-

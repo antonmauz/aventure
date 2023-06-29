@@ -2,7 +2,6 @@ import { IHotel, IReview } from "../../services/database/model/DatabaseHotel";
 import { databaseService } from "@services";
 import { DTOHotel } from "../model/DTOHotel";
 
-
 const toAuthor = async (authorId: IReview["authorId"]) => {
   const { firstName, surname, disabilityVerification, profileImage } = await databaseService.findUserById(
     authorId
@@ -14,7 +13,6 @@ const toAuthor = async (authorId: IReview["authorId"]) => {
     profileImage,
   };
 };
-
 
 const toReview = async ({
   authorId,
@@ -28,8 +26,8 @@ const toReview = async ({
     rating,
     text,
     createdAt,
-  }
-}
+  };
+};
 
 export const toDTOHotel = async ({
   _id,
@@ -62,14 +60,5 @@ export const toDTOHotel = async ({
     accessibilityAmenities,
     amenities,
     affiliateLink,
+  };
 };
-}
-
-
-
-
-
-
-
-
-

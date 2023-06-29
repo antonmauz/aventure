@@ -1,53 +1,46 @@
 import { DTOUser } from "./DTOUser";
 
-
 const STARS = [1, 2, 3, 4, 5] as const;
 
 type AccessibilityAmenity =
-  "wcWithHandles"|
-  "elevatedWc"|
-  "groundLevelShower"|
-  "loweredSink"|
-  "emergencyCord"|
-  "grabBars"|
-  "rampAccess"|
-  "wheelchairAccessibleEntrance"|
-  "accessibleParking"|
-  "automaticDoors"|
-  "brailleSignage"|
-  "wideHallways"|
-  "handrails"|
-  "accessibleElevator";
+  | "wcWithHandles"
+  | "elevatedWc"
+  | "groundLevelShower"
+  | "loweredSink"
+  | "emergencyCord"
+  | "grabBars"
+  | "rampAccess"
+  | "wheelchairAccessibleEntrance"
+  | "accessibleParking"
+  | "automaticDoors"
+  | "brailleSignage"
+  | "wideHallways"
+  | "handrails"
+  | "accessibleElevator";
 
-type HotelAmenity =
-  "bar"|
-  "parkingLots"|
-  "fitnessCenter"|
-  "swimmingPool"|
-  "wifi"|
-  "restaurant";
+type HotelAmenity = "bar" | "parkingLots" | "fitnessCenter" | "swimmingPool" | "wifi" | "restaurant";
 
 interface Author {
- name: string;
- isVerified: boolean;
- profileImage: DTOUser["profileImage"];
+  name: string;
+  isVerified: boolean;
+  profileImage: DTOUser["profileImage"];
 }
 
 interface Address {
   street: string;
-  houseNumber: string;
+  number: string;
   city: string;
   zipCode: string;
 }
 
- interface Review {
+interface Review {
   author: Author;
   rating: number;
   text: string;
   createdAt: Date;
 }
 
- export interface DTOHotel  {
+export interface DTOHotel {
   id: string;
   name: string;
   address: Address;
@@ -59,6 +52,6 @@ interface Address {
   images: string[];
   phoneNumber: string;
   accessibilityAmenities: AccessibilityAmenity[];
-  amenities:HotelAmenity[];
+  amenities: HotelAmenity[];
   affiliateLink: string;
 }

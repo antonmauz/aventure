@@ -7,9 +7,13 @@ export const createHotelReview = async (
   newReview: NewDatabaseHotelReview
 ): Promise<IHotel> => {
   try {
-    const updatedHotel = (await DatabaseHotel.findByIdAndUpdate(id, {
-      $push: { reviews: newReview },
-    }))!; // TODO remove exclamation mark
+    const updatedHotel = (await DatabaseHotel.findByIdAndUpdate(
+      id,
+      {
+        $push: { reviews: newReview },
+      },
+      { new: true }
+    ))!; // TODO remove exclamation mark
 
     if (updatedHotel === null) {
       console.log(`No hotel found with the id'${id}'`);

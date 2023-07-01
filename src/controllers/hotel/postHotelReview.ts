@@ -1,6 +1,7 @@
 import { AuthenticatedRequest } from "../model/AuthenticatedRequest";
 import express from "express";
 import { databaseService } from "@services";
+import { toDTOHotel } from "./toDTOHotel";
 
 export const postHotelReview = async (req: AuthenticatedRequest, res: express.Response) => {
   try {
@@ -13,9 +14,13 @@ export const postHotelReview = async (req: AuthenticatedRequest, res: express.Re
       res.status(400).send("no user id provided");
       return;
     }
-    await databaseService.createHotelReview(hotelId, { authorId: userId, ...newHotelReview });
 
-    res.status(200).send("OK");
+    const updatedHotelDetailPage = await databaseService.createHotelReview(hotelId, {
+      authorId: userId,
+      ...newHotelReview,
+    });
+
+    res.status(200).send(await toDTOHotel(updatedHotelDetailPage));
   } catch (error) {
     res.status(400).send(error);
   }

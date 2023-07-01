@@ -7,9 +7,13 @@ export const createBlogComment = async (
   newComment: NewDatabaseBlogComment
 ): Promise<IBlogPost> => {
   try {
-    const updatedBlogPost = (await DatabaseBlogPost.findByIdAndUpdate(id, {
-      $push: { comments: newComment },
-    }))!; // TODO remove exclamation mark
+    const updatedBlogPost = (await DatabaseBlogPost.findByIdAndUpdate(
+      id,
+      {
+        $push: { comments: newComment },
+      },
+      { new: true }
+    ))!; // TODO remove exclamation mark
 
     if (updatedBlogPost === null) {
       console.log(`No blogPost found with the id '${id}'`);

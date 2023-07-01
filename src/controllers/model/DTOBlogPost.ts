@@ -1,8 +1,9 @@
 import { DTOUser } from "./DTOUser";
+import { DESTINATIONS, TOPICS } from "@constants";
 
-type Destination = "munich" | "hamburg" | "frankfurt" | "stuttgart" | "berlin" | "other";
+type Destination = (typeof DESTINATIONS)[number];
 
-type Topic = "trainTravel" | "hotel" | "restaurant" | "city" | "countrySide" | "adventure" | "other";
+type Topic = (typeof TOPICS)[number];
 
 interface Author {
   name: string;

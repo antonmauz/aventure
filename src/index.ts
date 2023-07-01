@@ -4,11 +4,11 @@ import { userRouter } from "@controllers/user";
 import { blogPostRouter } from "@controllers/blog";
 import { authenticationRouter } from "@controllers/authentication";
 import { restaurantRouter } from "@controllers/restaurant";
-import { authJwt } from "@middlewares";
 import { hotelRouter } from "@controllers/hotel";
 import cors from "cors";
 import { databaseService } from "@services";
 import helmet from "helmet";
+import session from "express-session";
 
 const DATA_LIMIT = "1mb";
 
@@ -20,11 +20,25 @@ const app = express();
 
 app.use(helmet());
 
+const generateRandom = (): string => (Math.random() + 1).toString(16).substring(4);
+
+const generateSecret = (): string => `${generateRandom()}-${generateRandom()}-${generateRandom()}`;
+
+export const handleSession = session({
+  secret: generateSecret(),
+  name: "session",
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true },
+});
+
+app.use(handleSession);
+
 app.use(express.json({ limit: DATA_LIMIT }));
 app.use(express.urlencoded({ extended: false, limit: DATA_LIMIT }));
 app.use(cors());
 
-app.use("/v1/user", authJwt.verifyToken, userRouter);
+app.use("/v1/user", userRouter);
 app.use("/v1/blog", blogPostRouter);
 app.use("/v1/hotel", hotelRouter);
 app.use("/v1/auth", authenticationRouter);

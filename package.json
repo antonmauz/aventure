@@ -19,15 +19,17 @@
     "lint:format": "prettier --check --ignore-unknown src"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "axios": "^1.4.0",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "helmet": "^7.0.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.0",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.5",
@@ -35,8 +37,10 @@
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-typescript": "^7.21.5",
     "@types/bcryptjs": "^2.4.2",
+    "@types/cookie-parser": "^1.4.3",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
+    "@types/express-session": "^1.17.7",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "^20.2.1",
     "@typescript-eslint/eslint-plugin": "^5.59.8",

@@ -1,6 +1,7 @@
 import { databaseService } from "@services";
 import express from "express";
 import { AuthenticatedRequest } from "../model/AuthenticatedRequest";
+import { toDTOBlogPost } from "./toDTOBlogPost";
 
 export const postBlogPost = async (req: AuthenticatedRequest, res: express.Response) => {
   try {
@@ -14,9 +15,9 @@ export const postBlogPost = async (req: AuthenticatedRequest, res: express.Respo
     }
 
     // TODO add correct authorId from request-headers
-    await databaseService.createBlogPost({ authorId: userId, ...newBlogPost });
+    const createdBlogPost = await databaseService.createBlogPost({ authorId: userId, ...newBlogPost });
 
-    res.status(200).send("OK");
+    res.status(200).send(await toDTOBlogPost(createdBlogPost));
   } catch (error) {
     res.status(400).send(error);
   }

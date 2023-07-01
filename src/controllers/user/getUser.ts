@@ -1,25 +1,25 @@
 import { databaseService } from "@services";
-import express from "express";
-import { AuthenticatedRequest } from "../model/AuthenticatedRequest";
 import { toDTOUser } from "./toDTOUser";
+import { AuthenticatedSession, authenticatedSessionParser } from "@middlewares";
+import { controller } from "../common/controller";
+import { DTOUser } from "../model/DTOUser";
 
-export const getUser = async (req: AuthenticatedRequest, res: express.Response) => {
-  const { userId } = req;
+type Response = DTOUser;
 
-  if (typeof userId !== "string") {
-    // TODO better error mapping
-    res.status(400).send("no user id provided");
-    return;
+export const getUser = controller<AuthenticatedSession, undefined, undefined, Response>(
+  async ({ session, res }) => {
+    await databaseService
+      .findUserById(session.userId)
+      .then((user) => {
+        res.status(200).json(toDTOUser(user));
+      })
+      .catch((error) => {
+        // handle not found in DB
+        res.status(400).send(error);
+        return;
+      });
+  },
+  {
+    session: authenticatedSessionParser,
   }
-
-  await databaseService
-    .findUserById(userId)
-    .then((user) => {
-      res.status(200).json(toDTOUser(user));
-    })
-    .catch((error) => {
-      // handle not found in DB
-      res.status(400).send(error);
-      return;
-    });
-};
+);

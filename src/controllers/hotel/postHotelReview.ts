@@ -1,27 +1,39 @@
-import { AuthenticatedRequest } from "../model/AuthenticatedRequest";
-import express from "express";
 import { databaseService } from "@services";
+import { controller } from "../common/controller";
+import { AuthenticatedSession, authenticatedSessionParser } from "@middlewares";
+import { DTOHotel } from "../model/DTOHotel";
+import z from "zod";
 import { toDTOHotel } from "./toDTOHotel";
 
-export const postHotelReview = async (req: AuthenticatedRequest, res: express.Response) => {
-  try {
-    const { userId } = req;
-    const hotelId = req.params.id;
-    const newHotelReview = req.body;
-    console.log(req);
+type Body = Pick<DTOHotel["reviews"][number], "text" | "rating">;
 
-    if (typeof userId !== "string") {
-      res.status(400).send("no user id provided");
-      return;
+type Params = Pick<DTOHotel, "id">;
+
+type Response = DTOHotel | unknown;
+
+export const postHotelReview = controller<AuthenticatedSession, Body, Params, Response>(
+  async ({ session: { userId }, body, params: { id }, res }) => {
+    try {
+      await databaseService.createHotelReview(id, { authorId: userId, ...body });
+
+      const updatedHotelDetailPage = await databaseService.createHotelReview(id, {
+        authorId: userId,
+        ...body,
+      });
+
+      res.status(200).send(await toDTOHotel(updatedHotelDetailPage));
+    } catch (error) {
+      res.status(400).send(error);
     }
-
-    const updatedHotelDetailPage = await databaseService.createHotelReview(hotelId, {
-      authorId: userId,
-      ...newHotelReview,
-    });
-
-    res.status(200).send(await toDTOHotel(updatedHotelDetailPage));
-  } catch (error) {
-    res.status(400).send(error);
+  },
+  {
+    session: authenticatedSessionParser,
+    bodySchema: z.object({
+      text: z.string(),
+      rating: z.number(),
+    }),
+    paramsSchema: z.object({
+      id: z.string(),
+    }),
   }
-};
+);

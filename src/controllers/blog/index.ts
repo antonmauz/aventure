@@ -3,13 +3,15 @@ import { getBlogPost } from "./getBlogPost";
 import { postBlogPost } from "./postBlogPost";
 import { getBlogPosts } from "./getBlogPosts";
 import { postBlogComment } from "./postBlogComment";
-import { authJwt } from "@middlewares";
+import { handleAuthentication } from "@middlewares";
 
 const router = express.Router();
 
 router.get("/:id", getBlogPost);
-router.post("/:id/comment", authJwt.verifyToken, postBlogComment);
 router.get("/", getBlogPosts);
-router.post("/", authJwt.verifyToken, postBlogPost);
+
+router.use(handleAuthentication);
+router.post("/:id/comment", postBlogComment);
+router.post("/", postBlogPost);
 
 export const blogPostRouter = router;

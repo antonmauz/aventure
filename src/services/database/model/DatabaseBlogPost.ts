@@ -1,13 +1,10 @@
 import { model, Schema, Types, Document } from "mongoose";
 import { IUser } from "./DatabaseUser";
+import { DESTINATIONS, TOPICS } from "@constants";
 
-const CITIES = ["munich", "hamburg", "frankfurt", "stuttgart", "berlin", "other"] as const;
+type Destination = (typeof DESTINATIONS)[number];
 
-const TAGS = ["trainTravel", "hotel", "restaurant", "city", "countrySide", "adventure", "other"] as const;
-
-type Destination = (typeof CITIES)[number];
-
-type Topic = (typeof TAGS)[number];
+type Topic = (typeof TOPICS)[number];
 
 interface IBlogComment extends Document {
   authorId: IUser["_id"];
@@ -40,8 +37,8 @@ const blogPostSchema = new Schema<IBlogPost>(
     title: { type: String, required: true },
     text: { type: String, required: true },
     bannerImage: { type: String, required: true },
-    destinations: { type: [String], enum: CITIES, required: true },
-    topics: { type: [String], enum: TAGS, required: true },
+    destinations: { type: [String], enum: DESTINATIONS, required: true },
+    topics: { type: [String], enum: TOPICS, required: true },
     comments: { type: [commentSchema], required: false },
   },
   { timestamps: true }

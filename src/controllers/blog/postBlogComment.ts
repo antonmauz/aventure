@@ -1,28 +1,36 @@
 import { databaseService } from "@services";
-import express from "express";
-import { AuthenticatedRequest } from "../model/AuthenticatedRequest";
+import { controller } from "../common/controller";
+import { AuthenticatedSession, authenticatedSessionParser } from "@middlewares";
+import z from "zod";
 import { toDTOBlogPost } from "./toDTOBlogPost";
+import { DTOBlogPost } from "../model/DTOBlogPost";
 
-export const postBlogComment = async (req: AuthenticatedRequest, res: express.Response) => {
-  try {
-    const { userId } = req;
-    const blogPostId = req.params.id;
-    const newBlogComment = req.body;
-    console.log(req);
+type Body = Pick<DTOBlogPost["comments"][number], "text">;
 
-    if (typeof userId !== "string") {
-      // TODO better error mapping
-      res.status(400).send("no user id provided");
-      return;
+type Params = Pick<DTOBlogPost, "id">;
+
+type Response = DTOBlogPost | unknown;
+
+export const postBlogComment = controller<AuthenticatedSession, Body, Params, Response>(
+  async ({ session: { userId }, body, params: { id }, res }) => {
+    try {
+      const updatedBlogPost = await databaseService.createBlogComment(id, {
+        authorId: userId,
+        ...body,
+      });
+
+      res.status(200).send(await toDTOBlogPost(updatedBlogPost));
+    } catch (error) {
+      res.status(400).send(error);
     }
-
-    const updatedBlogPost = await databaseService.createBlogComment(blogPostId, {
-      authorId: userId,
-      ...newBlogComment,
-    });
-
-    res.status(200).send(await toDTOBlogPost(updatedBlogPost));
-  } catch (error) {
-    res.status(400).send(error);
+  },
+  {
+    session: authenticatedSessionParser,
+    bodySchema: z.object({
+      text: z.string(),
+    }),
+    paramsSchema: z.object({
+      id: z.string(),
+    }),
   }
-};
+);

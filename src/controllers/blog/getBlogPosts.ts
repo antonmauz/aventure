@@ -5,14 +5,14 @@ import { controller } from "../common/controller";
 import { z } from "zod";
 
 type Query = {
-  title: string;
+  title?: string;
 };
 
 type Response = DTOBlogPost[];
 
 export const getBlogPosts = controller<undefined, undefined, undefined, Response, Query>(
   async ({ query: { title }, res }) => {
-    const blogPosts = await databaseService.findBlogPostsByTitle(title);
+    const blogPosts = await databaseService.findBlogPostsByTitle(title ?? "");
 
     const mappedBlogPosts = await Promise.all(blogPosts.map(toDTOBlogPost));
 
@@ -20,7 +20,7 @@ export const getBlogPosts = controller<undefined, undefined, undefined, Response
   },
   {
     querySchema: z.object({
-      title: z.string(),
+      title: z.string().optional(),
     }),
   }
 );

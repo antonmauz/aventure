@@ -8,10 +8,8 @@ import { DESTINATIONS, TOPICS } from "@constants";
 
 type Body = Pick<DTOBlogPost, "title" | "text" | "destinations" | "bannerImage" | "topics">;
 
-type Params = Pick<DTOBlogPost, "id">;
-
 type Response = DTOBlogPost | unknown;
-export const postBlogPost = controller<AuthenticatedSession, Body, Params, Response>(
+export const postBlogPost = controller<AuthenticatedSession, Body, undefined, Response>(
   async ({ session: { userId }, body, res }) => {
     try {
       const createdBlogPost = await databaseService.createBlogPost({ authorId: userId, ...body });
@@ -29,9 +27,6 @@ export const postBlogPost = controller<AuthenticatedSession, Body, Params, Respo
       destinations: z.array(z.enum(DESTINATIONS)),
       bannerImage: z.string(),
       topics: z.array(z.enum(TOPICS)),
-    }),
-    paramsSchema: z.object({
-      id: z.string(),
     }),
   }
 );

@@ -13,11 +13,11 @@ export const findLocations = async (searchQuery: string, options: Options) => {
 
   const data = await axios
     .request(config)
-    .then(function (response) {
+    .then((response) => {
       console.log(response.data);
       return response.data;
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.error(error);
     });
 

@@ -35,7 +35,7 @@ type AccessibilityAmenity = (typeof ACCESSIBILITY_AMENITIES)[number];
 
 const addressSchema = new Schema<IAddress>({
   street: { type: "string", required: true },
-  number: { type: "string", required: true },
+  houseNumber: { type: "string", required: true },
   city: { type: "string", required: true },
   zipCode: { type: "string", required: true },
 });

@@ -17,6 +17,7 @@
           "@controllers/restaurant": "./src/controllers/restaurant",
           "@controllers/hotel": "./src/controllers/hotel",
           "@controllers/authentication": "./src/controllers/authentication",
+          "@controllers/train": "./src/controllers/train",
           "@middlewares": "./src/middlewares"
         }
       }

@@ -29,9 +29,7 @@ const tryToAuthenticate = (req: Request): void => {
       }
 
       if (decoded !== undefined && typeof decoded !== "string" && "id" in decoded) {
-        console.log("set userID to session", decoded.id);
         req.session.userId = decoded.id;
-        console.log("new session userID ", req.session.userId);
       } else {
         throw Error("401");
       }
@@ -56,8 +54,6 @@ export const handleAuthentication = (req: Request, _: Response, next: NextFuncti
     next();
     return;
   }
-
-  console.log("try to authenticate");
 
   tryToAuthenticate(req);
 

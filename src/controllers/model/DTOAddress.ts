@@ -1,6 +1,6 @@
 export interface DTOAddress {
   street: string;
-  number: string;
+  houseNumber: string;
   zipCode: string;
   city: string;
   country: string;

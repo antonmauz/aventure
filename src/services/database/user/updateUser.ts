@@ -1,17 +1,22 @@
 import { DatabaseUser, IUser } from "../model/DatabaseUser";
 
-export const updateUserById = async (userId: string, updateUser: Partial<IUser>): Promise<IUser> => {
+export const updateUserById = async (userId: string, updateUser: Partial<IUser>) => {
   try {
-    const updatedUser = (await DatabaseUser.findByIdAndUpdate(userId, { $set: updateUser }, { new: true }))!; // TODO remove exclamation mark
+    const updatedUser = await DatabaseUser.findByIdAndUpdate(
+      userId,
+      {
+        $set: updateUser,
+      },
+      { new: true }
+    );
 
-    if (updatedUser === null) {
-      console.log(`No blogPost found with the id '${userId}'`);
-      // TODO throw Error(`No blogPost found with the id '${id}'`);
+    if (updateUser === null) {
+      console.log(`No User found with the id '${userId}'`);
+      throw Error("no_user_found");
     }
-
     return updatedUser;
   } catch (error) {
-    console.log("BlogPost not updated", error);
+    console.log("Could not update User", error);
     throw error;
   }
 };

@@ -1,7 +1,7 @@
 import { ITrainStation } from "../../services/database/model/DatabaseTrainStation";
 import { DTOTrainStation } from "../model/DTOTrainStation";
 
-const toDTOTrainStation = ({
+export const toDTOTrainStation = ({
   _id,
   name,
   dbStationId,

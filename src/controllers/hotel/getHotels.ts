@@ -14,7 +14,5 @@ export const getHotels = async (req: express.Request, res: express.Response) => 
 
   const mappedHotels = await Promise.all(hotels.map(toDTOHotel));
 
-  console.log(mappedHotels[0].reviews[0]);
-
   res.status(200).json(mappedHotels);
 };

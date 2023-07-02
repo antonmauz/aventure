@@ -1,0 +1,16 @@
+export const ACCESSIBILITY_AMENITIES = [
+  "wcWithHandles",
+  "elevatedWc",
+  "groundLevelShower",
+  "loweredSink",
+  "emergencyCord",
+  "grabBars",
+  "rampAccess",
+  "wheelchairAccessibleEntrance",
+  "accessibleParking",
+  "automaticDoors",
+  "brailleSignage",
+  "wideHallways",
+  "handrails",
+  "accessibleElevator",
+] as const;

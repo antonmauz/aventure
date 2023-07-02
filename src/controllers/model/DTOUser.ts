@@ -1,4 +1,4 @@
-import { VerificationStatus } from "@model";
+import { AccessibilityAmenity, VerificationStatus } from "@model";
 import { DTOAddress } from "./DTOAddress";
 
 interface DisabilityVerification {
@@ -17,4 +17,5 @@ export interface DTOUser {
   dateOfBirth?: Date;
   disabilityVerification?: DisabilityVerification;
   createdAt: Date;
+  accessibilityAmenities?: AccessibilityAmenity[];
 }

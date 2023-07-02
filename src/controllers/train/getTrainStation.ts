@@ -2,7 +2,7 @@ import { databaseService } from "@services";
 import { controller } from "../common/controller";
 import { DTOTrainStation } from "../model/DTOTrainStation";
 import { toDTOTrainStation } from "./toDTOTrainStation";
-import z from "zod";
+import { z } from "zod";
 
 type Params = Pick<DTOTrainStation, "id">;
 

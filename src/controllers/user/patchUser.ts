@@ -3,7 +3,7 @@ import { controller } from "../common/controller";
 import { AuthenticatedSession, authenticatedSessionParser } from "@middlewares";
 import { DTOUser } from "../model/DTOUser";
 import { toDTOUser } from "./toDTOUser";
-import z from "zod";
+import { z } from "zod";
 
 type Body = Partial<Pick<DTOUser, "firstName" | "surname" | "email" | "dateOfBirth" | "profileImage">>;
 

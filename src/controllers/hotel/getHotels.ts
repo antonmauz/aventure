@@ -1,18 +1,26 @@
 import { databaseService } from "@services";
-import express from "express";
 import { toDTOHotel } from "./toDTOHotel";
+import { controller } from "../common/controller";
+import { DTOHotel } from "../model/DTOHotel";
+import { z } from "zod";
 
-export const getHotels = async (req: express.Request, res: express.Response) => {
-  const city = req.query.city ?? "";
-
-  if (typeof city !== "string") {
-    res.status(400).send("error");
-    return;
-  }
-
-  const hotels = await databaseService.findHotelsByCity(city);
-
-  const mappedHotels = await Promise.all(hotels.map(toDTOHotel));
-
-  res.status(200).json(mappedHotels);
+type Query = {
+  city: string;
 };
+
+type Response = DTOHotel[];
+
+export const getHotels = controller<undefined, undefined, undefined, Response, Query>(
+  async ({ query: { city }, res }) => {
+    const hotels = await databaseService.findHotelsByCity(city);
+
+    const mappedHotels = await Promise.all(hotels.map(toDTOHotel));
+
+    res.status(200).json(mappedHotels);
+  },
+  {
+    querySchema: z.object({
+      city: z.string(),
+    }),
+  }
+);

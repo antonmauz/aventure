@@ -1,4 +1,4 @@
-import { model, Schema, Document } from "mongoose";
+import { Document, model, Schema } from "mongoose";
 import { addressSchema, IAddress } from "./DatabaseAddress";
 
 export interface ITrainStation extends Document {

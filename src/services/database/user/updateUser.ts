@@ -1,6 +1,6 @@
 import { DatabaseUser, IUser } from "../model/DatabaseUser";
 
-export const updateUserById = async (userId: string, updateUser: Partial<IUser>) => {
+export const updateUserById = async (userId: string, updateUser: Partial<IUser>): Promise<IUser> => {
   try {
     const updatedUser = await DatabaseUser.findByIdAndUpdate(
       userId,
@@ -10,10 +10,11 @@ export const updateUserById = async (userId: string, updateUser: Partial<IUser>)
       { new: true }
     );
 
-    if (updateUser === null) {
+    if (updatedUser === null) {
       console.log(`No User found with the id '${userId}'`);
       throw Error("no_user_found");
     }
+
     return updatedUser;
   } catch (error) {
     console.log("Could not update User", error);

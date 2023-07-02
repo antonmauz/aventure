@@ -1,7 +1,7 @@
 import { databaseService } from "@services";
 import { controller } from "../common/controller";
 import { AuthenticatedSession, authenticatedSessionParser } from "@middlewares";
-import z from "zod";
+import { z } from "zod";
 import { toDTOBlogPost } from "./toDTOBlogPost";
 import { DTOBlogPost } from "../model/DTOBlogPost";
 

@@ -2,7 +2,7 @@ import { databaseService } from "@services";
 import { controller } from "../common/controller";
 import { AuthenticatedSession, authenticatedSessionParser } from "@middlewares";
 import { DTOHotel } from "../model/DTOHotel";
-import z from "zod";
+import { z } from "zod";
 import { toDTOHotel } from "./toDTOHotel";
 
 type Body = Pick<DTOHotel["reviews"][number], "text" | "rating">;

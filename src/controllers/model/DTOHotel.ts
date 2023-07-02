@@ -1,4 +1,5 @@
 import { DTOUser } from "./DTOUser";
+import { DTOAddress } from "./DTOAddress";
 
 const STARS = [1, 2, 3, 4, 5] as const;
 
@@ -26,13 +27,6 @@ interface Author {
   profileImage: DTOUser["profileImage"];
 }
 
-interface Address {
-  street: string;
-  number: string;
-  city: string;
-  zipCode: string;
-}
-
 interface Review {
   author: Author;
   rating: number;
@@ -43,7 +37,7 @@ interface Review {
 export interface DTOHotel {
   id: string;
   name: string;
-  address: Address;
+  address: DTOAddress;
   reviews: Review[];
   stars: (typeof STARS)[number];
   rating: number;

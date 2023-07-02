@@ -3,7 +3,7 @@ import { controller } from "../common/controller";
 import { AuthenticatedSession, authenticatedSessionParser } from "@middlewares";
 import { toDTOBlogPost } from "./toDTOBlogPost";
 import { DTOBlogPost } from "../model/DTOBlogPost";
-import z from "zod";
+import { z } from "zod";
 import { DESTINATIONS, TOPICS } from "@constants";
 
 type Body = Pick<DTOBlogPost, "title" | "text" | "destinations" | "bannerImage" | "topics">;

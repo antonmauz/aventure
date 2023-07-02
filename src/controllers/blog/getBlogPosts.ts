@@ -1,18 +1,26 @@
 import { databaseService } from "@services";
-import express from "express";
 import { toDTOBlogPost } from "./toDTOBlogPost";
+import { DTOBlogPost } from "../model/DTOBlogPost";
+import { controller } from "../common/controller";
+import { z } from "zod";
 
-export const getBlogPosts = async (req: express.Request, res: express.Response) => {
-  const title = req.query.title ?? "";
-
-  if (typeof title !== "string") {
-    res.status(400).send("error");
-    return;
-  }
-
-  const blogPosts = await databaseService.findBlogPostsByTitle(title);
-
-  const mappedBlogPosts = await Promise.all(blogPosts.map(toDTOBlogPost));
-
-  res.status(200).json(mappedBlogPosts);
+type Query = {
+  title: string;
 };
+
+type Response = DTOBlogPost[];
+
+export const getBlogPosts = controller<undefined, undefined, undefined, Response, Query>(
+  async ({ query: { title }, res }) => {
+    const blogPosts = await databaseService.findBlogPostsByTitle(title);
+
+    const mappedBlogPosts = await Promise.all(blogPosts.map(toDTOBlogPost));
+
+    res.status(200).json(mappedBlogPosts);
+  },
+  {
+    querySchema: z.object({
+      title: z.string(),
+    }),
+  }
+);

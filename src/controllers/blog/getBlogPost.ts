@@ -1,14 +1,27 @@
 import { databaseService } from "@services";
-import express from "express";
 import { toDTOBlogPost } from "./toDTOBlogPost";
+import { controller } from "../common/controller";
+import { DTOBlogPost } from "../model/DTOBlogPost";
+import { z } from "zod";
 
-export const getBlogPost = async (req: express.Request, res: express.Response) => {
-  const blogPostId = req.params.id;
-
-  const blogPost = await databaseService.findBlogPostById(blogPostId);
-
-  // handle not found in DB
-  // res.status(400).send(error);
-
-  res.status(200).json(await toDTOBlogPost(blogPost));
+type Params = {
+  id: string;
 };
+
+type Response = DTOBlogPost;
+
+export const getBlogPost = controller<undefined, undefined, Params, Response>(
+  async ({ params: { id }, res }) => {
+    const blogPost = await databaseService.findBlogPostById(id);
+
+    // handle not found in DB
+    // res.status(400).send(error);
+
+    res.status(200).json(await toDTOBlogPost(blogPost));
+  },
+  {
+    paramsSchema: z.object({
+      id: z.string(),
+    }),
+  }
+);

@@ -1,4 +1,4 @@
-import { ZodTypeDef, z } from "zod";
+import { z, ZodTypeDef } from "zod";
 
 import express from "express";
 

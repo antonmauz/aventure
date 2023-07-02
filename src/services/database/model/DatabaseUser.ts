@@ -1,6 +1,6 @@
-import { model, Schema, Document } from "mongoose";
-import { VerificationStatus, AccessibilityAmenity } from "@model";
-import { VERIFICATION_STATES, ACCESSIBILITY_AMENITIES } from "@constants";
+import { Document, model, Schema } from "mongoose";
+import { AccessibilityAmenity, VerificationStatus } from "@model";
+import { ACCESSIBILITY_AMENITIES, VERIFICATION_STATES } from "@constants";
 import { addressSchema, IAddress } from "./DatabaseAddress";
 
 interface IDisabilityVerification {

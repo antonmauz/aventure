@@ -1,0 +1,2954 @@
+[
+  {
+    "name": "Aachen Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "2a",
+      "postalCode": "52064",
+      "city": "Aachen",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000001
+  },
+  {
+    "name": "Aalen Hbf",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "1",
+      "postalCode": "73430",
+      "city": "Aalen",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000002
+  },
+  {
+    "name": "Ahlen (Westf)",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "1b",
+      "postalCode": "59227",
+      "city": "Ahlen ",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000441
+  },
+  {
+    "name": "Alexanderplatz",
+    "address": {
+      "street": "Dircksenstr.",
+      "houseNumber": "2",
+      "postalCode": "10179",
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "DE"
+    },
+    "evaNumber": 8011155
+  },
+  {
+    "name": "Altenbeken",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "13",
+      "postalCode": "33184",
+      "city": "Altenbeken",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000004
+  },
+  {
+    "name": "Althof",
+    "address": {
+      "street": "Althöfer Weg",
+      "houseNumber": "70",
+      "postalCode": "18209",
+      "city": "Bad Doberan",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8011031
+  },
+  {
+    "name": "Andernach",
+    "address": {
+      "street": "Kurfürstendamm",
+      "houseNumber": "1",
+      "postalCode": "56626",
+      "city": "Andernach",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000331
+  },
+  {
+    "name": "Angermünde",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "1c",
+      "postalCode": "16278",
+      "city": "Angermünde",
+      "state": "Brandenburg",
+      "country": "DE"
+    },
+    "evaNumber": 8010004
+  },
+  {
+    "name": "Anklam",
+    "address": {
+      "street": "Bahnhofstraße",
+      "houseNumber": "1",
+      "postalCode": "17389",
+      "city": "Anklam",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8011044
+  },
+  {
+    "name": "Ansbach",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "2",
+      "postalCode": "91522",
+      "city": "Ansbach",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000009
+  },
+  {
+    "name": "Aschaffenburg Hbf",
+    "address": {
+      "street": "Ludwigstr.",
+      "houseNumber": "2-4",
+      "postalCode": "63739",
+      "city": "Aschaffenburg",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000010
+  },
+  {
+    "name": "Aschau (Chiemgau)",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "4",
+      "postalCode": "83229",
+      "city": "Aschau ",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000621
+  },
+  {
+    "name": "Aschersleben Pbf",
+    "address": {
+      "street": "Herrenbreite",
+      "houseNumber": "24",
+      "postalCode": "06449",
+      "city": "Aschersleben",
+      "state": "Sachsen-Anhalt",
+      "country": "DE"
+    },
+    "evaNumber": 8010009
+  },
+  {
+    "name": "Bad Homburg",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "4",
+      "postalCode": "61352",
+      "city": "Bad Homburg",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8000712
+  },
+  {
+    "name": "Bad Kleinen",
+    "address": {
+      "street": "Bahnhofsvorplatz",
+      "postalCode": "23996",
+      "city": "Bad Kleinen",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010018
+  },
+  {
+    "name": "Bad Kreuznach",
+    "address": {
+      "street": "Europaplatz",
+      "houseNumber": "25",
+      "postalCode": "55543",
+      "city": "Bad Kreuznach",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000021
+  },
+  {
+    "name": "Bad Oeynhausen",
+    "address": {
+      "street": "Herforder Str.",
+      "houseNumber": "82",
+      "postalCode": "32545",
+      "city": "Bad Oeynhausen",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000732
+  },
+  {
+    "name": "Bad Oldesloe",
+    "address": {
+      "street": "Käthe-Kollwitz-Str.",
+      "houseNumber": "8",
+      "postalCode": "23843",
+      "city": "Bad Oldesloe",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8000023
+  },
+  {
+    "name": "Bad Reichenhall",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "1",
+      "postalCode": "83435",
+      "city": "Bad Reichenhall",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000737
+  },
+  {
+    "name": "Bad Sassendorf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "postalCode": "59505",
+      "city": "Bad Sassendorf",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000745
+  },
+  {
+    "name": "Baden-Baden",
+    "address": {
+      "street": "Ooser-Bahnhofstr.",
+      "houseNumber": "4",
+      "postalCode": "76532",
+      "city": "Baden-Baden",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000774
+  },
+  {
+    "name": "Bamberg",
+    "address": {
+      "street": "Ludwigstr.",
+      "houseNumber": "6",
+      "postalCode": "96052",
+      "city": "Bamberg",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000025
+  },
+  {
+    "name": "Bayreuth Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "20",
+      "postalCode": "95444",
+      "city": "Bayreuth",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000028
+  },
+  {
+    "name": "Bergen auf Rügen",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "34",
+      "postalCode": "18528",
+      "city": "Bergen (Rügen)",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010033
+  },
+  {
+    "name": "Berlin-Friedrichstraße",
+    "address": {
+      "street": "Georgenstraße 14/",
+      "houseNumber": "17",
+      "postalCode": "10117",
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "DE"
+    },
+    "evaNumber": 8011306
+  },
+  {
+    "name": "Berlin Gesundbrunnen",
+    "address": {
+      "street": "Badstr.",
+      "houseNumber": "1-3",
+      "postalCode": "13357",
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "DE"
+    },
+    "evaNumber": 8011102
+  },
+  {
+    "name": "Berlin Ostbahnhof",
+    "address": {
+      "street": "Koppenstr.",
+      "houseNumber": "3",
+      "postalCode": "10243",
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "DE"
+    },
+    "evaNumber": 8010255
+  },
+  {
+    "name": "Berlin Zoologischer Garten",
+    "address": {
+      "street": "Hardenbergplatz",
+      "houseNumber": "13",
+      "postalCode": "10623",
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "DE"
+    },
+    "evaNumber": 8010406
+  },
+  {
+    "name": "Berlin-Lichtenberg",
+    "address": {
+      "street": "Weitlingstr.",
+      "houseNumber": "22",
+      "postalCode": "10317",
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "DE"
+    },
+    "evaNumber": 8010036
+  },
+  {
+    "name": "Berlin-Spandau",
+    "address": {
+      "street": "Seegefelder Str.",
+      "houseNumber": "1",
+      "postalCode": "13597",
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "DE"
+    },
+    "evaNumber": 8010404
+  },
+  {
+    "name": "Bernau (b Berlin)",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "1",
+      "postalCode": "16321",
+      "city": "Bernau bei Berlin",
+      "state": "Brandenburg",
+      "country": "DE"
+    },
+    "evaNumber": 8013470
+  },
+  {
+    "name": "Bielefeld Hbf",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "1b",
+      "postalCode": "33602",
+      "city": "Bielefeld",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000036
+  },
+  {
+    "name": "Bingen (Rhein) Hbf",
+    "address": {
+      "street": "Bingerbrücker Straße",
+      "houseNumber": "1",
+      "postalCode": "55411",
+      "city": "Bingen ",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000039
+  },
+  {
+    "name": "Ostseebad Binz",
+    "address": {
+      "street": "Dollahnerstr.",
+      "houseNumber": "17",
+      "postalCode": "18609",
+      "city": "Binz",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8011191
+  },
+  {
+    "name": "Bochum Hbf",
+    "address": {
+      "street": "Kurt-Schumacher-Platz",
+      "houseNumber": "13-15",
+      "postalCode": "44787",
+      "city": "Bochum",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000041
+  },
+  {
+    "name": "Bonn Hbf",
+    "address": {
+      "street": "Am Hauptbahnhof",
+      "houseNumber": "1",
+      "postalCode": "53111",
+      "city": "Bonn",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000044
+  },
+  {
+    "name": "Braunschweig Hbf",
+    "address": {
+      "street": "Willy-Brandt-Platz",
+      "houseNumber": "1",
+      "postalCode": "38102",
+      "city": "Braunschweig",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000049
+  },
+  {
+    "name": "Bremen Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "15",
+      "postalCode": "28195",
+      "city": "Bremen",
+      "state": "Bremen",
+      "country": "DE"
+    },
+    "evaNumber": 8000050
+  },
+  {
+    "name": "Bremerhaven Hbf",
+    "address": {
+      "street": "Friedrich-Ebert-Str.",
+      "houseNumber": "73",
+      "postalCode": "27570",
+      "city": "Bremerhaven",
+      "state": "Bremen",
+      "country": "DE"
+    },
+    "evaNumber": 8000051
+  },
+  {
+    "name": "Broderstorf",
+    "address": {
+      "street": "Rostocker Straße",
+      "houseNumber": "2",
+      "postalCode": "18184",
+      "city": "Broderstorf",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8011270
+  },
+  {
+    "name": "Bruchsal",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "12",
+      "postalCode": "76646",
+      "city": "Bruchsal",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000055
+  },
+  {
+    "name": "Büchen",
+    "address": {
+      "street": "Lauenburger Str.",
+      "postalCode": "21514",
+      "city": "Büchen",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8000058
+  },
+  {
+    "name": "Buchloe",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "62",
+      "postalCode": "86807",
+      "city": "Buchloe",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000057
+  },
+  {
+    "name": "Bützow",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "40",
+      "postalCode": "18246",
+      "city": "Bützow",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010066
+  },
+  {
+    "name": "Chemnitz Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "1",
+      "postalCode": "09111",
+      "city": "Chemnitz ",
+      "state": "Sachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8010184
+  },
+  {
+    "name": "Coburg",
+    "address": {
+      "street": "Lossaustr.",
+      "houseNumber": "6",
+      "postalCode": "96450",
+      "city": "Coburg",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8001338
+  },
+  {
+    "name": "Berlin Hauptbahnhof",
+    "address": {
+      "street": "Europaplatz",
+      "houseNumber": "1",
+      "postalCode": "10557",
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "DE"
+    },
+    "evaNumber": 8011160
+  },
+  {
+    "name": "Cottbus Hbf",
+    "address": {
+      "street": "Vetschauer Str.",
+      "houseNumber": "70",
+      "postalCode": "03048",
+      "city": "Cottbus",
+      "state": "Brandenburg",
+      "country": "DE"
+    },
+    "evaNumber": 8010073
+  },
+  {
+    "name": "Darmstadt Hbf",
+    "address": {
+      "street": "Am Hauptbahnhof",
+      "houseNumber": "20",
+      "postalCode": "64293",
+      "city": "Darmstadt",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8000068
+  },
+  {
+    "name": "Delmenhorst",
+    "address": {
+      "street": "Wittekindstr.",
+      "houseNumber": "10",
+      "postalCode": "27749",
+      "city": "Delmenhorst",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000070
+  },
+  {
+    "name": "Dessau Hbf",
+    "address": {
+      "street": "Fritz-Hesse-Str.",
+      "houseNumber": "47",
+      "postalCode": "06844",
+      "city": "Dessau-Roßlau",
+      "state": "Sachsen-Anhalt",
+      "country": "DE"
+    },
+    "evaNumber": 8010077
+  },
+  {
+    "name": "Doberlug-Kirchhain",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "1",
+      "postalCode": "03253",
+      "city": "Doberlug-Kirchhain",
+      "state": "Brandenburg",
+      "country": "DE"
+    },
+    "evaNumber": 8010079
+  },
+  {
+    "name": "Donauwörth",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "34",
+      "postalCode": "86609",
+      "city": "Donauwörth",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000078
+  },
+  {
+    "name": "Dresden Hbf",
+    "address": {
+      "street": "Wiener Platz",
+      "houseNumber": "4",
+      "postalCode": "01069",
+      "city": "Dresden",
+      "state": "Sachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8010085
+  },
+  {
+    "name": "Dresden-Neustadt",
+    "address": {
+      "street": "Schlesischer Platz",
+      "houseNumber": "1",
+      "postalCode": "01097",
+      "city": "Dresden",
+      "state": "Sachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8010089
+  },
+  {
+    "name": "Duisburg Hbf",
+    "address": {
+      "street": "Portsmouthplatz",
+      "houseNumber": "1",
+      "postalCode": "47051",
+      "city": "Duisburg",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000086
+  },
+  {
+    "name": "Düsseldorf Flughafen",
+    "address": {
+      "street": "Ahrensplatz",
+      "houseNumber": "1",
+      "postalCode": "40474",
+      "city": "Düsseldorf",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000082
+  },
+  {
+    "name": "Düsseldorf Hbf",
+    "address": {
+      "street": "Konrad-Adenauer-Platz",
+      "houseNumber": "14",
+      "postalCode": "40210",
+      "city": "Düsseldorf",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000085
+  },
+  {
+    "name": "Eberswalde Hbf",
+    "address": {
+      "street": "Bahnhofsring",
+      "houseNumber": "17",
+      "postalCode": "16225",
+      "city": "Eberswalde",
+      "state": "Brandenburg",
+      "country": "DE"
+    },
+    "evaNumber": 8010093
+  },
+  {
+    "name": "Eckernförde",
+    "address": {
+      "street": "Reeperbahn",
+      "houseNumber": "54-58",
+      "postalCode": "24340",
+      "city": "Eckernförde",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8001654
+  },
+  {
+    "name": "Eisenach",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "35",
+      "postalCode": "99817",
+      "city": "Eisenach",
+      "state": "Thüringen",
+      "country": "DE"
+    },
+    "evaNumber": 8010097
+  },
+  {
+    "name": "Elmshorn",
+    "address": {
+      "street": "Holstenplatz",
+      "houseNumber": "11",
+      "postalCode": "25335",
+      "city": "Elmshorn",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8000092
+  },
+  {
+    "name": "Emden Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "11",
+      "postalCode": "26721",
+      "city": "Emden",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8001768
+  },
+  {
+    "name": "Erfurt Hbf",
+    "address": {
+      "street": "Willy-Brandt-Platz",
+      "houseNumber": "12",
+      "postalCode": "99084",
+      "city": "Erfurt",
+      "state": "Thüringen",
+      "country": "DE"
+    },
+    "evaNumber": 8010101
+  },
+  {
+    "name": "Erlangen",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "1",
+      "postalCode": "91054",
+      "city": "Erlangen",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8001844
+  },
+  {
+    "name": "Essen Hbf",
+    "address": {
+      "street": "Am Hauptbahnhof",
+      "houseNumber": "5",
+      "postalCode": "45127",
+      "city": "Essen",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000098
+  },
+  {
+    "name": "Finsterwalde (Niederlausitz)",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "5",
+      "postalCode": "03238",
+      "city": "Finsterwalde ",
+      "state": "Brandenburg",
+      "country": "DE"
+    },
+    "evaNumber": 8011542
+  },
+  {
+    "name": "Fischen",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "1",
+      "postalCode": "87538",
+      "city": "Fischen",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8001995
+  },
+  {
+    "name": "Flensburg",
+    "address": {
+      "street": "Am Bundesbahnhof",
+      "houseNumber": "5",
+      "postalCode": "24937",
+      "city": "Flensburg",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8000103
+  },
+  {
+    "name": "Flughafen München",
+    "address": {
+      "street": "MUC II Terminal",
+      "postalCode": "85356",
+      "city": "Oberding",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8004168
+  },
+  {
+    "name": "Forst (Lausitz)",
+    "address": {
+      "street": "Sorauer Str.",
+      "houseNumber": "1",
+      "postalCode": "03149",
+      "city": "Forst ",
+      "state": "Brandenburg",
+      "country": "DE"
+    },
+    "evaNumber": 8010111
+  },
+  {
+    "name": "Frankfurt (Main) Flughafen Regionalbahnhof",
+    "address": {
+      "street": "Hugo-Eckener-Ring",
+      "houseNumber": "1",
+      "postalCode": "60549",
+      "city": "Frankfurt am Main",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8070004
+  },
+  {
+    "name": "Frankfurt am Main Stadion",
+    "address": {
+      "street": "Flughafenstr.",
+      "houseNumber": "104",
+      "postalCode": "60528",
+      "city": "Frankfurt am Main",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8002040
+  },
+  {
+    "name": "Frankfurt (Oder)",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "11",
+      "postalCode": "15230",
+      "city": "Frankfurt (Oder)",
+      "state": "Brandenburg",
+      "country": "DE"
+    },
+    "evaNumber": 8010113
+  },
+  {
+    "name": "Frankfurt (Main) Hbf",
+    "address": {
+      "street": "Im Hauptbahnhof",
+      "postalCode": "60329",
+      "city": "Frankfurt am Main",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8000105
+  },
+  {
+    "name": "Frankfurt (Main) Niederrad",
+    "address": {
+      "street": "Adolf-Mierschstr.",
+      "houseNumber": "43",
+      "postalCode": "60528",
+      "city": "Frankfurt am Main",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8002050
+  },
+  {
+    "name": "Freiburg (Breisgau) Hbf",
+    "address": {
+      "street": "Bismarckallee",
+      "houseNumber": "5-7",
+      "postalCode": "79098",
+      "city": "Freiburg",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000107
+  },
+  {
+    "name": "Fulda",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "3",
+      "postalCode": "36037",
+      "city": "Fulda",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8000115
+  },
+  {
+    "name": "Füssen",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "12",
+      "postalCode": "87629",
+      "city": "Füssen",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8002156
+  },
+  {
+    "name": "Garmisch-Partenkirchen",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "31",
+      "postalCode": "82467",
+      "city": "Garmisch-Partenkirchen",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8002187
+  },
+  {
+    "name": "Gelsenkirchen Hbf",
+    "address": {
+      "street": "Bahnhofsvorplatz",
+      "houseNumber": "10",
+      "postalCode": "45879",
+      "city": "Gelsenkirchen",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000118
+  },
+  {
+    "name": "Gera Hbf",
+    "address": {
+      "street": "Bahnhofstraße",
+      "houseNumber": "3-9",
+      "postalCode": "07545",
+      "city": "Gera",
+      "state": "Thüringen",
+      "country": "DE"
+    },
+    "evaNumber": 8010125
+  },
+  {
+    "name": "Gießen",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "102",
+      "postalCode": "35390",
+      "city": "Gießen",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8000124
+  },
+  {
+    "name": "Göttingen",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "1",
+      "postalCode": "37073",
+      "city": "Göttingen",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000128
+  },
+  {
+    "name": "Greifswald",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "43",
+      "postalCode": "17489",
+      "city": "Greifswald",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010139
+  },
+  {
+    "name": "Grevesmühlen",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "1",
+      "postalCode": "23936",
+      "city": "Grevesmühlen",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010141
+  },
+  {
+    "name": "Groß Lüsewitz",
+    "address": {
+      "street": "Zum Buchenkopf",
+      "houseNumber": "2",
+      "postalCode": "18190",
+      "city": "Sanitz",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8011729
+  },
+  {
+    "name": "Groß Schwaß",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "1",
+      "postalCode": "18198",
+      "city": "Kritzmow",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8011735
+  },
+  {
+    "name": "Güstrow",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "3",
+      "postalCode": "18273",
+      "city": "Güstrow",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010153
+  },
+  {
+    "name": "Gütersloh Hbf",
+    "address": {
+      "street": "Willy-Brandt-Platz",
+      "houseNumber": "2",
+      "postalCode": "33330",
+      "city": "Gütersloh",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8002461
+  },
+  {
+    "name": "Hagebök",
+    "address": {
+      "street": "Dorfstraße",
+      "houseNumber": "1",
+      "postalCode": "23974",
+      "city": "Neuburg",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8011797
+  },
+  {
+    "name": "Hagen Hbf",
+    "address": {
+      "street": "Berliner Platz",
+      "houseNumber": "1",
+      "postalCode": "58089",
+      "city": "Hagen",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000142
+  },
+  {
+    "name": "Halberstadt",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "13",
+      "postalCode": "38820",
+      "city": "Halberstadt",
+      "state": "Sachsen-Anhalt",
+      "country": "DE"
+    },
+    "evaNumber": 8010157
+  },
+  {
+    "name": "Halle (Saale) Hbf",
+    "address": {
+      "street": "Hans-Dietrich-Genscher-Platz",
+      "houseNumber": "1",
+      "postalCode": "06112",
+      "city": "Halle ",
+      "state": "Sachsen-Anhalt",
+      "country": "DE"
+    },
+    "evaNumber": 8010159
+  },
+  {
+    "name": "Hamburg Dammtor",
+    "address": {
+      "street": "Dag-Hammarskjöld-Platz",
+      "houseNumber": "15",
+      "postalCode": "20354",
+      "city": "Hamburg",
+      "state": "Hamburg",
+      "country": "DE"
+    },
+    "evaNumber": 8002548
+  },
+  {
+    "name": "Hamburg Hbf",
+    "address": {
+      "street": "Hachmannplatz",
+      "houseNumber": "16",
+      "postalCode": "20099",
+      "city": "Hamburg",
+      "state": "Hamburg",
+      "country": "DE"
+    },
+    "evaNumber": 8002549
+  },
+  {
+    "name": "Hamburg-Altona",
+    "address": {
+      "street": "Scheel-Plessen-Str.",
+      "houseNumber": "17",
+      "postalCode": "22765",
+      "city": "Hamburg",
+      "state": "Hamburg",
+      "country": "DE"
+    },
+    "evaNumber": 8002553
+  },
+  {
+    "name": "Hamburg-Bergedorf",
+    "address": {
+      "street": "Weidenbaumsweg",
+      "houseNumber": "14",
+      "postalCode": "21029",
+      "city": "Hamburg",
+      "state": "Hamburg",
+      "country": "DE"
+    },
+    "evaNumber": 8002554
+  },
+  {
+    "name": "Hamburg-Harburg",
+    "address": {
+      "street": "Hannoversche Str.",
+      "houseNumber": "85",
+      "postalCode": "21079",
+      "city": "Hamburg",
+      "state": "Hamburg",
+      "country": "DE"
+    },
+    "evaNumber": 8000147
+  },
+  {
+    "name": "Hameln",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "21",
+      "postalCode": "31785",
+      "city": "Hameln",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000148
+  },
+  {
+    "name": "Hamm (Westf) Hbf",
+    "address": {
+      "street": "Willy-Brandt-Platz",
+      "houseNumber": "1b",
+      "postalCode": "59065",
+      "city": "Hamm ",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000149
+  },
+  {
+    "name": "Hannover Hbf",
+    "address": {
+      "street": "Ernst-August-Platz",
+      "houseNumber": "1",
+      "postalCode": "30159",
+      "city": "Hannover",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000152
+  },
+  {
+    "name": "Heide (Holst)",
+    "address": {
+      "street": "Güterstraße",
+      "houseNumber": "13",
+      "postalCode": "25746",
+      "city": "Heide",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8000155
+  },
+  {
+    "name": "Heidelberg Hbf",
+    "address": {
+      "street": "Willy-Brandt-Platz",
+      "houseNumber": "5",
+      "postalCode": "69115",
+      "city": "Heidelberg",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000156
+  },
+  {
+    "name": "Heilbronn Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "30",
+      "postalCode": "74072",
+      "city": "Heilbronn",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000157
+  },
+  {
+    "name": "Herford",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "3",
+      "postalCode": "32052",
+      "city": "Herford",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000162
+  },
+  {
+    "name": "Hildesheim Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "1",
+      "postalCode": "31134",
+      "city": "Hildesheim",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000169
+  },
+  {
+    "name": "Hof Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "8-16",
+      "postalCode": "95028",
+      "city": "Hof",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8002924
+  },
+  {
+    "name": "Homburg (Saar) Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "5",
+      "postalCode": "66424",
+      "city": "Homburg (Saar)",
+      "state": "Saarland",
+      "country": "DE"
+    },
+    "evaNumber": 8000176
+  },
+  {
+    "name": "Hornstorf",
+    "address": {
+      "street": "Bahnhofsweg",
+      "houseNumber": "01",
+      "postalCode": "23974",
+      "city": "Hornstorf",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010176
+  },
+  {
+    "name": "Husum",
+    "address": {
+      "street": "Poggenburgstr.",
+      "houseNumber": "12",
+      "postalCode": "25813",
+      "city": "Husum",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8000181
+  },
+  {
+    "name": "Ingolstadt Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "8",
+      "postalCode": "85051",
+      "city": "Ingolstadt",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000183
+  },
+  {
+    "name": "Jena Paradies",
+    "address": {
+      "street": "Knebelstraße",
+      "houseNumber": "1",
+      "postalCode": "07745",
+      "city": "Jena",
+      "state": "Thüringen",
+      "country": "DE"
+    },
+    "evaNumber": 8011956
+  },
+  {
+    "name": "Jena West",
+    "address": {
+      "street": "Westbahnhofstr.",
+      "houseNumber": "13",
+      "postalCode": "07745",
+      "city": "Jena",
+      "state": "Thüringen",
+      "country": "DE"
+    },
+    "evaNumber": 8011957
+  },
+  {
+    "name": "Kaiserslautern Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "1",
+      "postalCode": "67655",
+      "city": "Kaiserslautern",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000189
+  },
+  {
+    "name": "Kamen",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "3",
+      "postalCode": "59174",
+      "city": "Kamen",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8003168
+  },
+  {
+    "name": "Karlsruhe Hbf",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "1a",
+      "postalCode": "76137",
+      "city": "Karlsruhe",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000191
+  },
+  {
+    "name": "Kassel-Wilhelmshöhe",
+    "address": {
+      "street": "Willy-Brandt-Platz",
+      "houseNumber": "1",
+      "postalCode": "34131",
+      "city": "Kassel",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8003200
+  },
+  {
+    "name": "Kempten (Allgäu) Hbf",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "2",
+      "postalCode": "87435",
+      "city": "Kempten ",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000197
+  },
+  {
+    "name": "Kiel Hbf",
+    "address": {
+      "street": "Sophienblatt",
+      "houseNumber": "25-27",
+      "postalCode": "24114",
+      "city": "Kiel",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8000199
+  },
+  {
+    "name": "Koblenz Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "2",
+      "postalCode": "56068",
+      "city": "Koblenz",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000206
+  },
+  {
+    "name": "Köln Hbf",
+    "address": {
+      "street": "Trankgasse",
+      "houseNumber": "11",
+      "postalCode": "50667",
+      "city": "Köln",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000207
+  },
+  {
+    "name": "Konstanz",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "43",
+      "postalCode": "78462",
+      "city": "Konstanz",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8003400
+  },
+  {
+    "name": "Kröpelin",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "21",
+      "postalCode": "18236",
+      "city": "Kröpelin",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8012108
+  },
+  {
+    "name": "Hannover-Messe / Laatzen",
+    "address": {
+      "street": "Münchner Str.",
+      "houseNumber": "2",
+      "postalCode": "30880",
+      "city": "Laatzen",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8003487
+  },
+  {
+    "name": "Leer (Ostfriesl)",
+    "address": {
+      "street": "Bahnhofsring",
+      "houseNumber": "8",
+      "postalCode": "26789",
+      "city": "Leer",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000225
+  },
+  {
+    "name": "Leipzig Hbf",
+    "address": {
+      "street": "Willy-Brandt-Platz",
+      "houseNumber": "5",
+      "postalCode": "04109",
+      "city": "Leipzig",
+      "state": "Sachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8010205
+  },
+  {
+    "name": "Lichtenfels",
+    "address": {
+      "street": "Am Bahnhofsplatz",
+      "houseNumber": "3",
+      "postalCode": "96215",
+      "city": "Lichtenfels",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000228
+  },
+  {
+    "name": "Limburg (Lahn)",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "1",
+      "postalCode": "65549",
+      "city": "Limburg",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8000229
+  },
+  {
+    "name": "Limburg Süd",
+    "address": {
+      "street": "Londoner Str.",
+      "houseNumber": "5",
+      "postalCode": "65552",
+      "city": "Limburg",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8003680
+  },
+  {
+    "name": "Lindau-Insel",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "1",
+      "postalCode": "88131",
+      "city": "Lindau",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000230
+  },
+  {
+    "name": "Lindau-Reutin",
+    "address": {
+      "street": "Bregenzer Straße",
+      "houseNumber": "46",
+      "postalCode": "88131",
+      "city": "Lindau-Reutin",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8003693
+  },
+  {
+    "name": "Lippstadt",
+    "address": {
+      "street": "Rixbeckerstr.",
+      "houseNumber": "2",
+      "postalCode": "59555",
+      "city": "Lippstadt",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000571
+  },
+  {
+    "name": "Ludwigshafen (Rhein) Hbf",
+    "address": {
+      "street": "Pasadenaallee",
+      "houseNumber": "1",
+      "postalCode": "67059",
+      "city": "Ludwigshafen",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000236
+  },
+  {
+    "name": "Lüneburg",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "10",
+      "postalCode": "21337",
+      "city": "Lüneburg",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000238
+  },
+  {
+    "name": "Lüssow (Meckl)",
+    "address": {
+      "street": "L 142 Schwaaner Straße",
+      "postalCode": "18276",
+      "city": "Lüssow",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8012269
+  },
+  {
+    "name": "Lutherstadt Wittenberg Hauptbahnhof",
+    "address": {
+      "street": "Am Hauptbahnhof",
+      "houseNumber": "1",
+      "postalCode": "06886",
+      "city": "Lutherstadt Wittenberg",
+      "state": "Sachsen-Anhalt",
+      "country": "DE"
+    },
+    "evaNumber": 8010222
+  },
+  {
+    "name": "Magdeburg Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "69",
+      "postalCode": "39104",
+      "city": "Magdeburg",
+      "state": "Sachsen-Anhalt",
+      "country": "DE"
+    },
+    "evaNumber": 8010224
+  },
+  {
+    "name": "Mainz Hbf",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "1",
+      "postalCode": "55116",
+      "city": "Mainz",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000240
+  },
+  {
+    "name": "Bad Malente-Gremsmühlen",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "2",
+      "postalCode": "23714",
+      "city": "Bad Malente-Gremsmühlen",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8003829
+  },
+  {
+    "name": "Mannheim Hbf",
+    "address": {
+      "street": "Willy-Brandt-Platz",
+      "houseNumber": "17",
+      "postalCode": "68161",
+      "city": "Mannheim",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000244
+  },
+  {
+    "name": "Marburg (Lahn)",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "33",
+      "postalCode": "35037",
+      "city": "Marburg",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8000337
+  },
+  {
+    "name": "Memmingen",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "3",
+      "postalCode": "87700",
+      "city": "Memmingen",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000249
+  },
+  {
+    "name": "Minden (Westf)",
+    "address": {
+      "street": "Bundesbahnhof",
+      "houseNumber": "12",
+      "postalCode": "32423",
+      "city": "Minden",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000252
+  },
+  {
+    "name": "Mönchengladbach Hbf",
+    "address": {
+      "street": "Europaplatz",
+      "houseNumber": "1",
+      "postalCode": "41061",
+      "city": "Mönchengladbach",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000253
+  },
+  {
+    "name": "Montabaur",
+    "address": {
+      "street": "Staudter Str.",
+      "houseNumber": "1",
+      "postalCode": "56410",
+      "city": "Montabaur",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000667
+  },
+  {
+    "name": "Mülheim (Ruhr) Hbf",
+    "address": {
+      "street": "Dieter aus dem Siepen Platz",
+      "houseNumber": "3",
+      "postalCode": "45468",
+      "city": "Mülheim an der Ruhr",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000259
+  },
+  {
+    "name": "München Hbf",
+    "address": {
+      "street": "Bayerstr.",
+      "houseNumber": "10a",
+      "postalCode": "80335",
+      "city": "München",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000261
+  },
+  {
+    "name": "München Ost",
+    "address": {
+      "street": "Orleansplatz",
+      "houseNumber": "11",
+      "postalCode": "81667",
+      "city": "München",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000262
+  },
+  {
+    "name": "Münster (Westf) Hbf",
+    "address": {
+      "street": "Berliner Platz",
+      "houseNumber": "25",
+      "postalCode": "48143",
+      "city": "Münster",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000263
+  },
+  {
+    "name": "Murnau",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "1",
+      "postalCode": "82418",
+      "city": "Murnau",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8004185
+  },
+  {
+    "name": "Naumburg (Saale) Hbf",
+    "address": {
+      "street": "Bahnhofstraße",
+      "houseNumber": "46",
+      "postalCode": "06618",
+      "city": "Naumburg ",
+      "state": "Sachsen-Anhalt",
+      "country": "DE"
+    },
+    "evaNumber": 8010240
+  },
+  {
+    "name": "Neubrandenburg",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "5-6",
+      "postalCode": "17033",
+      "city": "Neubrandenburg",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010241
+  },
+  {
+    "name": "Neubukow",
+    "address": {
+      "street": "Bahnhofsvorplatz",
+      "houseNumber": "1",
+      "postalCode": "18233",
+      "city": "Neubukow",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8012438
+  },
+  {
+    "name": "Neumünster",
+    "address": {
+      "street": "Konrad-Adenauer-Platz",
+      "houseNumber": "2",
+      "postalCode": "24534",
+      "city": "Neumünster",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8000271
+  },
+  {
+    "name": "Neuss Hbf",
+    "address": {
+      "street": "Further Str.",
+      "houseNumber": "1",
+      "postalCode": "41462",
+      "city": "Neuss",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000274
+  },
+  {
+    "name": "Neustadt (Holst)",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "16",
+      "postalCode": "23730",
+      "city": "Neustadt in Holstein",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8004327
+  },
+  {
+    "name": "Neustadt (Weinstr) Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "6",
+      "postalCode": "67434",
+      "city": "Neustadt ",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000275
+  },
+  {
+    "name": "Neuwied",
+    "address": {
+      "street": "Augustastr.",
+      "houseNumber": "33",
+      "postalCode": "56564",
+      "city": "Neuwied",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000276
+  },
+  {
+    "name": "Niebüll",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "1",
+      "postalCode": "25899",
+      "city": "Niebüll",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8004343
+  },
+  {
+    "name": "Nienburg (Weser)",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "11",
+      "postalCode": "31582",
+      "city": "Nienburg  ",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000279
+  },
+  {
+    "name": "Norddeich Mole",
+    "address": {
+      "street": "Hafenstr.",
+      "houseNumber": "1",
+      "postalCode": "26506",
+      "city": "Norden",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8007768
+  },
+  {
+    "name": "Northeim (Han)",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "1",
+      "postalCode": "37154",
+      "city": "Northeim ",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000283
+  },
+  {
+    "name": "Nürnberg Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "9",
+      "postalCode": "90443",
+      "city": "Nürnberg",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000284
+  },
+  {
+    "name": "Oberhausen Hbf",
+    "address": {
+      "street": "Willy-Brandt-Platz",
+      "houseNumber": "1",
+      "postalCode": "46045",
+      "city": "Oberhausen",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000286
+  },
+  {
+    "name": "Oberstdorf",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "5",
+      "postalCode": "87561",
+      "city": "Oberstdorf",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8004585
+  },
+  {
+    "name": "Offenburg",
+    "address": {
+      "street": "Hauptstr.",
+      "houseNumber": "1",
+      "postalCode": "77652",
+      "city": "Offenburg",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000290
+  },
+  {
+    "name": "Oldenburg (Oldb) Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "12d",
+      "postalCode": "26122",
+      "city": "Oldenburg (Oldb)",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000291
+  },
+  {
+    "name": "Osnabrück Hbf",
+    "address": {
+      "street": "Theodor-Heuss-Platz",
+      "houseNumber": "2",
+      "postalCode": "49074",
+      "city": "Osnabrück",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000294
+  },
+  {
+    "name": "Berlin Ostkreuz",
+    "address": {
+      "street": "Sonntagstr.",
+      "houseNumber": "37",
+      "postalCode": "10245",
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "DE"
+    },
+    "evaNumber": 8011162
+  },
+  {
+    "name": "Graal-Müritz",
+    "address": {
+      "street": "L22/Bahnhofstraße",
+      "postalCode": "18181",
+      "city": "Graal Müritz",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8012583
+  },
+  {
+    "name": "Paderborn Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "29",
+      "postalCode": "33102",
+      "city": "Paderborn",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000297
+  },
+  {
+    "name": "Berlin Südkreuz",
+    "address": {
+      "street": "General-Pape-Straße",
+      "houseNumber": "1",
+      "postalCode": "12101",
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "DE"
+    },
+    "evaNumber": 8011113
+  },
+  {
+    "name": "Parkentin",
+    "address": {
+      "street": "Bahnhofstraße",
+      "houseNumber": "2",
+      "postalCode": "18209",
+      "city": "Parkentin",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8012609
+  },
+  {
+    "name": "Pasewalk",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "4",
+      "postalCode": "17309",
+      "city": "Pasewalk",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010268
+  },
+  {
+    "name": "Passau Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "29",
+      "postalCode": "94032",
+      "city": "Passau",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000298
+  },
+  {
+    "name": "Pforzheim Hbf",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "1",
+      "postalCode": "75175",
+      "city": "Pforzheim",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000299
+  },
+  {
+    "name": "Plattling",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "6",
+      "postalCode": "94447",
+      "city": "Plattling",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000301
+  },
+  {
+    "name": "Plauen (Vogtl) ob Bf",
+    "address": {
+      "street": "Rathenauplatz",
+      "houseNumber": "2",
+      "postalCode": "08525",
+      "city": "Plauen ",
+      "state": "Sachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8010275
+  },
+  {
+    "name": "Berlin Potsdamer Platz",
+    "address": {
+      "street": "Potsdamer Platz",
+      "postalCode": "10785",
+      "city": "Berlin",
+      "state": "Berlin",
+      "country": "DE"
+    },
+    "evaNumber": 8011118
+  },
+  {
+    "name": "Prien am Chiemsee",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "2",
+      "postalCode": "83209",
+      "city": "Prien am Chiemsee",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8004885
+  },
+  {
+    "name": "Quedlinburg",
+    "address": {
+      "street": "Bahnhofsvorplatz",
+      "houseNumber": "1",
+      "postalCode": "06484",
+      "city": "Quedlinburg",
+      "state": "Sachsen-Anhalt",
+      "country": "DE"
+    },
+    "evaNumber": 8010290
+  },
+  {
+    "name": "Reddelich",
+    "address": {
+      "street": "An der B105 Nr.",
+      "houseNumber": "18",
+      "postalCode": "18209",
+      "city": "Reddelich",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8012729
+  },
+  {
+    "name": "Regensburg Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "18",
+      "postalCode": "93047",
+      "city": "Regensburg",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000309
+  },
+  {
+    "name": "Remagen",
+    "address": {
+      "street": "Maisons-Laffitte-Platz",
+      "houseNumber": "2",
+      "postalCode": "53424",
+      "city": "Remagen",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000310
+  },
+  {
+    "name": "Rendsburg",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "20",
+      "postalCode": "24768",
+      "city": "Rendsburg",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8000312
+  },
+  {
+    "name": "Rheda-Wiedenbrück",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "18",
+      "postalCode": "33378",
+      "city": "Rheda -Wiedenbrück",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000315
+  },
+  {
+    "name": "Rheine",
+    "address": {
+      "street": "Am Hauptbahnhofe",
+      "houseNumber": "2",
+      "postalCode": "48431",
+      "city": "Rheine",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000316
+  },
+  {
+    "name": "Ribnitz-Damgarten Ost",
+    "address": {
+      "street": "Richtenbergerstr.",
+      "houseNumber": "30",
+      "postalCode": "18311",
+      "city": "Ribnitz",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8012762
+  },
+  {
+    "name": "Roggentin",
+    "address": {
+      "street": "Klösterbecker Straßen",
+      "houseNumber": "10",
+      "postalCode": "18184",
+      "city": "Roggentin",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8012785
+  },
+  {
+    "name": "Rosenheim",
+    "address": {
+      "street": "Südtiroler Platz",
+      "houseNumber": "1",
+      "postalCode": "83022",
+      "city": "Rosenheim",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000320
+  },
+  {
+    "name": "Rostock Hbf",
+    "address": {
+      "street": "Konrad-Adenauer-Platz",
+      "houseNumber": "1",
+      "postalCode": "18055",
+      "city": "Rostock",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010304
+  },
+  {
+    "name": "Rotenburg (Wümme)",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "8",
+      "postalCode": "27356",
+      "city": "Rotenburg ",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000321
+  },
+  {
+    "name": "Röthenbach (Allgäu)",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "20 - 22",
+      "postalCode": "88167",
+      "city": "Röthenbach ",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8005138
+  },
+  {
+    "name": "Saalfeld (Saale)",
+    "address": {
+      "street": "Kulmbacher Str.",
+      "houseNumber": "25",
+      "postalCode": "07318",
+      "city": "Saalfeld (Saale)",
+      "state": "Thüringen",
+      "country": "DE"
+    },
+    "evaNumber": 8010309
+  },
+  {
+    "name": "Saarbrücken Hbf",
+    "address": {
+      "street": "Am Hauptbahnhof",
+      "houseNumber": "6-12",
+      "postalCode": "66111",
+      "city": "Saarbrücken",
+      "state": "Saarland",
+      "country": "DE"
+    },
+    "evaNumber": 8000323
+  },
+  {
+    "name": "Saarlouis Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "11",
+      "postalCode": "66740",
+      "city": "Saarlouis",
+      "state": "Saarland",
+      "country": "DE"
+    },
+    "evaNumber": 8005247
+  },
+  {
+    "name": "Sandhagen (b Bad Doberan)",
+    "address": {
+      "street": "Bahnhofstraße",
+      "houseNumber": "5",
+      "postalCode": "18209",
+      "city": "Neubukow",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8012840
+  },
+  {
+    "name": "Sanitz (b Rostock)",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "5",
+      "postalCode": "18190",
+      "city": "Sanitz ",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8012841
+  },
+  {
+    "name": "Schleswig",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "29",
+      "postalCode": "24837",
+      "city": "Schleswig",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8005362
+  },
+  {
+    "name": "Schwäbisch Gmünd",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "6",
+      "postalCode": "73525",
+      "city": "Schwäbisch Gmünd",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000329
+  },
+  {
+    "name": "Schweinfurt Hbf",
+    "address": {
+      "street": "Hauptbahnhofstr.",
+      "houseNumber": "11",
+      "postalCode": "97424",
+      "city": "Schweinfurt",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000032
+  },
+  {
+    "name": "Schwerin Hbf",
+    "address": {
+      "street": "Grunthalplatz",
+      "houseNumber": "4",
+      "postalCode": "19053",
+      "city": "Schwerin",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010324
+  },
+  {
+    "name": "Siegburg/Bonn",
+    "address": {
+      "street": "Wilhelmstr.",
+      "houseNumber": "45",
+      "postalCode": "53721",
+      "city": "Siegburg",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8005556
+  },
+  {
+    "name": "Siegen Hbf",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "16-20",
+      "postalCode": "57072",
+      "city": "Siegen",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000046
+  },
+  {
+    "name": "Sierksdorf",
+    "address": {
+      "street": "Bahnhofsweg",
+      "postalCode": "23730",
+      "city": "Sierksdorf",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8005561
+  },
+  {
+    "name": "Singen (Hohentwiel)",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "2",
+      "postalCode": "78224",
+      "city": "Singen ",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000073
+  },
+  {
+    "name": "Soest",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "2",
+      "postalCode": "59494",
+      "city": "Soest",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000076
+  },
+  {
+    "name": "Solingen Hbf",
+    "address": {
+      "street": "Bahnstr.",
+      "houseNumber": "5",
+      "postalCode": "42697",
+      "city": "Solingen-Ohligs",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000087
+  },
+  {
+    "name": "Steinhausen-Neuburg",
+    "address": {
+      "street": "B105/Hauptstraße",
+      "houseNumber": "1",
+      "postalCode": "23974",
+      "city": "Neuburg Steinhausen",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8013040
+  },
+  {
+    "name": "Stendal Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "34",
+      "postalCode": "39576",
+      "city": "Stendal",
+      "state": "Sachsen-Anhalt",
+      "country": "DE"
+    },
+    "evaNumber": 8010334
+  },
+  {
+    "name": "Stralsund Hbf",
+    "address": {
+      "street": "Tribseer Damm",
+      "houseNumber": "75",
+      "postalCode": "18437",
+      "city": "Stralsund",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010338
+  },
+  {
+    "name": "Straubing",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "6",
+      "postalCode": "94315",
+      "city": "Straubing",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000095
+  },
+  {
+    "name": "Stuttgart Hbf",
+    "address": {
+      "street": "Arnulf-Klett-Platz",
+      "houseNumber": "2",
+      "postalCode": "70173",
+      "city": "Stuttgart",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000096
+  },
+  {
+    "name": "Teschow",
+    "address": {
+      "street": "Bahnhofstraße",
+      "houseNumber": "11",
+      "postalCode": "18233",
+      "city": "Alt Bukow",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8013105
+  },
+  {
+    "name": "Tessin",
+    "address": {
+      "street": "Am Umsteigebahnhof",
+      "houseNumber": "1",
+      "postalCode": "18195",
+      "city": "Tessin",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8013106
+  },
+  {
+    "name": "Thale Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "1",
+      "postalCode": "06502",
+      "city": "Thale",
+      "state": "Sachsen-Anhalt",
+      "country": "DE"
+    },
+    "evaNumber": 8013112
+  },
+  {
+    "name": "Timmendorferstrand",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "6a",
+      "postalCode": "23669",
+      "city": "Timmendorfer Strand",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8005874
+  },
+  {
+    "name": "Traunstein",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "5",
+      "postalCode": "83278",
+      "city": "Traunstein",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000116
+  },
+  {
+    "name": "Treuchtlingen",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "61",
+      "postalCode": "91757",
+      "city": "Treuchtlingen",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000122
+  },
+  {
+    "name": "Trier Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "1",
+      "postalCode": "54292",
+      "city": "Trier",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000134
+  },
+  {
+    "name": "Tübingen Hbf",
+    "address": {
+      "street": "Europaplatz",
+      "houseNumber": "17",
+      "postalCode": "72072",
+      "city": "Tübingen",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000141
+  },
+  {
+    "name": "Ueckermünde",
+    "address": {
+      "street": "Eggesiner Str.",
+      "houseNumber": "14",
+      "postalCode": "17373",
+      "city": "Ueckermünde",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8013162
+  },
+  {
+    "name": "Uelzen",
+    "address": {
+      "street": "Friedensreich-Hundertwasser-Platz",
+      "houseNumber": "1",
+      "postalCode": "29525",
+      "city": "Uelzen",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8000168
+  },
+  {
+    "name": "Ulm Hbf",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "1",
+      "postalCode": "89073",
+      "city": "Ulm",
+      "state": "Baden-Württemberg",
+      "country": "DE"
+    },
+    "evaNumber": 8000170
+  },
+  {
+    "name": "Verden (Aller)",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "14",
+      "postalCode": "27283",
+      "city": "Verden (Aller)",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8006076
+  },
+  {
+    "name": "Warnemünde",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "5",
+      "postalCode": "18119",
+      "city": "Rostock",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8013236
+  },
+  {
+    "name": "Weimar",
+    "address": {
+      "street": "Schopenhauerstr.",
+      "houseNumber": "2",
+      "postalCode": "99423",
+      "city": "Weimar",
+      "state": "Thüringen",
+      "country": "DE"
+    },
+    "evaNumber": 8010366
+  },
+  {
+    "name": "Wernigerode Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "1",
+      "postalCode": "38855",
+      "city": "Wernigerode",
+      "state": "Sachsen-Anhalt",
+      "country": "DE"
+    },
+    "evaNumber": 8010374
+  },
+  {
+    "name": "Westerland (Sylt)",
+    "address": {
+      "street": "Kirchenweg",
+      "houseNumber": "1",
+      "postalCode": "25980",
+      "city": "Sylt/ OT Westerland  ",
+      "state": "Schleswig-Holstein",
+      "country": "DE"
+    },
+    "evaNumber": 8006369
+  },
+  {
+    "name": "Wiesbaden Hbf",
+    "address": {
+      "street": "Bahnhofsplatz",
+      "houseNumber": "1",
+      "postalCode": "65189",
+      "city": "Wiesbaden",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8000250
+  },
+  {
+    "name": "Wismar",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "12",
+      "postalCode": "23966",
+      "city": "Wismar",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010381
+  },
+  {
+    "name": "Wittlich Hbf",
+    "address": {
+      "street": "Bahnhofstr.",
+      "houseNumber": "8",
+      "postalCode": "54516",
+      "city": "Wittlich",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000379
+  },
+  {
+    "name": "Wolfsburg Hbf",
+    "address": {
+      "street": "Willy-Brandt-Platz",
+      "houseNumber": "3",
+      "postalCode": "38440",
+      "city": "Wolfsburg",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8006552
+  },
+  {
+    "name": "Worms Hbf",
+    "address": {
+      "street": "Bahnhofstr. 7/",
+      "houseNumber": "11",
+      "postalCode": "67547",
+      "city": "Worms",
+      "state": "Rheinland-Pfalz",
+      "country": "DE"
+    },
+    "evaNumber": 8000257
+  },
+  {
+    "name": "Wuppertal Hbf",
+    "address": {
+      "street": "Döppersberg",
+      "houseNumber": "37",
+      "postalCode": "42103",
+      "city": "Wuppertal",
+      "state": "Nordrhein-Westfalen",
+      "country": "DE"
+    },
+    "evaNumber": 8000266
+  },
+  {
+    "name": "Würzburg Hbf",
+    "address": {
+      "street": "Bahnhofplatz",
+      "houseNumber": "4",
+      "postalCode": "97070",
+      "city": "Würzburg",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8000260
+  },
+  {
+    "name": "Züssow",
+    "address": {
+      "street": "Bahnhofstraße",
+      "houseNumber": "3",
+      "postalCode": "17495",
+      "city": "Züssow",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8010396
+  },
+  {
+    "name": "Zwickau (Sachs) Hbf",
+    "address": {
+      "street": "Am Bahnhof",
+      "houseNumber": "1",
+      "postalCode": "08056",
+      "city": "Zwickau ",
+      "state": "Sachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8010397
+  },
+  {
+    "name": "Langenhagen-Mitte",
+    "address": {
+      "street": "Straßburger Platz",
+      "houseNumber": "1",
+      "postalCode": "30853",
+      "city": "Langenhagen",
+      "state": "Niedersachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8003545
+  },
+  {
+    "name": "Frankfurt am Main Flughafen Fernbahnhof",
+    "address": {
+      "street": "Hugo-Eckener-Ring",
+      "houseNumber": "1",
+      "postalCode": "60549",
+      "city": "Frankfurt am Main",
+      "state": "Hessen",
+      "country": "DE"
+    },
+    "evaNumber": 8070003
+  },
+  {
+    "name": "Tessin West",
+    "address": {
+      "street": "Klein Tessin",
+      "houseNumber": "20",
+      "postalCode": "18195",
+      "city": "Tessin",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8079604
+  },
+  {
+    "name": "Rostock Thierfelder Straße",
+    "address": {
+      "street": "Thierfelder Straße",
+      "houseNumber": "1",
+      "postalCode": "18059",
+      "city": "Rostock",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8079629
+  },
+  {
+    "name": "Kalsow",
+    "address": {
+      "street": "Dorfstraße",
+      "houseNumber": "15",
+      "postalCode": "23970",
+      "city": "Benz",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "DE"
+    },
+    "evaNumber": 8011995
+  },
+  {
+    "name": "Flughafen Leipzig/Halle",
+    "address": {
+      "street": "Am Flughafenbahnhof",
+      "postalCode": "04435",
+      "city": "Schkeuditz",
+      "state": "Sachsen",
+      "country": "DE"
+    },
+    "evaNumber": 8012183
+  },
+  {
+    "name": "Coburg Nord",
+    "address": {
+      "street": "Rodacher Straße",
+      "postalCode": "96450",
+      "city": "Coburg",
+      "state": "Bayern",
+      "country": "DE"
+    },
+    "evaNumber": 8001334
+  },
+  {
+    "name": "Flughafen BER - Terminal 1-2",
+    "address": {
+      "street": "Melli-Beese-Ring ",
+      "postalCode": "12529",
+      "city": "Schönefeld",
+      "state": "Brandenburg",
+      "country": "DE"
+    },
+    "evaNumber": 8011201
+  }
+]

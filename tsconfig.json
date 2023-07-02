@@ -65,6 +65,9 @@
       "@controllers/authentication": [
         "./src/controllers/authentication"
       ],
+      "@controllers/train": [
+        "./src/controllers/train"
+      ],
       "@middlewares": [
         "./src/middlewares"
       ]

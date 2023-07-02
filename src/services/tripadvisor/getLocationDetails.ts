@@ -15,10 +15,10 @@ export const getLocationDetails = (id: string, options: Options) => {
 
   const data = axios
     .request(config)
-    .then(function (response) {
+    .then((response) => {
       console.log(response.data);
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.error(error);
     });
 

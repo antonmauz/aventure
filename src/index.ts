@@ -9,6 +9,7 @@ import cors from "cors";
 import { databaseService } from "@services";
 import helmet from "helmet";
 import session from "express-session";
+import { trainRouter } from "@controllers/train";
 
 const DATA_LIMIT = "1mb";
 
@@ -43,6 +44,7 @@ app.use("/v1/blog", blogPostRouter);
 app.use("/v1/hotel", hotelRouter);
 app.use("/v1/auth", authenticationRouter);
 app.use("/v1/restaurant", restaurantRouter);
+app.use("/v1/train", trainRouter);
 
 // TODO handle errors app.use(handleErrors);
 

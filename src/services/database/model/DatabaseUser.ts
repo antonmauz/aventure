@@ -1,6 +1,6 @@
 import { model, Schema, Document } from "mongoose";
-import { VerificationStatus } from "@model";
-import { VERIFICATION_STATES } from "@constants";
+import { VerificationStatus, AccessibilityAmenity } from "@model";
+import { VERIFICATION_STATES, ACCESSIBILITY_AMENITIES } from "@constants";
 import { addressSchema, IAddress } from "./DatabaseAddress";
 
 interface IDisabilityVerification {
@@ -26,6 +26,7 @@ export interface IUser extends Document {
   address?: IAddress;
   profileImage?: string;
   dateOfBirth?: Date;
+  accessibilityAmenities?: AccessibilityAmenity[];
   disabilityVerification?: IDisabilityVerification;
   createdAt: Date;
 }
@@ -40,6 +41,7 @@ const userSchema = new Schema<IUser>(
     dateOfBirth: { type: Date, required: false },
     profileImage: { type: String, required: false },
     disabilityVerification: { type: disabilityVerificationSchema, required: false },
+    accessibilityAmenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: false },
   },
   { timestamps: true }
 );

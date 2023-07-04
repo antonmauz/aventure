@@ -25,21 +25,65 @@ const mapConnection = async (connection: CSAConnection): Promise<DTOTrainJourney
   };
 };
 
-export const toDTOTrainJourney = async (casConnections: CSAConnection[]): Promise<DTOTrainJourney> => {
+const filterConnections = (csaConnections: CSAConnection[]): CSAConnection[] => {
+  let currentConnection = csaConnections[0];
+
+  return csaConnections
+    .map((connection, index) => {
+      console.log("currentConnection", currentConnection);
+
+      if (index === csaConnections.length - 1) {
+        return {
+          trainId: currentConnection.trainId,
+          departureStation: currentConnection.departureStation,
+          departureTrackId: currentConnection.departureTrackId,
+          departureTimestamp: currentConnection.departureTimestamp,
+          arrivalStation: connection.arrivalStation,
+          arrivalTrackId: connection.arrivalTrackId,
+          arrivalTimestamp: connection.arrivalTimestamp,
+        };
+      }
+
+      const nextConnection = csaConnections[index + 1];
+
+      if (currentConnection.trainId === nextConnection.trainId) {
+        return null;
+      }
+
+      const result = {
+        trainId: currentConnection.trainId,
+        departureStation: currentConnection.departureStation,
+        departureTrackId: currentConnection.departureTrackId,
+        departureTimestamp: currentConnection.departureTimestamp,
+        arrivalStation: connection.arrivalStation,
+        arrivalTrackId: connection.arrivalTrackId,
+        arrivalTimestamp: connection.arrivalTimestamp,
+      };
+
+      currentConnection = nextConnection;
+
+      return result;
+    })
+    .filter((connection: CSAConnection | null) => connection !== null) as CSAConnection[];
+};
+
+export const toDTOTrainJourney = async (csaConnections: CSAConnection[]): Promise<DTOTrainJourney> => {
   const departureStation = await databaseService.findTrainStationByDbStationId(
-    casConnections[0].departureStation.toString()
+    csaConnections[0].departureStation.toString()
   );
 
   const arrivalStation = await databaseService.findTrainStationByDbStationId(
-    casConnections[casConnections.length - 1].arrivalStation.toString()
+    csaConnections[csaConnections.length - 1].arrivalStation.toString()
   );
+
+  const filteredConnections = filterConnections(csaConnections);
 
   return {
     departure: new Date(),
     arrival: new Date(),
     startTrainStation: departureStation.name,
     endTrainStation: arrivalStation.name,
-    connections: await Promise.all(casConnections.map(mapConnection)),
+    connections: await Promise.all(filteredConnections.map(mapConnection)),
     affiliateLink: "www.google.com",
   };
 };

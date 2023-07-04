@@ -2,9 +2,9 @@ export class CSAConnection {
   trainId: string;
   departureStation: number;
   departureTrackId: string;
+  departureTimestamp: number;
   arrivalStation: number;
   arrivalTrackId: string;
-  departureTimestamp: number;
   arrivalTimestamp: number;
 
   constructor({
@@ -65,8 +65,6 @@ export class CSA {
         if (connection.arrivalStation === arrivalStation) {
           earliest = Math.min(earliest, connection.arrivalTimestamp);
         }
-      } else if (connection.arrivalTimestamp > earliest) {
-        return;
       }
     }
   }
@@ -93,13 +91,8 @@ export class CSA {
   compute(departureStation: number, arrivalStation: number, departureTimestamp: number) {
     const MAX_STATIONS = 100000;
 
-    this.inConnection = new Array(MAX_STATIONS);
-    this.earliestArrival = new Array(MAX_STATIONS);
-
-    for (let i = 0; i < MAX_STATIONS; ++i) {
-      this.inConnection[i] = null;
-      this.earliestArrival[i] = Number.MAX_VALUE;
-    }
+    this.inConnection = new Array(MAX_STATIONS).fill(null);
+    this.earliestArrival = new Array(MAX_STATIONS).fill(Number.MAX_VALUE);
 
     this.earliestArrival[departureStation] = departureTimestamp;
 

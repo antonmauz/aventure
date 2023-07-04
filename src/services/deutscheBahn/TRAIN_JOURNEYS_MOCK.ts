@@ -637,14 +637,6 @@ export const TRAIN_JOURNEYS_MOCK: TrainJourney[] = [
   {
     train_type: "ICE",
     train_number: "ICE 123",
-    destination: {
-      station: "Hamburg Hbf",
-      track: "6",
-      arrivalTime: "11:01",
-      departureTime: "11:05",
-      stationId: "2514",
-      evaNumber: 8002549,
-    },
     departure: {
       station: "München Hbf",
       track: "3",
@@ -652,6 +644,14 @@ export const TRAIN_JOURNEYS_MOCK: TrainJourney[] = [
       departureTime: "08:03",
       stationId: "4234",
       evaNumber: 8000261,
+    },
+    destination: {
+      station: "Hamburg Hbf",
+      track: "6",
+      arrivalTime: "11:01",
+      departureTime: "11:05",
+      stationId: "2514",
+      evaNumber: 8002549,
     },
     route: [
       {
@@ -664,7 +664,7 @@ export const TRAIN_JOURNEYS_MOCK: TrainJourney[] = [
       },
       {
         station: "Nürnberg Hbf",
-        track: "5",
+        track: "8",
         arrivalTime: "09:00",
         departureTime: "09:20",
         stationId: "4593",
@@ -675,6 +675,52 @@ export const TRAIN_JOURNEYS_MOCK: TrainJourney[] = [
         track: "6",
         arrivalTime: "11:01",
         departureTime: "11:05",
+        stationId: "2514",
+        evaNumber: 8002549,
+      },
+    ],
+  },
+  {
+    train_type: "ICE",
+    train_number: "ICE 413",
+    departure: {
+      station: "Nürnberg Hbf",
+      track: "1",
+      arrivalTime: "09:00",
+      departureTime: "09:20",
+      stationId: "4593",
+      evaNumber: 8000284,
+    },
+    destination: {
+      station: "Hamburg Hbf",
+      track: "6",
+      arrivalTime: "10:51",
+      departureTime: "10:54",
+      stationId: "2514",
+      evaNumber: 8002549,
+    },
+    route: [
+      {
+        station: "Nürnberg Hbf",
+        track: "1",
+        arrivalTime: "09:00",
+        departureTime: "09:20",
+        stationId: "4593",
+        evaNumber: 8000284,
+      },
+      {
+        station: "Halle (Saale) Hbf",
+        track: "5",
+        arrivalTime: "09:50",
+        departureTime: "09:53",
+        stationId: "2498",
+        evaNumber: 8000284,
+      },
+      {
+        station: "Hamburg Hbf",
+        track: "6",
+        arrivalTime: "10:51",
+        departureTime: "10:54",
         stationId: "2514",
         evaNumber: 8002549,
       },

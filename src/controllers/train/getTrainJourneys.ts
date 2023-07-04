@@ -32,8 +32,6 @@ export const getTrainJourneys = controller<undefined, undefined, undefined, Resp
       return;
     }
 
-    console.log(result);
-
     res.status(200).json([await toDTOTrainJourney(result)]);
   },
   {

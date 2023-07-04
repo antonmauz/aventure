@@ -682,6 +682,52 @@ export const TRAIN_JOURNEYS_MOCK: TrainJourney[] = [
   },
   {
     train_type: "ICE",
+    train_number: "ICE 999",
+    departure: {
+      station: "München Hbf",
+      track: "22",
+      arrivalTime: "8:30",
+      departureTime: "8:33",
+      stationId: "4234",
+      evaNumber: 8000261,
+    },
+    destination: {
+      station: "Hamburg Hbf",
+      track: "18",
+      arrivalTime: "11:01",
+      departureTime: "11:05",
+      stationId: "2514",
+      evaNumber: 8002549,
+    },
+    route: [
+      {
+        station: "München Hbf",
+        track: "22",
+        arrivalTime: "8:30",
+        departureTime: "8:33",
+        stationId: "4234",
+        evaNumber: 8000261,
+      },
+      {
+        station: "Hannover Hbf",
+        track: "12",
+        arrivalTime: "9:00",
+        departureTime: "9:03",
+        stationId: "2545",
+        evaNumber: 8000152,
+      },
+      {
+        station: "Hamburg Hbf",
+        track: "18",
+        arrivalTime: "13:01",
+        departureTime: "13:05",
+        stationId: "2514",
+        evaNumber: 8002549,
+      },
+    ],
+  },
+  {
+    train_type: "ICE",
     train_number: "ICE 413",
     departure: {
       station: "Nürnberg Hbf",

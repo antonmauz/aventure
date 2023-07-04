@@ -44,7 +44,7 @@ interface Author {
 
 interface Address {
   street: string;
-  number: string;
+  houseNumber: string;
   city: string;
   zipCode: string;
 }

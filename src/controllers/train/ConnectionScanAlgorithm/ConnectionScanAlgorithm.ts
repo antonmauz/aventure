@@ -19,10 +19,9 @@ export class CSAConnection {
     this.trainId = trainId;
     this.departureStation = departureStation;
     this.departureTrackId = departureTrackId;
+    this.departureTimestamp = departureTimestamp;
     this.arrivalStation = arrivalStation;
     this.arrivalTrackId = arrivalTrackId;
-    this.departureStation = departureStation;
-    this.departureTimestamp = departureTimestamp;
     this.arrivalTimestamp = arrivalTimestamp;
   }
 }
@@ -31,75 +30,96 @@ class Timetable {
   connections: CSAConnection[];
 
   constructor(connections: CSAConnection[]) {
-    this.connections = [];
-
-    for (let connection of connections) {
-      this.connections.push(new CSAConnection(connection));
-    }
+    this.connections = connections.map((connection) => new CSAConnection(connection));
   }
 }
 
-// TODO make singleton
+interface EarliestArrival {
+  timestamp: number;
+  inConnections: CSAConnection[];
+}
+
 export class CSA {
   private timetable: Timetable;
-  private earliestArrival: number[];
-  private inConnection: (CSAConnection | null)[];
+  private earliestArrival: EarliestArrival[];
 
   constructor(connections: CSAConnection[]) {
     this.timetable = new Timetable(connections);
     this.earliestArrival = [];
-    this.inConnection = [];
   }
 
-  mainLoop(arrivalStation: number) {
-    let earliest = Number.MAX_VALUE;
-
+  mainLoop() {
     for (let connection of this.timetable.connections) {
       if (
-        connection.departureTimestamp >= this.earliestArrival[connection.departureStation] &&
-        connection.arrivalTimestamp < this.earliestArrival[connection.arrivalStation]
+        connection.departureTimestamp >= this.earliestArrival[connection.departureStation].timestamp &&
+        connection.arrivalTimestamp < this.earliestArrival[connection.arrivalStation].timestamp
       ) {
-        this.earliestArrival[connection.arrivalStation] = connection.arrivalTimestamp;
-        this.inConnection[connection.arrivalStation] = connection;
+        const arrivalCopy = { ...this.earliestArrival[connection.arrivalStation] };
+        const newInConnections = [...arrivalCopy.inConnections, connection];
 
-        if (connection.arrivalStation === arrivalStation) {
-          earliest = Math.min(earliest, connection.arrivalTimestamp);
-        }
+        this.updateEarliestArrival(connection.arrivalStation, {
+          timestamp: connection.arrivalTimestamp,
+          inConnections: newInConnections,
+        });
       }
     }
   }
 
-  getResult(arrivalStation: number) {
-    if (this.inConnection[arrivalStation] === null) {
+  updateEarliestArrival(stationIndex: number, arrival: EarliestArrival) {
+    this.earliestArrival[stationIndex] = {
+      timestamp: arrival.timestamp,
+      inConnections: arrival.inConnections,
+    };
+  }
+
+  getFastestRoutes(
+    departureStation: number,
+    arrivalStation: number,
+    departureTimestamp: number,
+    numRoutes: number
+  ): CSAConnection[][] | "no_solution" {
+    const MAX_STATIONS = 100000;
+
+    this.earliestArrival = new Array(MAX_STATIONS).fill({
+      timestamp: Number.MAX_VALUE,
+      inConnections: [],
+    });
+
+    this.earliestArrival[departureStation] = {
+      timestamp: departureTimestamp,
+      inConnections: [],
+    };
+
+    for (let i = 0; i < numRoutes; i++) {
+      this.mainLoop();
+    }
+
+    const result = this.earliestArrival[arrivalStation].inConnections;
+
+    if (result.length === 0) {
       return "no_solution";
     }
 
-    const route = [];
+    const routes: CSAConnection[][] = [];
 
-    let lastConnection = this.inConnection[arrivalStation];
+    for (let route of result) {
+      const journey: CSAConnection[] = [];
+      let currentConnection: CSAConnection | null = route;
 
-    while (lastConnection !== null) {
-      route.push(lastConnection);
-      lastConnection = this.inConnection[lastConnection.departureStation];
+      while (currentConnection !== null) {
+        journey.push(currentConnection);
+        currentConnection =
+          this.earliestArrival[currentConnection.departureStation].inConnections.find(
+            (connection) =>
+              connection.arrivalStation === currentConnection?.departureStation &&
+              connection.arrivalTimestamp < currentConnection?.departureTimestamp
+          ) ?? null;
+      }
+
+      journey.reverse();
+      routes.push(journey);
     }
 
-    route.reverse();
-
-    return route;
-  }
-
-  compute(departureStation: number, arrivalStation: number, departureTimestamp: number) {
-    const MAX_STATIONS = 100000;
-
-    this.inConnection = new Array(MAX_STATIONS).fill(null);
-    this.earliestArrival = new Array(MAX_STATIONS).fill(Number.MAX_VALUE);
-
-    this.earliestArrival[departureStation] = departureTimestamp;
-
-    if (departureStation <= MAX_STATIONS && arrivalStation <= MAX_STATIONS) {
-      this.mainLoop(arrivalStation);
-    }
-
-    return this.getResult(arrivalStation);
+    return routes.sort((a, b) => a[a.length - 1].arrivalTimestamp - b[b.length - 1].arrivalTimestamp);
   }
 }

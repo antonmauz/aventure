@@ -30,8 +30,6 @@ const filterConnections = (csaConnections: CSAConnection[]): CSAConnection[] => 
 
   return csaConnections
     .map((connection, index) => {
-      console.log("currentConnection", currentConnection);
-
       if (index === csaConnections.length - 1) {
         return {
           trainId: currentConnection.trainId,
@@ -67,7 +65,7 @@ const filterConnections = (csaConnections: CSAConnection[]): CSAConnection[] => 
     .filter((connection: CSAConnection | null) => connection !== null) as CSAConnection[];
 };
 
-export const toDTOTrainJourney = async (csaConnections: CSAConnection[]): Promise<DTOTrainJourney> => {
+const toDTOTrainJourney = async (csaConnections: CSAConnection[]): Promise<DTOTrainJourney> => {
   const departureStation = await databaseService.findTrainStationByDbStationId(
     csaConnections[0].departureStation.toString()
   );
@@ -86,4 +84,8 @@ export const toDTOTrainJourney = async (csaConnections: CSAConnection[]): Promis
     connections: await Promise.all(filteredConnections.map(mapConnection)),
     affiliateLink: "www.google.com",
   };
+};
+
+export const toDTOTrainJourneys = async (csaJourneys: CSAConnection[][]): Promise<DTOTrainJourney[]> => {
+  return await Promise.all(csaJourneys.map(toDTOTrainJourney));
 };

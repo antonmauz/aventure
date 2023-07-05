@@ -1,15 +1,15 @@
 import { Document, model, Schema } from "mongoose";
 import { AccessibilityAmenity, VerificationStatus } from "@model";
 import { ACCESSIBILITY_AMENITIES, VERIFICATION_STATES } from "@constants";
-import { addressSchema, IAddress } from "./DatabaseAddress";
+import { addressSchema, DatabaseAddress } from "./DatabaseAddress";
 
-interface IDisabilityVerification {
+interface DatabaseDisabilityVerification {
   idImage: string;
   userImage: string;
   status: VerificationStatus;
 }
 
-const disabilityVerificationSchema = new Schema<IDisabilityVerification>(
+const disabilityVerificationSchema = new Schema<DatabaseDisabilityVerification>(
   {
     idImage: { type: String, required: true },
     userImage: { type: String, required: true },
@@ -18,20 +18,20 @@ const disabilityVerificationSchema = new Schema<IDisabilityVerification>(
   { timestamps: true }
 );
 
-export interface IUser extends Document {
+export interface DatabaseUser extends Document {
   firstName: string;
   surname: string;
   email: string;
   password: string;
-  address?: IAddress;
+  address?: DatabaseAddress;
   profileImage?: string;
   dateOfBirth?: Date;
   accessibilityAmenities?: AccessibilityAmenity[];
-  disabilityVerification?: IDisabilityVerification;
+  disabilityVerification?: DatabaseDisabilityVerification;
   createdAt: Date;
 }
 
-const userSchema = new Schema<IUser>(
+const userSchema = new Schema<DatabaseUser>(
   {
     firstName: { type: String, required: true },
     surname: { type: String, required: true },
@@ -47,4 +47,4 @@ const userSchema = new Schema<IUser>(
 );
 
 // 3. Create a Model.
-export const DatabaseUser = model<IUser>("user", userSchema);
+export const MongooseUser = model<DatabaseUser>("user", userSchema);

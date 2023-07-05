@@ -1,9 +1,8 @@
-import { IBlogPost } from "../../services/database/model/DatabaseBlogPost";
-import { databaseService } from "@services";
+import { DatabaseBlogPost, databaseService } from "@services";
 import { DTOBlogPost } from "../model/DTOBlogPost";
 
 const toAuthor = async (
-  authorId: IBlogPost["authorId"]
+  authorId: DatabaseBlogPost["authorId"]
 ): Promise<DTOBlogPost["comments"][number]["author"]> => {
   const { firstName, surname, disabilityVerification, profileImage } = await databaseService.findUserById(
     authorId
@@ -20,7 +19,7 @@ const toBlogComment = async ({
   authorId,
   text,
   createdAt,
-}: IBlogPost["comments"][number]): Promise<DTOBlogPost["comments"][number]> => {
+}: DatabaseBlogPost["comments"][number]): Promise<DTOBlogPost["comments"][number]> => {
   const author = await toAuthor(authorId);
 
   return {
@@ -40,7 +39,7 @@ export const toDTOBlogPost = async ({
   destinations,
   comments,
   createdAt,
-}: IBlogPost): Promise<DTOBlogPost> => {
+}: DatabaseBlogPost): Promise<DTOBlogPost> => {
   const author = await toAuthor(authorId);
 
   const mappedComments = await Promise.all(comments.map(toBlogComment));

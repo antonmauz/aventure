@@ -1,6 +1,6 @@
-import { model, Schema, Types, Document } from "mongoose";
-import { IReview } from "./DatabaseHotel";
-import { IAddress } from "./DatabaseAddress";
+import { Document, model, Schema, Types } from "mongoose";
+import { DatabaseUser } from "./MongooseUser";
+import { addressSchema, DatabaseAddress } from "./DatabaseAddress";
 
 const ACCESSIBILITY_AMENITIES = [
   "wcWithHandles",
@@ -19,38 +19,28 @@ const ACCESSIBILITY_AMENITIES = [
   "accessibleElevator",
 ] as const;
 
-const CUISINE = [
-  "bavarian",
-  "german",
-  "italian",
-  "greek",
-  "indian",
-  "chinese",
-  "thai",
-  "french",
-  "spanish",
-  "turkish",
-  "vietnamese",
-  "japanese",
-  "american",
-  "mexican",
-  "african",
-  "other",
+const HOTEL_AMENITIES = [
+  "bar",
+  "parkingLots",
+  "fitnessCenter",
+  "swimmingPool",
+  "wifi",
+  "restaurant",
 ] as const;
 
 const STARS = [1, 2, 3, 4, 5] as const;
 
+type HotelAmenity = (typeof HOTEL_AMENITIES)[number];
 type AccessibilityAmenity = (typeof ACCESSIBILITY_AMENITIES)[number];
-type CUISINE = (typeof CUISINE)[number];
 
-const addressSchema = new Schema<IAddress>({
-  street: { type: "string", required: true },
-  houseNumber: { type: "string", required: true },
-  city: { type: "string", required: true },
-  zipCode: { type: "string", required: true },
-});
+export interface DatabaseReview {
+  authorId: DatabaseUser["_id"];
+  rating: number;
+  text: string;
+  createdAt: Date;
+}
 
-const reviewSchema = new Schema<IReview>(
+const reviewSchema = new Schema<DatabaseReview>(
   {
     authorId: { type: Types.ObjectId, ref: "user", required: true },
     rating: { type: Number, required: true },
@@ -59,23 +49,23 @@ const reviewSchema = new Schema<IReview>(
   { timestamps: true }
 );
 
-export interface IRestaurant extends Document {
+export interface DatabaseHotel extends Document {
   id: string;
   name: string;
-  address: IAddress;
-  reviews: IReview[];
+  address: DatabaseAddress;
+  reviews: DatabaseReview[];
   stars: (typeof STARS)[number];
   rating: number;
   highlights: string;
   isVerified: boolean;
   images: string[];
   phoneNumber: string;
-  cuisines: CUISINE[];
   accessibilityAmenities: AccessibilityAmenity[];
+  amenities: HotelAmenity[];
   affiliateLink: string;
 }
 
-const restaurantSchema = new Schema<IRestaurant>(
+const hotelSchema = new Schema<DatabaseHotel>(
   {
     id: { type: String, required: true },
     name: { type: String, required: true },
@@ -87,11 +77,11 @@ const restaurantSchema = new Schema<IRestaurant>(
     isVerified: { type: Boolean, required: true },
     images: { type: [String], required: true },
     phoneNumber: { type: String, required: true },
-    cuisines: { type: [String], enum: CUISINE, required: true },
     accessibilityAmenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: true },
+    amenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: true },
     affiliateLink: { type: String, required: true },
   },
   { timestamps: true }
 );
 
-export const DatabaseRestaurant = model<IRestaurant>("restaurant", restaurantSchema);
+export const MongooseHotel = model<DatabaseHotel>("hotel", hotelSchema);

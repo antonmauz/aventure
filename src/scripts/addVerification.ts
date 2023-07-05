@@ -1,10 +1,10 @@
 import { databaseService } from "@services";
-import { DatabaseHotelAccessibilityVerification } from "../services/database/model/DatabaseHotelAccessibilityVerification";
+import { MongooseHotelAccessibilityVerification } from "../services/database/model/MongooseHotelAccessibilityVerification";
 
 databaseService.connectDB();
 
 const add = () => {
-  DatabaseHotelAccessibilityVerification.create({
+  MongooseHotelAccessibilityVerification.create({
     authorId: "64994d303096a3a2e38a1dec",
     hospitalityType: "restaurant",
     hotelId: "6499a8a8004a59ebd2d04451",

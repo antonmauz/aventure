@@ -17,6 +17,14 @@ import { createRestaurantReview } from "./restaurant/createRestaurantReview";
 import { createRestaurantAccessibilityVerification } from "./verification/createRestaurantAccessibilityVerification";
 import { createHotelAccessibilityVerification } from "./verification/createHotelAccessibilityVerification";
 
+export { DatabaseRestaurant } from "./model/MongooseRestaurant";
+export { DatabaseUser } from "./model/MongooseUser";
+export { DatabaseReview, DatabaseHotel } from "./model/MongooseHotel";
+export { DatabaseBlogPost } from "./model/MongooseBlogPost";
+export { DatabaseTrainStation } from "./model/MongooseTrainStation";
+export { DatabaseHotelAccessibilityVerification } from "./model/MongooseHotelAccessibilityVerification";
+export { DatabaseRestaurantAccessibilityVerification } from "./model/MongooseRestaurantAccessibilityVerification";
+
 export const databaseService = {
   // <-- COMMON -->
   connectDB,

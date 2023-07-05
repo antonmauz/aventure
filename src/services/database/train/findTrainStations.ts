@@ -1,7 +1,7 @@
-import { DatabaseTrainStation, ITrainStation } from "../model/DatabaseTrainStation";
+import { DatabaseTrainStation, MongooseTrainStation } from "../model/MongooseTrainStation";
 
-export const findTrainStations = async (): Promise<ITrainStation[]> => {
-  const trainStations = await DatabaseTrainStation.find().exec();
+export const findTrainStations = async (): Promise<DatabaseTrainStation[]> => {
+  const trainStations = await MongooseTrainStation.find().exec();
 
   return trainStations;
 };

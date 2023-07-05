@@ -1,13 +1,16 @@
-import { DatabaseRestaurant, IRestaurant } from "../model/DatabaseRestaurant";
+import { DatabaseRestaurant, MongooseRestaurant } from "../model/MongooseRestaurant";
 
-type NewDatabaseRestaurantReview = Pick<IRestaurant["reviews"][number], "authorId" | "rating" | "text">;
+type NewDatabaseRestaurantReview = Pick<
+  DatabaseRestaurant["reviews"][number],
+  "authorId" | "rating" | "text"
+>;
 
 export const createRestaurantReview = async (
-  id: IRestaurant["_id"],
+  id: DatabaseRestaurant["_id"],
   newReview: NewDatabaseRestaurantReview
-): Promise<IRestaurant> => {
+): Promise<DatabaseRestaurant> => {
   try {
-    const updatedRestaurant = (await DatabaseRestaurant.findByIdAndUpdate(
+    const updatedRestaurant = (await MongooseRestaurant.findByIdAndUpdate(
       id,
       {
         $push: { reviews: newReview },
@@ -18,7 +21,7 @@ export const createRestaurantReview = async (
       console.log(`No restaurant found with the id'${id}'`);
       // TODO throw Error(`No restaurant found with the id '${id}'`);
     }
-    
+
     return updatedRestaurant;
   } catch (error) {
     console.log("Restaurant not updated", error);

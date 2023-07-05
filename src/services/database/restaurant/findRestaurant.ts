@@ -1,7 +1,7 @@
-import { DatabaseRestaurant } from "../model/DatabaseRestaurant";
+import { MongooseRestaurant } from "../model/MongooseRestaurant";
 
 export const findRestaurantById = async (restaurantId: string): Promise<any> => {
-  const restaurant = await DatabaseRestaurant.findById(restaurantId);
+  const restaurant = await MongooseRestaurant.findById(restaurantId);
   if (restaurant) {
     return restaurant;
   }

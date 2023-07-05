@@ -1,13 +1,13 @@
-import { DatabaseBlogPost, IBlogPost } from "../model/DatabaseBlogPost";
+import { DatabaseBlogPost, MongooseBlogPost } from "../model/MongooseBlogPost";
 
 type NewDatabaseBlogPost = Pick<
-  IBlogPost,
+  DatabaseBlogPost,
   "authorId" | "title" | "text" | "bannerImage" | "destinations" | "topics"
 >;
 
-export const createBlogPost = async (newBlogPost: NewDatabaseBlogPost): Promise<IBlogPost> => {
+export const createBlogPost = async (newBlogPost: NewDatabaseBlogPost): Promise<DatabaseBlogPost> => {
   try {
-    const createdBlogPost = await DatabaseBlogPost.create(newBlogPost);
+    const createdBlogPost = await MongooseBlogPost.create(newBlogPost);
 
     console.log(`New blogPost created with the following id: ${createdBlogPost}`);
     return createdBlogPost;

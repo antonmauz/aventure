@@ -1,7 +1,7 @@
-import { DatabaseBlogPost, IBlogPost } from "../model/DatabaseBlogPost";
+import { DatabaseBlogPost, MongooseBlogPost } from "../model/MongooseBlogPost";
 
-export const findBlogPostById = async (blogPostId: string): Promise<IBlogPost> => {
-  const dbBlogPost = await DatabaseBlogPost.findById(blogPostId).exec();
+export const findBlogPostById = async (blogPostId: string): Promise<DatabaseBlogPost> => {
+  const dbBlogPost = await MongooseBlogPost.findById(blogPostId).exec();
 
   if (!dbBlogPost) {
     console.log(`No blogPost found with the id '${blogPostId}'`);

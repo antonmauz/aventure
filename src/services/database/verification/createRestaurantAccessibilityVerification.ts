@@ -1,10 +1,10 @@
 import {
   DatabaseRestaurantAccessibilityVerification,
-  IRestaurantAccessibilityVerification,
-} from "../model/DatabaseRestaurantAccessibilityVerification";
+  MongooseRestaurantAccessibilityVerification,
+} from "../model/MongooseRestaurantAccessibilityVerification";
 
 type NewDatabaseAccessibilityVerification = Pick<
-  IRestaurantAccessibilityVerification,
+  DatabaseRestaurantAccessibilityVerification,
   "authorId" | "restaurantId" | "accessibilityAmenity" | "proofImage"
 >;
 
@@ -12,7 +12,7 @@ export const createRestaurantAccessibilityVerification = async (
   newAccessibilityVerification: NewDatabaseAccessibilityVerification
 ) => {
   try {
-    await DatabaseRestaurantAccessibilityVerification.create(newAccessibilityVerification);
+    await MongooseRestaurantAccessibilityVerification.create(newAccessibilityVerification);
 
     console.log(`New Accessibility Verification created`);
     return;

@@ -1,7 +1,7 @@
-import { DatabaseBlogPost, IBlogPost } from "../model/DatabaseBlogPost";
+import { DatabaseBlogPost, MongooseBlogPost } from "../model/MongooseBlogPost";
 
-export const findBlogPostsByTitle = async (title: string): Promise<IBlogPost[]> => {
-  const dbBlogPosts = await DatabaseBlogPost.find({
+export const findBlogPostsByTitle = async (title: string): Promise<DatabaseBlogPost[]> => {
+  const dbBlogPosts = await MongooseBlogPost.find({
     title: { $regex: title, $options: "i" },
   }).exec();
 

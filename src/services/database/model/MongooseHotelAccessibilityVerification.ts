@@ -1,22 +1,22 @@
 import { ACCESSIBILITY_AMENITIES } from "@constants";
 import { AccessibilityAmenity } from "@model";
-import { IRestaurant } from "./DatabaseRestaurant";
-import { IUser } from "./DatabaseUser";
+import { DatabaseHotel } from "./MongooseHotel";
+import { DatabaseUser } from "./MongooseUser";
 import { model, Schema, Types } from "mongoose";
 
-export interface IRestaurantAccessibilityVerification {
-  authorId: IUser["_id"];
-  restaurantId: IRestaurant["_id"];
+export interface DatabaseHotelAccessibilityVerification {
+  authorId: DatabaseUser["_id"];
+  hotelId: DatabaseHotel["_id"];
   accessibilityAmenity: AccessibilityAmenity;
   proofImage: string;
 }
 
-export const accessibilityVerificationSchema = new Schema<IRestaurantAccessibilityVerification>(
+export const accessibilityVerificationSchema = new Schema<DatabaseHotelAccessibilityVerification>(
   {
     authorId: { type: Types.ObjectId, ref: "user", required: true },
-    restaurantId: {
+    hotelId: {
       type: Types.ObjectId,
-      ref: "restaurant",
+      ref: "hotel",
       required: true,
     },
     accessibilityAmenity: { type: String, enum: ACCESSIBILITY_AMENITIES, required: true },
@@ -25,7 +25,7 @@ export const accessibilityVerificationSchema = new Schema<IRestaurantAccessibili
   { timestamps: true }
 );
 
-export const DatabaseRestaurantAccessibilityVerification = model<IRestaurantAccessibilityVerification>(
-  "restaurantVerification",
+export const MongooseHotelAccessibilityVerification = model<DatabaseHotelAccessibilityVerification>(
+  "hotelVerification",
   accessibilityVerificationSchema
 );

@@ -1,13 +1,13 @@
-import { DatabaseBlogPost, IBlogPost } from "../model/DatabaseBlogPost";
+import { DatabaseBlogPost, MongooseBlogPost } from "../model/MongooseBlogPost";
 
-type NewDatabaseBlogComment = Pick<IBlogPost["comments"][number], "authorId" | "text">;
+type NewDatabaseBlogComment = Pick<DatabaseBlogPost["comments"][number], "authorId" | "text">;
 
 export const createBlogComment = async (
-  id: IBlogPost["_id"],
+  id: DatabaseBlogPost["_id"],
   newComment: NewDatabaseBlogComment
-): Promise<IBlogPost> => {
+): Promise<DatabaseBlogPost> => {
   try {
-    const updatedBlogPost = (await DatabaseBlogPost.findByIdAndUpdate(
+    const updatedBlogPost = (await MongooseBlogPost.findByIdAndUpdate(
       id,
       {
         $push: { comments: newComment },

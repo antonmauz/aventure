@@ -1,7 +1,7 @@
-import { DatabaseTrainStation, ITrainStation } from "../model/DatabaseTrainStation";
+import { DatabaseTrainStation, MongooseTrainStation } from "../model/MongooseTrainStation";
 
-export const findTrainStation = async (id: ITrainStation["_id"]): Promise<ITrainStation> => {
-  const trainStation = await DatabaseTrainStation.findById(id).exec();
+export const findTrainStation = async (id: DatabaseTrainStation["_id"]): Promise<DatabaseTrainStation> => {
+  const trainStation = await MongooseTrainStation.findById(id).exec();
 
   if (!trainStation) {
     throw Error("no_train_station_found");
@@ -11,9 +11,9 @@ export const findTrainStation = async (id: ITrainStation["_id"]): Promise<ITrain
 };
 
 export const findTrainStationByDbStationId = async (
-  dbStationId: ITrainStation["dbStationId"]
-): Promise<ITrainStation> => {
-  const trainStation = await DatabaseTrainStation.findOne({ dbStationId }).exec();
+  dbStationId: DatabaseTrainStation["dbStationId"]
+): Promise<DatabaseTrainStation> => {
+  const trainStation = await MongooseTrainStation.findOne({ dbStationId }).exec();
 
   if (!trainStation) {
     throw Error("no_train_station_found");

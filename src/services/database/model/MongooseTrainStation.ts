@@ -1,14 +1,14 @@
 import { Document, model, Schema } from "mongoose";
-import { addressSchema, IAddress } from "./DatabaseAddress";
+import { addressSchema, DatabaseAddress } from "./DatabaseAddress";
 
-export interface ITrainStation extends Document {
+export interface DatabaseTrainStation extends Document {
   name: string;
   dbStationId: string;
   dbEvaNumber: number;
-  address: IAddress;
+  address: DatabaseAddress;
 }
 
-const trainStationSchema = new Schema<ITrainStation>(
+const trainStationSchema = new Schema<DatabaseTrainStation>(
   {
     name: { type: String, required: true },
     dbStationId: { type: String, required: true },
@@ -18,4 +18,4 @@ const trainStationSchema = new Schema<ITrainStation>(
   { timestamps: true }
 );
 
-export const DatabaseTrainStation = model<ITrainStation>("trainStation", trainStationSchema);
+export const MongooseTrainStation = model<DatabaseTrainStation>("trainStation", trainStationSchema);

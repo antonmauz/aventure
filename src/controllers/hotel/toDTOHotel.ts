@@ -1,8 +1,7 @@
-import { IHotel, IReview } from "../../services/database/model/DatabaseHotel";
-import { databaseService } from "@services";
+import { DatabaseHotel, DatabaseReview, databaseService } from "@services";
 import { DTOHotel } from "../model/DTOHotel";
 
-const toAuthor = async (authorId: IReview["authorId"]) => {
+const toAuthor = async (authorId: DatabaseReview["authorId"]) => {
   const { firstName, surname, disabilityVerification, profileImage } = await databaseService.findUserById(
     authorId
   );
@@ -19,7 +18,7 @@ const toReview = async ({
   rating,
   text,
   createdAt,
-}: IHotel["reviews"][number]): Promise<DTOHotel["reviews"][number]> => {
+}: DatabaseHotel["reviews"][number]): Promise<DTOHotel["reviews"][number]> => {
   const author = await toAuthor(authorId);
 
   return {
@@ -44,7 +43,7 @@ export const toDTOHotel = async ({
   accessibilityAmenities,
   amenities,
   affiliateLink,
-}: IHotel): Promise<DTOHotel> => {
+}: DatabaseHotel): Promise<DTOHotel> => {
   const mappedReviews = await Promise.all(reviews.map(toReview));
 
   return {

@@ -1,4 +1,4 @@
-import { DatabaseTrainStation } from "../services/database/model/DatabaseTrainStation";
+import { MongooseTrainStation } from "../services/database/model/MongooseTrainStation";
 import { mappedStations } from "./mappedStations";
 import { databaseService } from "@services";
 
@@ -20,7 +20,7 @@ const addTrainStationsToDb = async () => {
 
   dbStations.map(async (station) => {
     console.log(`Adding ${station.name} to db`);
-    await DatabaseTrainStation.create(station);
+    await MongooseTrainStation.create(station);
     console.log(`Added ${station.name} to db`);
   });
 };

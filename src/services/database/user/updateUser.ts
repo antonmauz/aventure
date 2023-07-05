@@ -1,8 +1,11 @@
-import { DatabaseUser, IUser } from "../model/DatabaseUser";
+import { DatabaseUser, MongooseUser } from "../model/MongooseUser";
 
-export const updateUserById = async (userId: string, updateUser: Partial<IUser>): Promise<IUser> => {
+export const updateUserById = async (
+  userId: string,
+  updateUser: Partial<DatabaseUser>
+): Promise<DatabaseUser> => {
   try {
-    const updatedUser = await DatabaseUser.findByIdAndUpdate(
+    const updatedUser = await MongooseUser.findByIdAndUpdate(
       userId,
       {
         $set: updateUser,

@@ -1,4 +1,4 @@
-import { DatabaseUser } from "../services/database/model/DatabaseUser";
+import { MongooseUser } from "../services/database/model/MongooseUser";
 import { controller } from "../controllers/common/controller";
 import { DTOUser } from "../controllers/model/DTOUser";
 import { z } from "zod";
@@ -11,7 +11,7 @@ type Response = string;
 
 const checkDuplicateEmail = controller<undefined, Body, undefined, Response>(
   async ({ body, res, next }) => {
-    await DatabaseUser.findOne({
+    await MongooseUser.findOne({
       email: body.email,
     })
       .exec()

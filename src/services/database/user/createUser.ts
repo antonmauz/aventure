@@ -1,10 +1,13 @@
-import { DatabaseUser, IUser } from "../model/DatabaseUser";
+import { DatabaseUser, MongooseUser } from "../model/MongooseUser";
 
-type NewDatabaseUser = Pick<IUser, "firstName" | "surname" | "email" | "password" | "disabilityVerification">;
+type NewDatabaseUser = Pick<
+  DatabaseUser,
+  "firstName" | "surname" | "email" | "password" | "disabilityVerification"
+>;
 
-export const createUser = async (newUser: NewDatabaseUser): Promise<IUser> => {
+export const createUser = async (newUser: NewDatabaseUser): Promise<DatabaseUser> => {
   try {
-    const createdUser = await DatabaseUser.create(newUser);
+    const createdUser = await MongooseUser.create(newUser);
 
     console.log(`New user created with the following id: ${createdUser}`);
     return createdUser;

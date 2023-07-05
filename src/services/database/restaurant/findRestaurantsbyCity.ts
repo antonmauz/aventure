@@ -1,7 +1,7 @@
-import { DatabaseRestaurant, IRestaurant } from "../model/DatabaseRestaurant";
+import { DatabaseRestaurant, MongooseRestaurant } from "../model/MongooseRestaurant";
 
-export const findRestaurantsByCity = async (city: string): Promise<IRestaurant[]> => {
-  const dbRestaurants = await DatabaseRestaurant.find({
+export const findRestaurantsByCity = async (city: string): Promise<DatabaseRestaurant[]> => {
+  const dbRestaurants = await MongooseRestaurant.find({
     "address.city": { $regex: new RegExp(city, "i") },
   });
   return dbRestaurants;

@@ -1,10 +1,10 @@
 import {
   DatabaseHotelAccessibilityVerification,
-  IHotelAccessibilityVerification,
-} from "../model/DatabaseHotelAccessibilityVerification";
+  MongooseHotelAccessibilityVerification,
+} from "../model/MongooseHotelAccessibilityVerification";
 
 type NewDatabaseAccessibilityVerification = Pick<
-  IHotelAccessibilityVerification,
+  DatabaseHotelAccessibilityVerification,
   "authorId" | "hotelId" | "accessibilityAmenity" | "proofImage"
 >;
 
@@ -13,7 +13,7 @@ export const createHotelAccessibilityVerification = async (
 ) => {
   console.log("new", newAccessibilityVerification);
   try {
-    await DatabaseHotelAccessibilityVerification.create(newAccessibilityVerification);
+    await MongooseHotelAccessibilityVerification.create(newAccessibilityVerification);
 
     console.log(`New Accessibility Verification created`);
 

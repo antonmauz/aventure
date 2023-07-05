@@ -1,18 +1,18 @@
 import { Document, model, Schema, Types } from "mongoose";
-import { IUser } from "./DatabaseUser";
+import { DatabaseUser } from "./MongooseUser";
 import { DESTINATIONS, TOPICS } from "@constants";
 
 type Destination = (typeof DESTINATIONS)[number];
 
 type Topic = (typeof TOPICS)[number];
 
-interface IBlogComment extends Document {
-  authorId: IUser["_id"];
+interface DatabaseBlogComment extends Document {
+  authorId: DatabaseUser["_id"];
   text: string;
   createdAt: Date;
 }
 
-const commentSchema = new Schema<IBlogComment>(
+const commentSchema = new Schema<DatabaseBlogComment>(
   {
     authorId: { type: Types.ObjectId, ref: "user", required: true },
     text: { type: String, required: true },
@@ -20,18 +20,18 @@ const commentSchema = new Schema<IBlogComment>(
   { timestamps: true }
 );
 
-export interface IBlogPost extends Document {
-  authorId: IUser["_id"];
+export interface DatabaseBlogPost extends Document {
+  authorId: DatabaseUser["_id"];
   title: string;
   text: string;
   bannerImage: string;
   destinations: Destination[];
   topics: Topic[];
-  comments: IBlogComment[];
+  comments: DatabaseBlogComment[];
   createdAt: Date;
 }
 
-const blogPostSchema = new Schema<IBlogPost>(
+const blogPostSchema = new Schema<DatabaseBlogPost>(
   {
     authorId: { type: Types.ObjectId, ref: "user", required: true },
     title: { type: String, required: true },
@@ -44,4 +44,4 @@ const blogPostSchema = new Schema<IBlogPost>(
   { timestamps: true }
 );
 
-export const DatabaseBlogPost = model<IBlogPost>("blogPost", blogPostSchema);
+export const MongooseBlogPost = model<DatabaseBlogPost>("blogPost", blogPostSchema);

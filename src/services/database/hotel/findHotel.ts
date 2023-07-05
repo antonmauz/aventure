@@ -1,7 +1,7 @@
-import { DatabaseHotel } from "../model/DatabaseHotel";
+import { MongooseHotel } from "../model/MongooseHotel";
 
 export const findHotelById = async (hotelId: string): Promise<any> => {
-  const hotel = await DatabaseHotel.findById(hotelId);
+  const hotel = await MongooseHotel.findById(hotelId);
 
   if (hotel) {
     return hotel;

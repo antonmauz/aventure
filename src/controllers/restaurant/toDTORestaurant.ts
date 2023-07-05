@@ -1,9 +1,7 @@
-import { IRestaurant } from "../../services/database/model/DatabaseRestaurant";
-import { IReview } from "../../services/database/model/DatabaseHotel";
-import { databaseService } from "@services";
+import { DatabaseRestaurant, DatabaseReview, databaseService } from "@services";
 import { DTORestaurant } from "../model/DTORestaurant";
 
-const toAuthor = async (authorId: IReview["authorId"]) => {
+const toAuthor = async (authorId: DatabaseReview["authorId"]) => {
   const { firstName, surname, disabilityVerification, profileImage } = await databaseService.findUserById(
     authorId
   );
@@ -20,7 +18,7 @@ const toReview = async ({
   rating,
   text,
   createdAt,
-}: IRestaurant["reviews"][number]): Promise<DTORestaurant["reviews"][number]> => {
+}: DatabaseRestaurant["reviews"][number]): Promise<DTORestaurant["reviews"][number]> => {
   const author = await toAuthor(authorId);
   return {
     author,
@@ -44,7 +42,7 @@ export const toDTORestaurant = async ({
   cuisines,
   accessibilityAmenities,
   affiliateLink,
-}: IRestaurant): Promise<DTORestaurant> => {
+}: DatabaseRestaurant): Promise<DTORestaurant> => {
   const mappedReviews = await Promise.all(reviews.map(toReview));
 
   return {

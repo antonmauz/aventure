@@ -1,4 +1,4 @@
-import { ITrainStation } from "../../services/database/model/DatabaseTrainStation";
+import { DatabaseTrainStation } from "@services";
 import { DTOTrainStation } from "../model/DTOTrainStation";
 
 export const toDTOTrainStation = ({
@@ -7,7 +7,7 @@ export const toDTOTrainStation = ({
   dbStationId,
   dbEvaNumber,
   address,
-}: ITrainStation): DTOTrainStation => ({
+}: DatabaseTrainStation): DTOTrainStation => ({
   id: _id,
   name,
   dbStationId,
@@ -15,6 +15,6 @@ export const toDTOTrainStation = ({
   address,
 });
 
-export const toDTOTrainStations = (stations: ITrainStation[]): DTOTrainStation[] => {
+export const toDTOTrainStations = (stations: DatabaseTrainStation[]): DTOTrainStation[] => {
   return stations.map((station) => toDTOTrainStation(station));
 };

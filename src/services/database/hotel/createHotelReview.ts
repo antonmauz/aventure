@@ -1,13 +1,13 @@
-import { DatabaseHotel, IHotel } from "../model/DatabaseHotel";
+import { DatabaseHotel, MongooseHotel } from "../model/MongooseHotel";
 
-type NewDatabaseHotelReview = Pick<IHotel["reviews"][number], "authorId" | "rating" | "text">;
+type NewDatabaseHotelReview = Pick<DatabaseHotel["reviews"][number], "authorId" | "rating" | "text">;
 
 export const createHotelReview = async (
-  id: IHotel["_id"],
+  id: DatabaseHotel["_id"],
   newReview: NewDatabaseHotelReview
-): Promise<IHotel> => {
+): Promise<DatabaseHotel> => {
   try {
-    const updatedHotel = (await DatabaseHotel.findByIdAndUpdate(
+    const updatedHotel = (await MongooseHotel.findByIdAndUpdate(
       id,
       {
         $push: { reviews: newReview },

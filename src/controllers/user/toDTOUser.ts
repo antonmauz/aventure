@@ -1,7 +1,7 @@
-import { IUser } from "../../services/database/model/DatabaseUser";
+import { DatabaseUser } from "@services";
 import { DTOUser } from "../model/DTOUser";
 
-export const toDTOUser = ({ _id, firstName, surname, email, createdAt, ...user }: IUser): DTOUser => {
+export const toDTOUser = ({ _id, firstName, surname, email, createdAt, ...user }: DatabaseUser): DTOUser => {
   return {
     ...user,
     id: _id,

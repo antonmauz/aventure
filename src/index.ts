@@ -10,6 +10,7 @@ import { databaseService } from "@services";
 import helmet from "helmet";
 import session from "express-session";
 import { trainRouter } from "@controllers/train";
+import { verificationRouter } from "./controllers/verification";
 
 const DATA_LIMIT = "1mb";
 
@@ -45,6 +46,7 @@ app.use("/v1/hotel", hotelRouter);
 app.use("/v1/auth", authenticationRouter);
 app.use("/v1/restaurant", restaurantRouter);
 app.use("/v1/train", trainRouter);
+app.use("/v1/verification", verificationRouter);
 
 // TODO handle errors app.use(handleErrors);
 

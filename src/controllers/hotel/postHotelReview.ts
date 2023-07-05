@@ -14,8 +14,6 @@ type Response = DTOHotel | unknown;
 export const postHotelReview = controller<AuthenticatedSession, Body, Params, Response>(
   async ({ session: { userId }, body, params: { id }, res }) => {
     try {
-      await databaseService.createHotelReview(id, { authorId: userId, ...body });
-
       const updatedHotelDetailPage = await databaseService.createHotelReview(id, {
         authorId: userId,
         ...body,

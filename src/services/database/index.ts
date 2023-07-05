@@ -13,6 +13,9 @@ import { createBlogComment } from "./blogPost/createBlogComment";
 import { findTrainStations } from "./train/findTrainStations";
 import { findTrainStation, findTrainStationByDbStationId } from "./train/findTrainStation";
 import { findRestaurantsByCity } from "./restaurant/findRestaurantsbyCity";
+import { createRestaurantReview } from "./restaurant/createRestaurantReview";
+import { createRestaurantAccessibilityVerification } from "./verification/createRestaurantAccessibilityVerification";
+import { createHotelAccessibilityVerification } from "./verification/createHotelAccessibilityVerification";
 
 export const databaseService = {
   // <-- COMMON -->
@@ -25,6 +28,7 @@ export const databaseService = {
   // <-- RESTAURANT -->
   findRestaurantById,
   findRestaurantsByCity,
+  createRestaurantReview,
   // <-- HOTEL -->
   findHotelById,
   findHotelsByCity,
@@ -38,4 +42,7 @@ export const databaseService = {
   findTrainStations,
   findTrainStation,
   findTrainStationByDbStationId,
+  // <-- Verification -->
+  createHotelAccessibilityVerification,
+  createRestaurantAccessibilityVerification,
 };

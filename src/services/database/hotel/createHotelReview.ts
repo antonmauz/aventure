@@ -19,10 +19,9 @@ export const createHotelReview = async (
       console.log(`No hotel found with the id'${id}'`);
       // TODO throw Error(`No blogPost found with the id '${id}'`);
     }
-    console.log(`Hotel updated with the following id: ${updatedHotel}`);
     return updatedHotel;
   } catch (error) {
-    console.log("BlogPost not updated", error);
+    console.log("Hotel not updated", error);
     throw error;
   }
 };

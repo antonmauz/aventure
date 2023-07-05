@@ -12,6 +12,7 @@ import { createHotelReview } from "./hotel/createHotelReview";
 import { createBlogComment } from "./blogPost/createBlogComment";
 import { findTrainStations } from "./train/findTrainStations";
 import { findTrainStation, findTrainStationByDbStationId } from "./train/findTrainStation";
+import { findRestaurantsByCity } from "./restaurant/findRestaurantsbyCity";
 
 export const databaseService = {
   // <-- COMMON -->
@@ -23,6 +24,7 @@ export const databaseService = {
   updateUserById,
   // <-- RESTAURANT -->
   findRestaurantById,
+  findRestaurantsByCity,
   // <-- HOTEL -->
   findHotelById,
   findHotelsByCity,

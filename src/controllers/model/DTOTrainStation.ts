@@ -1,4 +1,4 @@
-import { DTOAddress } from "./DTOAddress";
+import { DTOAddress } from "./common/DTOAddress";
 
 export interface DTOTrainStation {
   name: string;

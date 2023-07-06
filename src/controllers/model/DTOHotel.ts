@@ -1,5 +1,5 @@
-import { DTOUser } from "./DTOUser";
-import { DTOAddress } from "./DTOAddress";
+import { DTOAddress } from "./common/DTOAddress";
+import { DTOReview } from "./common/DTOReview";
 
 const STARS = [1, 2, 3, 4, 5] as const;
 
@@ -21,24 +21,11 @@ type AccessibilityAmenity =
 
 type HotelAmenity = "bar" | "parkingLots" | "fitnessCenter" | "swimmingPool" | "wifi" | "restaurant";
 
-interface Author {
-  name: string;
-  isVerified: boolean;
-  profileImage: DTOUser["profileImage"];
-}
-
-interface Review {
-  author: Author;
-  rating: number;
-  text: string;
-  createdAt: Date;
-}
-
 export interface DTOHotel {
   id: string;
   name: string;
   address: DTOAddress;
-  reviews: Review[];
+  reviews: DTOReview[];
   stars: (typeof STARS)[number];
   rating: number;
   highlights: string;

@@ -1,4 +1,5 @@
-import { DTOUser } from "./DTOUser";
+import { DTOAddress } from "./common/DTOAddress";
+import { DTOReview } from "./common/DTOReview";
 
 const STARS = [1, 2, 3, 4, 5] as const;
 
@@ -18,7 +19,7 @@ type AccessibilityAmenity =
   | "handrails"
   | "accessibleElevator";
 
-type CUISINE =
+type Cuisine =
   | "bavarian"
   | "german"
   | "italian"
@@ -36,38 +37,18 @@ type CUISINE =
   | "african"
   | "other";
 
-interface Author {
-  name: string;
-  isVerified: boolean;
-  profileImage: DTOUser["profileImage"];
-}
-
-interface Address {
-  street: string;
-  houseNumber: string;
-  city: string;
-  zipCode: string;
-}
-
-interface Review {
-  author: Author;
-  rating: number;
-  text: string;
-  createdAt: Date;
-}
-
 export interface DTORestaurant {
   id: string;
   name: string;
-  address: Address;
-  reviews: Review[];
+  address: DTOAddress;
+  reviews: DTOReview[];
   stars: (typeof STARS)[number];
   rating: number;
   highlights: string;
   isVerified: boolean;
   images: string[];
   phoneNumber: string;
-  cuisines: CUISINE[];
+  cuisines: Cuisine[];
   accessibilityAmenities: AccessibilityAmenity[];
   affiliateLink: string;
 }

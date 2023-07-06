@@ -1,18 +1,12 @@
-import { DTOUser } from "./DTOUser";
 import { DESTINATIONS, TOPICS } from "@constants";
+import { DTOAuthor } from "./common/DTOAuthor";
 
 type Destination = (typeof DESTINATIONS)[number];
 
 type Topic = (typeof TOPICS)[number];
 
-interface Author {
-  name: string;
-  isVerified: boolean;
-  profileImage?: DTOUser["profileImage"];
-}
-
 interface BlogComment {
-  author: Author;
+  author: DTOAuthor;
   text: string;
   createdAt: Date;
 }
@@ -20,7 +14,7 @@ interface BlogComment {
 export interface DTOBlogPost {
   id: string;
   createdAt: Date;
-  author: Author;
+  author: DTOAuthor;
   bannerImage: string;
   destinations: Destination[];
   topics: Topic[];

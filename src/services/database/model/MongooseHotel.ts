@@ -1,4 +1,4 @@
-import { Document, model, Schema, Types } from "mongoose";
+import { Document, model, Schema } from "mongoose";
 import { DatabaseUser } from "./MongooseUser";
 import { addressSchema, DatabaseAddress } from "./DatabaseAddress";
 
@@ -42,7 +42,7 @@ export interface DatabaseReview {
 
 const reviewSchema = new Schema<DatabaseReview>(
   {
-    authorId: { type: Types.ObjectId, ref: "user", required: true },
+    authorId: { type: Schema.Types.ObjectId, ref: "user", required: true },
     rating: { type: Number, required: true },
     text: { type: "string", required: true },
   },

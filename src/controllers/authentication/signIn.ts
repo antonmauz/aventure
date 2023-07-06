@@ -5,6 +5,7 @@ import { databaseService } from "@services";
 import { controller } from "../common/controller";
 import { DTOUser } from "../model/DTOUser";
 import { z } from "zod";
+import { toDTOUser } from "../user/toDTOUser";
 
 type Body = {
   email: DTOUser["email"];
@@ -16,12 +17,9 @@ type Response =
       accessToken: null;
       message: "password_invalid";
     }
-  | {
-      id: DTOUser["id"];
-      firstName: DTOUser["firstName"];
-      email: DTOUser["email"];
+  | (DTOUser & {
       accessToken: string;
-    }
+    })
   | string;
 
 export const signIn = controller<undefined, Body, undefined, Response>(
@@ -42,10 +40,10 @@ export const signIn = controller<undefined, Body, undefined, Response>(
           expiresIn: 86400, // 24 hours
         });
 
+        const dtoUser = toDTOUser(user);
+
         res.status(200).send({
-          id: user._id,
-          firstName: user.firstName,
-          email: user.email,
+          ...dtoUser,
           accessToken: token,
         });
       })

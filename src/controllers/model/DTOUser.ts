@@ -1,5 +1,5 @@
 import { AccessibilityAmenity, VerificationStatus } from "@model";
-import { DTOAddress } from "./DTOAddress";
+import { DTOAddress } from "./common/DTOAddress";
 
 interface DisabilityVerification {
   idImage: string;

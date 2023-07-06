@@ -2,7 +2,7 @@ import { ACCESSIBILITY_AMENITIES } from "@constants";
 import { AccessibilityAmenity } from "@model";
 import { DatabaseRestaurant } from "./MongooseRestaurant";
 import { DatabaseUser } from "./MongooseUser";
-import { model, Schema, Types } from "mongoose";
+import { model, Schema } from "mongoose";
 
 export interface DatabaseRestaurantAccessibilityVerification {
   authorId: DatabaseUser["_id"];
@@ -13,9 +13,9 @@ export interface DatabaseRestaurantAccessibilityVerification {
 
 export const accessibilityVerificationSchema = new Schema<DatabaseRestaurantAccessibilityVerification>(
   {
-    authorId: { type: Types.ObjectId, ref: "user", required: true },
+    authorId: { type: Schema.Types.ObjectId, ref: "user", required: true },
     restaurantId: {
-      type: Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "restaurant",
       required: true,
     },

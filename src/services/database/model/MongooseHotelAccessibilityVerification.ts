@@ -2,7 +2,7 @@ import { ACCESSIBILITY_AMENITIES } from "@constants";
 import { AccessibilityAmenity } from "@model";
 import { DatabaseHotel } from "./MongooseHotel";
 import { DatabaseUser } from "./MongooseUser";
-import { model, Schema, Types } from "mongoose";
+import { model, Schema } from "mongoose";
 
 export interface DatabaseHotelAccessibilityVerification {
   authorId: DatabaseUser["_id"];
@@ -13,9 +13,9 @@ export interface DatabaseHotelAccessibilityVerification {
 
 export const accessibilityVerificationSchema = new Schema<DatabaseHotelAccessibilityVerification>(
   {
-    authorId: { type: Types.ObjectId, ref: "user", required: true },
+    authorId: { type: Schema.Types.ObjectId, ref: "user", required: true },
     hotelId: {
-      type: Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "hotel",
       required: true,
     },

@@ -1,4 +1,4 @@
-import { Document, model, Schema, Types } from "mongoose";
+import { Document, model, Schema } from "mongoose";
 import { DatabaseUser } from "./MongooseUser";
 import { DESTINATIONS, TOPICS } from "@constants";
 
@@ -14,8 +14,8 @@ interface DatabaseBlogComment extends Document {
 
 const commentSchema = new Schema<DatabaseBlogComment>(
   {
-    authorId: { type: Types.ObjectId, ref: "user", required: true },
-    text: { type: String, required: true },
+    authorId: { type: Schema.Types.ObjectId, ref: "user", required: true, index: true },
+    text: { type: String, required: true, index: true },
   },
   { timestamps: true }
 );
@@ -33,13 +33,13 @@ export interface DatabaseBlogPost extends Document {
 
 const blogPostSchema = new Schema<DatabaseBlogPost>(
   {
-    authorId: { type: Types.ObjectId, ref: "user", required: true },
-    title: { type: String, required: true },
-    text: { type: String, required: true },
-    bannerImage: { type: String, required: true },
-    destinations: { type: [String], enum: DESTINATIONS, required: true },
-    topics: { type: [String], enum: TOPICS, required: true },
-    comments: { type: [commentSchema], required: false },
+    authorId: { type: Schema.Types.ObjectId, ref: "user", required: true, index: true },
+    title: { type: String, required: true, index: true },
+    text: { type: String, required: true, index: true },
+    bannerImage: { type: String, required: true, index: true },
+    destinations: { type: [String], enum: DESTINATIONS, required: true, index: true },
+    topics: { type: [String], enum: TOPICS, required: true, index: true },
+    comments: { type: [commentSchema], required: false, index: true },
   },
   { timestamps: true }
 );

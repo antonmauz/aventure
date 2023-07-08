@@ -6,7 +6,7 @@ import { updateUserById } from "./user/updateUser";
 import { connectDB } from "./common";
 import { createBlogPost } from "./blogPost/createBlogPost";
 import { findBlogPostById } from "./blogPost/findBlogPostById";
-import { findBlogPostsByTitle } from "./blogPost/findBlogPostsByTitle";
+import { findBlogPosts } from "./blogPost/findBlogPosts";
 import { findHotelsByCity } from "./hotel/findHotelByCity";
 import { createHotelReview } from "./hotel/createHotelReview";
 import { createBlogComment } from "./blogPost/createBlogComment";
@@ -45,7 +45,7 @@ export const databaseService = {
   createBlogPost,
   createBlogComment,
   findBlogPostById,
-  findBlogPostsByTitle,
+  findBlogPosts,
   // <-- Train -->
   findTrainStations,
   findTrainStation,

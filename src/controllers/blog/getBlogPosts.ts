@@ -12,7 +12,7 @@ type Response = DTOBlogPost[];
 
 export const getBlogPosts = controller<undefined, undefined, undefined, Response, Query>(
   async ({ query: { title }, res }) => {
-    const blogPosts = await databaseService.findBlogPostsByTitle(title ?? "");
+    const blogPosts = await databaseService.findBlogPosts(title ?? "");
 
     const mappedBlogPosts = await Promise.all(blogPosts.map(toDTOBlogPost));
 

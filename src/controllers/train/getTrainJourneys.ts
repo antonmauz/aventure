@@ -29,7 +29,7 @@ export const getTrainJourneys = controller<undefined, undefined, undefined, Resp
     );
 
     if (result === "no_solution") {
-      res.status(400).json("no_solution");
+      res.status(200).json([]);
       return;
     }
 

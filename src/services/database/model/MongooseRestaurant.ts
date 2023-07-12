@@ -38,8 +38,6 @@ const CUISINE = [
   "other",
 ] as const;
 
-const STARS = [1, 2, 3, 4, 5] as const;
-
 type AccessibilityAmenity = (typeof ACCESSIBILITY_AMENITIES)[number];
 type CUISINE = (typeof CUISINE)[number];
 
@@ -53,11 +51,9 @@ const reviewSchema = new Schema<DatabaseReview>(
 );
 
 export interface DatabaseRestaurant extends Document {
-  id: string;
   name: string;
   address: DatabaseAddress;
   reviews: DatabaseReview[];
-  stars: (typeof STARS)[number];
   rating: number;
   highlights: string;
   isVerified: boolean;
@@ -70,11 +66,9 @@ export interface DatabaseRestaurant extends Document {
 
 const restaurantSchema = new Schema<DatabaseRestaurant>(
   {
-    id: { type: String, required: true },
     name: { type: String, required: true },
     address: { type: addressSchema, required: true },
     reviews: { type: [reviewSchema], required: true },
-    stars: { type: Number, enum: STARS, required: true },
     rating: { type: Number, required: true },
     highlights: { type: String, required: true },
     isVerified: { type: Boolean, required: true },

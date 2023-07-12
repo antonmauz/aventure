@@ -6,7 +6,7 @@ type Destination = (typeof DESTINATIONS)[number];
 
 type Topic = (typeof TOPICS)[number];
 
-interface DatabaseBlogComment extends Document {
+interface DatabaseBlogComment {
   authorId: DatabaseUser["_id"];
   text: string;
   createdAt: Date;

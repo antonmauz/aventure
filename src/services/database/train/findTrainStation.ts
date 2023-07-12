@@ -10,10 +10,10 @@ export const findTrainStation = async (id: DatabaseTrainStation["_id"]): Promise
   return trainStation;
 };
 
-export const findTrainStationByDbStationId = async (
-  dbStationId: DatabaseTrainStation["dbStationId"]
+export const findTrainStationByCsaIndex = async (
+  csaIndex: DatabaseTrainStation["csaIndex"]
 ): Promise<DatabaseTrainStation> => {
-  const trainStation = await MongooseTrainStation.findOne({ dbStationId }).exec();
+  const trainStation = await MongooseTrainStation.findOne({ csaIndex }).exec();
 
   if (!trainStation) {
     throw Error("no_train_station_found");

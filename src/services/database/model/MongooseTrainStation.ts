@@ -5,6 +5,7 @@ export interface DatabaseTrainStation extends Document {
   name: string;
   dbStationId: string;
   dbEvaNumber: number;
+  csaIndex: number;
   address: DatabaseAddress;
 }
 
@@ -13,6 +14,7 @@ const trainStationSchema = new Schema<DatabaseTrainStation>(
     name: { type: String, required: true },
     dbStationId: { type: String, required: true },
     dbEvaNumber: { type: Number, required: true },
+    csaIndex: { type: Number, required: true },
     address: { type: addressSchema, required: true },
   },
   { timestamps: true }

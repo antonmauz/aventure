@@ -1,3 +1,5 @@
+import { transformTrainJourneys } from "./transformTrainJourneys";
+
 export class CSAConnection {
   trainId: string;
   departureStation: number;
@@ -43,18 +45,47 @@ export class CSA {
   private timetable: Timetable;
   private earliestArrival: EarliestArrival[];
 
-  constructor(connections: CSAConnection[]) {
-    this.timetable = new Timetable(connections);
+  constructor() {
+    this.timetable = new Timetable([]);
     this.earliestArrival = [];
+
+    Promise.resolve(transformTrainJourneys()).then((connections) => {
+      console.log("CSA connections", connections.length);
+      this.timetable = new Timetable(connections);
+      this.earliestArrival = [];
+
+      return this;
+    });
+  }
+
+  updateEarliestArrival(stationIndex: number, arrival: EarliestArrival) {
+    this.earliestArrival[stationIndex] = {
+      timestamp: arrival.timestamp,
+      inConnections: arrival.inConnections,
+    };
   }
 
   mainLoop() {
+    const THIRTY_MINUTES = 30 * 60;
+
     for (let connection of this.timetable.connections) {
+      const earliestArrivalDeparture = this.earliestArrival[connection.departureStation];
+      const earliestArrivalDepartureInConnections =
+        this.earliestArrival[connection.departureStation].inConnections;
+
+      const needsAdditionalTime =
+        earliestArrivalDepartureInConnections.length > 0
+          ? connection.trainId !==
+            earliestArrivalDepartureInConnections[earliestArrivalDepartureInConnections.length - 1].trainId
+          : false;
+
+      const transferTime = needsAdditionalTime ? THIRTY_MINUTES : 0;
+
       if (
-        connection.departureTimestamp >= this.earliestArrival[connection.departureStation].timestamp &&
+        connection.departureTimestamp >= earliestArrivalDeparture.timestamp + transferTime &&
         connection.arrivalTimestamp < this.earliestArrival[connection.arrivalStation].timestamp
       ) {
-        const arrivalCopy = { ...this.earliestArrival[connection.arrivalStation] };
+        const arrivalCopy = this.earliestArrival[connection.arrivalStation];
         const newInConnections = [...arrivalCopy.inConnections, connection];
 
         this.updateEarliestArrival(connection.arrivalStation, {
@@ -65,20 +96,13 @@ export class CSA {
     }
   }
 
-  updateEarliestArrival(stationIndex: number, arrival: EarliestArrival) {
-    this.earliestArrival[stationIndex] = {
-      timestamp: arrival.timestamp,
-      inConnections: arrival.inConnections,
-    };
-  }
-
   getFastestRoutes(
     departureStation: number,
     arrivalStation: number,
     departureTimestamp: number,
     numRoutes: number
   ): CSAConnection[][] | "no_solution" {
-    const MAX_STATIONS = 100000;
+    const MAX_STATIONS = 250;
 
     this.earliestArrival = new Array(MAX_STATIONS).fill({
       timestamp: Number.MAX_VALUE,

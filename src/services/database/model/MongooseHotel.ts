@@ -50,7 +50,6 @@ const reviewSchema = new Schema<DatabaseReview>(
 );
 
 export interface DatabaseHotel extends Document {
-  id: string;
   name: string;
   address: DatabaseAddress;
   reviews: DatabaseReview[];
@@ -67,7 +66,6 @@ export interface DatabaseHotel extends Document {
 
 const hotelSchema = new Schema<DatabaseHotel>(
   {
-    id: { type: String, required: true },
     name: { type: String, required: true },
     address: { type: addressSchema, required: true },
     reviews: { type: [reviewSchema], required: true },
@@ -78,7 +76,7 @@ const hotelSchema = new Schema<DatabaseHotel>(
     images: { type: [String], required: true },
     phoneNumber: { type: String, required: true },
     accessibilityAmenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: true },
-    amenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: true },
+    amenities: { type: [String], enum: HOTEL_AMENITIES, required: true },
     affiliateLink: { type: String, required: true },
   },
   { timestamps: true }

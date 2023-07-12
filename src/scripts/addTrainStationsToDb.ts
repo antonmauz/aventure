@@ -5,10 +5,11 @@ import { databaseService } from "@services";
 databaseService.connectDB();
 
 const addTrainStationsToDb = async () => {
-  const dbStations = mappedStations.map(({ name, stationID, evaNumbers, address }) => ({
+  const dbStations = mappedStations.map(({ name, stationID, evaNumbers, address }, index) => ({
     name,
     dbStationId: stationID,
     dbEvaNumber: evaNumbers[0].number,
+    csaIndex: index,
     address: {
       street: address.street,
       houseNumber: address.houseNumber ?? "N/A",

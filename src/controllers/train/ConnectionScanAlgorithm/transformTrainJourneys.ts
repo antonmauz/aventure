@@ -1,31 +1,68 @@
-import { TRAIN_JOURNEYS_MOCK } from "../../../services/deutscheBahn/TRAIN_JOURNEYS_MOCK";
 import { CSAConnection } from "./ConnectionScanAlgorithm";
+import {
+  DatabaseTrainConnection,
+  MongooseTrainConnection,
+} from "../../../services/database/model/MongooseTrainConnection";
+import {
+  DatabaseTrainStation,
+  MongooseTrainStation,
+} from "../../../services/database/model/MongooseTrainStation";
+import { TrainJourney } from "../../../services/deutscheBahn/TRAIN_JOURNEYS_MOCK";
 
-const hmsToSecondsOnly = (hm: string) => {
-  const a = hm.split(":");
+const getConnections = async (): Promise<TrainJourney[]> => {
+  const connections = (await MongooseTrainConnection.find().sort({
+    "trainStops.departureTime": 1,
+  })) as DatabaseTrainConnection[];
 
-  return +a[0] * 60 * 60 + +a[1] * 60;
+  console.log("connections", connections.length);
+
+  return await Promise.all(
+    connections.map(async ({ trainId, trainType, trainStops }) => {
+      return {
+        trainId,
+        trainType,
+        stops: await Promise.all(
+          trainStops.map(async (stop) => {
+            const { stationId, departureTime, arrivalTime, track } = stop;
+
+            const station = (await MongooseTrainStation.findById(stationId)) as DatabaseTrainStation;
+
+            return {
+              stationId: station.csaIndex,
+              stationName: station.name,
+              departureTime,
+              arrivalTime,
+              track,
+            };
+          })
+        ),
+      };
+    })
+  );
 };
-export const transformTrainJourneys = (): CSAConnection[] => {
-  const journeys = TRAIN_JOURNEYS_MOCK.map((trainJourney) => {
-    const { route } = trainJourney;
 
-    return route
+export const transformTrainJourneys = async (): Promise<CSAConnection[]> => {
+  const connections = await getConnections();
+
+  const journeys = connections.map((trainJourney) => {
+    const { stops } = trainJourney;
+
+    return stops
       .map((currentStop, index) => {
-        if (index === route.length - 1) {
+        if (index === stops.length - 1) {
           return null;
         }
 
-        const nextStop = route[index + 1];
+        const nextStop = stops[index + 1];
 
         return {
-          trainId: trainJourney.train_number,
-          departureStation: parseInt(currentStop.stationId),
+          trainId: trainJourney.trainId,
+          departureStation: currentStop.stationId,
           departureTrackId: currentStop.track,
-          arrivalStation: parseInt(nextStop.stationId),
+          arrivalStation: nextStop.stationId,
           arrivalTrackId: nextStop.track,
-          departureTimestamp: hmsToSecondsOnly(currentStop.departureTime),
-          arrivalTimestamp: hmsToSecondsOnly(nextStop.arrivalTime),
+          departureTimestamp: currentStop.departureTime,
+          arrivalTimestamp: nextStop.arrivalTime,
         };
       })
       .filter((connection) => connection !== null) as CSAConnection[];

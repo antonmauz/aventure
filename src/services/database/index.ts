@@ -11,7 +11,7 @@ import { findHotelsByCity } from "./hotel/findHotelByCity";
 import { createHotelReview } from "./hotel/createHotelReview";
 import { createBlogComment } from "./blogPost/createBlogComment";
 import { findTrainStations } from "./train/findTrainStations";
-import { findTrainStation, findTrainStationByDbStationId } from "./train/findTrainStation";
+import { findTrainStation, findTrainStationByCsaIndex } from "./train/findTrainStation";
 import { findRestaurantsByCity } from "./restaurant/findRestaurantsbyCity";
 import { createRestaurantReview } from "./restaurant/createRestaurantReview";
 import { createRestaurantAccessibilityVerification } from "./verification/createRestaurantAccessibilityVerification";
@@ -49,7 +49,7 @@ export const databaseService = {
   // <-- Train -->
   findTrainStations,
   findTrainStation,
-  findTrainStationByDbStationId,
+  findTrainStationByCsaIndex,
   // <-- Verification -->
   createHotelAccessibilityVerification,
   createRestaurantAccessibilityVerification,

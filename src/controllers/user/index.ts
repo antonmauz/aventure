@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.use(handleAuthentication);
 router.get("/", getUser);
-router.put("/", patchUser);
+router.patch("/", patchUser);
 
 export const userRouter = router;

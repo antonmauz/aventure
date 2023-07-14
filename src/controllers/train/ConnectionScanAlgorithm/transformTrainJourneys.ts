@@ -7,7 +7,8 @@ import {
   DatabaseTrainStation,
   MongooseTrainStation,
 } from "../../../services/database/model/MongooseTrainStation";
-import { TrainJourney } from "../../../services/deutscheBahn/TRAIN_JOURNEYS_MOCK";
+
+import { TrainJourney } from "@model";
 
 const getConnections = async (): Promise<TrainJourney[]> => {
   const connections = (await MongooseTrainConnection.find().sort({

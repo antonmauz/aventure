@@ -9,6 +9,8 @@ import {
 } from "../../../services/database/model/MongooseTrainStation";
 import { TrainJourney } from "../../../services/deutscheBahn/TRAIN_JOURNEYS_MOCK";
 
+const SECOND_PER_DAY = 24 * 60 * 60;
+
 const getConnections = async (): Promise<TrainJourney[]> => {
   const connections = (await MongooseTrainConnection.find().sort({
     "trainStops.departureTime": 1,
@@ -27,15 +29,24 @@ const getConnections = async (): Promise<TrainJourney[]> => {
 
             const station = (await MongooseTrainStation.findById(stationId)) as DatabaseTrainStation;
 
-            return {
-              stationId: station.csaIndex,
-              stationName: station.name,
-              departureTime,
-              arrivalTime,
-              track,
-            };
+            return [
+              {
+                stationId: station.csaIndex,
+                stationName: station.name,
+                departureTime,
+                arrivalTime,
+                track,
+              },
+              {
+                stationId: station.csaIndex,
+                stationName: station.name,
+                departureTime: departureTime + SECOND_PER_DAY,
+                arrivalTime: arrivalTime + SECOND_PER_DAY,
+                track,
+              },
+            ];
           })
-        ),
+        ).then((stops) => stops.flat(1)),
       };
     })
   );

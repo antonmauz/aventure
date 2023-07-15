@@ -14,12 +14,31 @@ type Response = DTOHotel | unknown;
 export const postHotelReview = controller<AuthenticatedSession, Body, Params, Response>(
   async ({ session: { userId }, body, params: { id }, res }) => {
     try {
-      const updatedHotelDetailPage = await databaseService.createHotelReview(id, {
-        authorId: userId,
-        ...body,
-      });
+      const hotel = await databaseService.findHotelById(id);
 
-      res.status(200).send(await toDTOHotel(updatedHotelDetailPage));
+      if (hotel === null) {
+        res.status(400).send("no_hotel");
+        return;
+      }
+
+      const reviewsCount = hotel.reviews.length;
+      const newRating = (hotel.rating * reviewsCount + body.rating) / (reviewsCount + 1);
+
+      const updatedHotel = await databaseService.createHotelReview(
+        id,
+        {
+          authorId: userId,
+          ...body,
+        },
+        newRating
+      );
+
+      if (updatedHotel === null) {
+        res.status(400).send("no_hotel");
+        return;
+      }
+
+      res.status(200).send(await toDTOHotel(updatedHotel));
     } catch (error) {
       res.status(400).send(error);
     }

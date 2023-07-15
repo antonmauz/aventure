@@ -4,20 +4,23 @@ type NewDatabaseHotelReview = Pick<DatabaseHotel["reviews"][number], "authorId" 
 
 export const createHotelReview = async (
   id: DatabaseHotel["_id"],
-  newReview: NewDatabaseHotelReview
-): Promise<DatabaseHotel> => {
+  newReview: NewDatabaseHotelReview,
+  newRating: DatabaseHotel["rating"]
+): Promise<DatabaseHotel | null> => {
   try {
-    const updatedHotel = (await MongooseHotel.findByIdAndUpdate(
+    const updatedHotel = await MongooseHotel.findByIdAndUpdate(
       id,
       {
         $push: { reviews: newReview },
+        $set: { rating: newRating },
       },
       { new: true }
-    ))!; // TODO remove exclamation mark
+    );
 
     if (updatedHotel === null) {
       console.log(`No hotel found with the id'${id}'`);
-      // TODO throw Error(`No blogPost found with the id '${id}'`);
+      return null;
+      // TODO throw Error(`No hotel found with the id '${id}'`);
     }
     return updatedHotel;
   } catch (error) {

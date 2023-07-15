@@ -30,24 +30,15 @@ const getConnections = async (): Promise<TrainJourney[]> => {
 
             const station = (await MongooseTrainStation.findById(stationId)) as DatabaseTrainStation;
 
-            return [
-              {
-                stationId: station.csaIndex,
-                stationName: station.name,
-                departureTime,
-                arrivalTime,
-                track,
-              },
-              {
-                stationId: station.csaIndex,
-                stationName: station.name,
-                departureTime: departureTime + SECOND_PER_DAY,
-                arrivalTime: arrivalTime + SECOND_PER_DAY,
-                track,
-              },
-            ];
+            return {
+              stationId: station.csaIndex,
+              stationName: station.name,
+              arrivalTime,
+              departureTime,
+              track,
+            };
           })
-        ).then((stops) => stops.flat(1)),
+        ),
       };
     })
   );

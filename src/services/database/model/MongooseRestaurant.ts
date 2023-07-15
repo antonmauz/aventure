@@ -1,23 +1,8 @@
 import { Document, model, Schema } from "mongoose";
 import { DatabaseReview } from "./MongooseHotel";
 import { addressSchema, DatabaseAddress } from "./DatabaseAddress";
-
-const ACCESSIBILITY_AMENITIES = [
-  "wcWithHandles",
-  "elevatedWc",
-  "groundLevelShower",
-  "loweredSink",
-  "emergencyCord",
-  "grabBars",
-  "rampAccess",
-  "wheelchairAccessibleEntrance",
-  "accessibleParking",
-  "automaticDoors",
-  "brailleSignage",
-  "wideHallways",
-  "handrails",
-  "accessibleElevator",
-] as const;
+import { AccessibilityAmenity } from "@model";
+import { ACCESSIBILITY_AMENITIES } from "@constants";
 
 const CUISINE = [
   "bavarian",
@@ -38,7 +23,6 @@ const CUISINE = [
   "other",
 ] as const;
 
-type AccessibilityAmenity = (typeof ACCESSIBILITY_AMENITIES)[number];
 type CUISINE = (typeof CUISINE)[number];
 
 const reviewSchema = new Schema<DatabaseReview>(

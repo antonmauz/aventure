@@ -1,8 +1,6 @@
 import { DTOAddress } from "./common/DTOAddress";
 import { DTOReview } from "./common/DTOReview";
 
-const STARS = [1, 2, 3, 4, 5] as const;
-
 type AccessibilityAmenity =
   | "wcWithHandles"
   | "elevatedWc"
@@ -42,7 +40,6 @@ export interface DTORestaurant {
   name: string;
   address: DTOAddress;
   reviews: DTOReview[];
-  stars: (typeof STARS)[number];
   rating: number;
   highlights: string;
   isVerified: boolean;

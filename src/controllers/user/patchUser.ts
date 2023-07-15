@@ -4,6 +4,7 @@ import { AuthenticatedSession, authenticatedSessionParser } from "@middlewares";
 import { DTOUser } from "../model/DTOUser";
 import { toDTOUser } from "./toDTOUser";
 import { z } from "zod";
+import { ACCESSIBILITY_AMENITIES } from "@constants";
 
 type Body = Partial<Pick<DTOUser, "firstName" | "surname" | "email" | "dateOfBirth" | "profileImage">>;
 
@@ -30,6 +31,22 @@ export const patchUser = controller<AuthenticatedSession, Body, undefined, Respo
         .optional()
         .transform((value) => (value ? new Date(value) : undefined)),
       profileImage: z.string().optional(),
+      address: z
+        .object({
+          street: z.string(),
+          houseNumber: z.string(),
+          zipCode: z.string(),
+          city: z.string(),
+          country: z.string(),
+        })
+        .optional(),
+      disabilityVerification: z
+        .object({
+          idImage: z.string(),
+          userImage: z.string(),
+        })
+        .optional(),
+      accessibilityAmenities: z.array(z.enum(ACCESSIBILITY_AMENITIES)).optional(),
     }),
   }
 );

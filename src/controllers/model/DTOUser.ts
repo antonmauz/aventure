@@ -15,6 +15,7 @@ export interface DTOUser {
   address?: DTOAddress;
   profileImage?: string;
   dateOfBirth?: Date;
+  bahnCard?: string; //TODO enum
   disabilityVerification?: DisabilityVerification;
   createdAt: Date;
   accessibilityAmenities?: AccessibilityAmenity[];

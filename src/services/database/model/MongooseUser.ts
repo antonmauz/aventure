@@ -26,6 +26,7 @@ export interface DatabaseUser extends Document {
   address?: DatabaseAddress;
   profileImage?: string;
   dateOfBirth?: Date;
+  bahnCard: string; //TODO enum
   accessibilityAmenities?: AccessibilityAmenity[];
   disabilityVerification?: DatabaseDisabilityVerification;
   createdAt: Date;
@@ -40,6 +41,7 @@ const userSchema = new Schema<DatabaseUser>(
     address: { type: addressSchema, required: false },
     dateOfBirth: { type: Date, required: false },
     profileImage: { type: String, required: false },
+    bahnCard: { type: String, required: false }, //TODO enum
     disabilityVerification: { type: disabilityVerificationSchema, required: false },
     accessibilityAmenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: false },
   },

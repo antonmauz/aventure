@@ -13,14 +13,31 @@ type Response = DTORestaurant | unknown;
 
 export const postRestaurantReview = controller<AuthenticatedSession, Body, Params, Response>(
   async ({ session: { userId }, body, params: { id }, res }) => {
-    console.log("postRestaurantReview", userId);
     try {
-      const updateRestaurantDetailPage = await databaseService.createRestaurantReview(id, {
-        authorId: userId,
-        ...body,
-      });
+      const restaurant = await databaseService.findRestaurantById(id);
 
-      res.status(200).send(await toDTORestaurant(updateRestaurantDetailPage));
+      if (restaurant === null) {
+        res.status(400).send("no_restaurant");
+        return;
+      }
+
+      const reviewsCount = restaurant.reviews.length;
+      const newRating = (restaurant.rating * reviewsCount + body.rating) / (reviewsCount + 1);
+
+      const updatedRestaurant = await databaseService.createRestaurantReview(
+        id,
+        {
+          authorId: userId,
+          ...body,
+        },
+        newRating
+      );
+
+      if (updatedRestaurant === null) {
+        res.status(400).send("no_restaurant");
+        return;
+      }
+      res.status(200).send(await toDTORestaurant(updatedRestaurant));
     } catch (error) {
       res.status(400).send(error);
     }

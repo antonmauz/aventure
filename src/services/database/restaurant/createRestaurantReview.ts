@@ -7,18 +7,22 @@ type NewDatabaseRestaurantReview = Pick<
 
 export const createRestaurantReview = async (
   id: DatabaseRestaurant["_id"],
-  newReview: NewDatabaseRestaurantReview
-): Promise<DatabaseRestaurant> => {
+  newReview: NewDatabaseRestaurantReview,
+  newRating: DatabaseRestaurant["rating"]
+): Promise<DatabaseRestaurant | null> => {
   try {
-    const updatedRestaurant = (await MongooseRestaurant.findByIdAndUpdate(
+    const updatedRestaurant = await MongooseRestaurant.findByIdAndUpdate(
       id,
       {
         $push: { reviews: newReview },
+        $set: { rating: newRating },
       },
       { new: true }
-    ))!; // TODO remove exclamation mark
+    );
+
     if (updatedRestaurant === null) {
       console.log(`No restaurant found with the id'${id}'`);
+      return null;
       // TODO throw Error(`No restaurant found with the id '${id}'`);
     }
 

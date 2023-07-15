@@ -40,6 +40,7 @@ export const patchUser = controller<AuthenticatedSession, Body, undefined, Respo
           country: z.string(),
         })
         .optional(),
+      bahnCard: z.string().optional(), //TODO enum
       disabilityVerification: z
         .object({
           idImage: z.string(),

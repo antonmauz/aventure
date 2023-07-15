@@ -1,6 +1,6 @@
 import { Document, model, Schema } from "mongoose";
-import { AccessibilityAmenity, VerificationStatus } from "@model";
-import { ACCESSIBILITY_AMENITIES, VERIFICATION_STATES } from "@constants";
+import { AccessibilityAmenity, BahnCard, VerificationStatus } from "@model";
+import { ACCESSIBILITY_AMENITIES, BAHN_CARD_OPTIONS, VERIFICATION_STATES } from "@constants";
 import { addressSchema, DatabaseAddress } from "./DatabaseAddress";
 
 interface DatabaseDisabilityVerification {
@@ -26,7 +26,7 @@ export interface DatabaseUser extends Document {
   address?: DatabaseAddress;
   profileImage?: string;
   dateOfBirth?: Date;
-  bahnCard: string; //TODO enum
+  bahnCard: BahnCard;
   accessibilityAmenities?: AccessibilityAmenity[];
   disabilityVerification?: DatabaseDisabilityVerification;
   createdAt: Date;
@@ -41,7 +41,7 @@ const userSchema = new Schema<DatabaseUser>(
     address: { type: addressSchema, required: false },
     dateOfBirth: { type: Date, required: false },
     profileImage: { type: String, required: false },
-    bahnCard: { type: String, required: false }, //TODO enum
+    bahnCard: { type: String, enum: BAHN_CARD_OPTIONS, required: false },
     disabilityVerification: { type: disabilityVerificationSchema, required: false },
     accessibilityAmenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: false },
   },

@@ -1,4 +1,4 @@
-import { AccessibilityAmenity, VerificationStatus } from "@model";
+import { AccessibilityAmenity, BahnCard, VerificationStatus } from "@model";
 import { DTOAddress } from "./common/DTOAddress";
 
 interface DisabilityVerification {
@@ -15,7 +15,7 @@ export interface DTOUser {
   address?: DTOAddress;
   profileImage?: string;
   dateOfBirth?: Date;
-  bahnCard?: string; //TODO enum
+  bahnCard?: BahnCard;
   disabilityVerification?: DisabilityVerification;
   createdAt: Date;
   accessibilityAmenities?: AccessibilityAmenity[];

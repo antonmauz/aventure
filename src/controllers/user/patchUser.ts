@@ -4,7 +4,7 @@ import { AuthenticatedSession, authenticatedSessionParser } from "@middlewares";
 import { DTOUser } from "../model/DTOUser";
 import { toDTOUser } from "./toDTOUser";
 import { z } from "zod";
-import { ACCESSIBILITY_AMENITIES } from "@constants";
+import { ACCESSIBILITY_AMENITIES, BAHN_CARD_OPTIONS } from "@constants";
 
 type Body = Partial<Pick<DTOUser, "firstName" | "surname" | "email" | "dateOfBirth" | "profileImage">>;
 
@@ -40,7 +40,7 @@ export const patchUser = controller<AuthenticatedSession, Body, undefined, Respo
           country: z.string(),
         })
         .optional(),
-      bahnCard: z.string().optional(), //TODO enum
+      bahnCard: z.enum(BAHN_CARD_OPTIONS).optional(),
       disabilityVerification: z
         .object({
           idImage: z.string(),

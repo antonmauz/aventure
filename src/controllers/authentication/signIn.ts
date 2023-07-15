@@ -49,7 +49,7 @@ export const signIn = controller<undefined, Body, undefined, Response>(
       })
       .catch((error) => {
         if (error) {
-          res.status(500).send("login_failed");
+          res.status(401).send("login_failed");
           return;
         }
       });

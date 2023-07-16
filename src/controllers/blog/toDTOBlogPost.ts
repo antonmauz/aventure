@@ -39,6 +39,7 @@ export const toDTOBlogPost = async ({
   destinations,
   comments,
   createdAt,
+  accessCounter,
 }: DatabaseBlogPost): Promise<DTOBlogPost> => {
   const author = await toAuthor(authorId);
 
@@ -53,6 +54,7 @@ export const toDTOBlogPost = async ({
     destinations,
     author,
     comments: mappedComments,
+    views: accessCounter,
     createdAt,
   };
 };

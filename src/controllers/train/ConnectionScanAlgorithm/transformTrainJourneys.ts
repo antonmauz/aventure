@@ -10,7 +10,7 @@ import {
 
 import { TrainJourney } from "@model";
 
-const SECOND_PER_DAY = 24 * 60 * 60;
+const SECONDS_PER_DAY = 24 * 60 * 60;
 
 const getConnections = async (): Promise<TrainJourney[]> => {
   const connections = (await MongooseTrainConnection.find().sort({
@@ -19,7 +19,7 @@ const getConnections = async (): Promise<TrainJourney[]> => {
 
   console.log("connections", connections.length);
 
-  return await Promise.all(
+  const mappedConnections = await Promise.all(
     connections.map(async ({ trainId, trainType, trainStops }) => {
       return {
         trainId,
@@ -42,6 +42,21 @@ const getConnections = async (): Promise<TrainJourney[]> => {
       };
     })
   );
+
+  const test = mappedConnections.map((connection) => {
+    const nextDayConnection = {
+      ...connection,
+      stops: connection.stops.map((stop) => ({
+        ...stop,
+        arrivalTime: stop.arrivalTime + SECONDS_PER_DAY,
+        departureTime: stop.departureTime + SECONDS_PER_DAY,
+      })),
+    };
+
+    return [connection, nextDayConnection];
+  });
+  
+  return test.flat(1);
 };
 
 export const transformTrainJourneys = async (): Promise<CSAConnection[]> => {

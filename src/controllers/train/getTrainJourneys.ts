@@ -39,7 +39,7 @@ export const getTrainJourneys = controller<undefined, undefined, undefined, Resp
 
     const resultCombined = resultTwo === "no_solution" ? result : [...result, ...resultTwo]; */
 
-    res.status(200).json(await toDTOTrainJourneys(result));
+    res.status(200).json(await toDTOTrainJourneys(result, date));
   },
   {
     querySchema: z.object({

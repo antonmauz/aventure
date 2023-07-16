@@ -49,6 +49,7 @@ export class CSA {
     this.timetable = new Timetable([]);
     this.earliestArrival = [];
 
+    //TODO add this back in
     Promise.resolve(transformTrainJourneys()).then((connections) => {
       console.log("CSA connections", connections.length);
       this.timetable = new Timetable(connections);

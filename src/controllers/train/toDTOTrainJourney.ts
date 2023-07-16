@@ -2,20 +2,29 @@ import { DTOTrainJourney } from "../model/DTOTrainJourney";
 import { databaseService } from "@services";
 import { CSAConnection } from "./ConnectionScanAlgorithm/ConnectionScanAlgorithm";
 
-const mapConnection = async (connection: CSAConnection): Promise<DTOTrainJourney["connections"][number]> => {
+const mapConnection = async (
+  connection: CSAConnection,
+  date: Date
+): Promise<DTOTrainJourney["connections"][number]> => {
   const departureStation = await databaseService.findTrainStationByCsaIndex(connection.departureStation);
   const arrivalStation = await databaseService.findTrainStationByCsaIndex(connection.arrivalStation);
+
+  const departureDate = new Date(date.toDateString());
+  departureDate.setSeconds(connection.departureTimestamp);
+
+  const arrivalDate = new Date(date.toDateString());
+  arrivalDate.setSeconds(connection.arrivalTimestamp);
 
   return {
     trainId: connection.trainId,
     departure: {
       trainStation: departureStation.name,
-      time: new Date(connection.departureTimestamp * 1000),
+      time: departureDate,
       track: connection.departureTrackId,
     },
     arrival: {
       trainStation: arrivalStation.name,
-      time: new Date(connection.arrivalTimestamp * 1000),
+      time: arrivalDate,
       track: connection.arrivalTrackId,
     },
   };
@@ -61,7 +70,7 @@ const filterConnections = (csaConnections: CSAConnection[]): CSAConnection[] => 
     .filter((connection: CSAConnection | null) => connection !== null) as CSAConnection[];
 };
 
-const toDTOTrainJourney = async (csaConnections: CSAConnection[]): Promise<DTOTrainJourney> => {
+const toDTOTrainJourney = async (csaConnections: CSAConnection[], date: Date): Promise<DTOTrainJourney> => {
   const departureStation = await databaseService.findTrainStationByCsaIndex(
     csaConnections[0].departureStation
   );
@@ -72,16 +81,25 @@ const toDTOTrainJourney = async (csaConnections: CSAConnection[]): Promise<DTOTr
 
   const filteredConnections = filterConnections(csaConnections);
 
+  const departureDate = new Date(date.toDateString());
+  departureDate.setSeconds(csaConnections[0].departureTimestamp);
+
+  const arrivalDate = new Date(date.toDateString());
+  arrivalDate.setSeconds(csaConnections[csaConnections.length - 1].arrivalTimestamp);
+
   return {
-    departure: new Date(csaConnections[0].departureTimestamp * 1000),
-    arrival: new Date(csaConnections[csaConnections.length - 1].arrivalTimestamp * 1000),
+    departure: departureDate,
+    arrival: arrivalDate,
     startTrainStation: departureStation.name,
     endTrainStation: arrivalStation.name,
-    connections: await Promise.all(filteredConnections.map(mapConnection)),
+    connections: await Promise.all(filteredConnections.map((connection) => mapConnection(connection, date))),
     affiliateLink: "www.google.com",
   };
 };
 
-export const toDTOTrainJourneys = (csaJourneys: CSAConnection[][]): Promise<DTOTrainJourney[]> => {
-  return Promise.all(csaJourneys.map(toDTOTrainJourney));
+export const toDTOTrainJourneys = (
+  csaJourneys: CSAConnection[][],
+  date: Date
+): Promise<DTOTrainJourney[]> => {
+  return Promise.all(csaJourneys.map((connections) => toDTOTrainJourney(connections, date)));
 };

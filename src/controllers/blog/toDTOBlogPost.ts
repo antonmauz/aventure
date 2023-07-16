@@ -56,3 +56,5 @@ export const toDTOBlogPost = async ({
     createdAt,
   };
 };
+
+export const toDTOBlogPosts = (blogPosts: DatabaseBlogPost[]) => Promise.all(blogPosts.map(toDTOBlogPost));

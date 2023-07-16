@@ -8,13 +8,17 @@ type Params = {
   id: string;
 };
 
-type Response = DTORestaurant;
+type Response = DTORestaurant | "no_restaurant";
 
 export const getRestaurant = controller<undefined, undefined, Params, Response>(
   async ({ params: { id }, res }) => {
     const restaurant = await databaseService.findRestaurantById(id);
-    // handle not found in DB
-    // res.status(400).send(error);
+
+    if (restaurant === null) {
+      res.status(400).send("no_restaurant");
+      return;
+    }
+
     res.status(200).json(await toDTORestaurant(restaurant));
   },
   {

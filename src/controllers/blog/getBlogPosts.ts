@@ -1,5 +1,5 @@
 import { databaseService } from "@services";
-import { toDTOBlogPost } from "./toDTOBlogPost";
+import { toDTOBlogPosts } from "./toDTOBlogPost";
 import { DTOBlogPost } from "../model/DTOBlogPost";
 import { controller } from "../common/controller";
 import { z } from "zod";
@@ -14,9 +14,7 @@ export const getBlogPosts = controller<undefined, undefined, undefined, Response
   async ({ query: { title }, res }) => {
     const blogPosts = await databaseService.findBlogPosts(title ?? "");
 
-    const mappedBlogPosts = await Promise.all(blogPosts.map(toDTOBlogPost));
-
-    res.status(200).json(mappedBlogPosts);
+    res.status(200).json(await toDTOBlogPosts(blogPosts));
   },
   {
     querySchema: z.object({

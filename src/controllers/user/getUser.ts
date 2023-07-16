@@ -8,10 +8,12 @@ type Response = DTOUser;
 
 export const getUser = controller<AuthenticatedSession, undefined, undefined, Response>(
   async ({ session, res }) => {
+    //TODO adjust like other controllers
     await databaseService
       .findUserById(session.userId)
       .then((user) => {
         res.status(200).json(toDTOUser(user));
+        return;
       })
       .catch((error) => {
         // handle not found in DB

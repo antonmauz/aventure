@@ -8,13 +8,16 @@ type Params = {
   id: string;
 };
 
-type Response = DTOHotel;
+type Response = DTOHotel | "no_hotel";
 
 export const getHotel = controller<undefined, undefined, Params, Response>(
   async ({ params: { id }, res }) => {
     const hotel = await databaseService.findHotelById(id);
-    // handle not found in DB
-    // res.status(400).send(error);
+
+    if (hotel === null) {
+      res.status(400).send("no_hotel");
+      return;
+    }
 
     res.status(200).json(await toDTOHotel(hotel));
   },

@@ -4,9 +4,11 @@ import { postBlogPost } from "./postBlogPost";
 import { getBlogPosts } from "./getBlogPosts";
 import { postBlogComment } from "./postBlogComment";
 import { handleAuthentication } from "@middlewares";
+import { getTrendingBlogPosts } from "./getTrendingBlogPosts";
 
 const router = express.Router();
 
+router.get("/trending", getTrendingBlogPosts);
 router.get("/:id", getBlogPost);
 router.get("/", getBlogPosts);
 

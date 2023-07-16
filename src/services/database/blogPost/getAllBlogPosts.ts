@@ -1,7 +1,10 @@
 import { DatabaseBlogPost, MongooseBlogPost } from "../model/MongooseBlogPost";
 
-type Sort = keyof DatabaseBlogPost;
+type Params = {
+  sort: keyof DatabaseBlogPost;
+  topic?: DatabaseBlogPost["topics"][number];
+};
 
-export const getAllBlogPosts = (sort?: Sort): Promise<DatabaseBlogPost[]> => {
-  return MongooseBlogPost.find().sort(`-${sort}`);
+export const getAllBlogPosts = ({ sort, topic }: Params): Promise<DatabaseBlogPost[]> => {
+  return MongooseBlogPost.find(topic ? { topics: { $in: [topic] } } : {}).sort(`-${sort}`);
 };

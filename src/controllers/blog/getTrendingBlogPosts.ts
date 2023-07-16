@@ -1,14 +1,27 @@
 import { controller } from "../common/controller";
 import { DTOBlogPost } from "../model/DTOBlogPost";
-import { databaseService } from "@services";
+import { DatabaseBlogPost, databaseService } from "@services";
 import { toDTOBlogPosts } from "./toDTOBlogPost";
+import { z } from "zod";
+import { TOPICS } from "@constants";
+
+type Query = {
+  topic?: DatabaseBlogPost["topics"][number];
+};
 
 type Response = DTOBlogPost[];
 
-export const getTrendingBlogPosts = controller<undefined, undefined, undefined, Response>(async ({ res }) => {
-  const blogposts = await databaseService.getAllBlogPosts("accessCounter");
+export const getTrendingBlogPosts = controller<undefined, undefined, undefined, Response, Query>(
+  async ({ res, query: { topic } }) => {
+    const blogposts = await databaseService.getAllBlogPosts({ sort: "accessCounter", topic });
 
-  const trendingBLogPosts = blogposts.slice(0, 5);
-  
-  res.status(200).json(await toDTOBlogPosts(trendingBLogPosts));
-});
+    const trendingBlogPosts = blogposts.slice(0, 5);
+
+    res.status(200).json(await toDTOBlogPosts(trendingBlogPosts));
+  },
+  {
+    querySchema: z.object({
+      topic: z.enum(TOPICS).optional(),
+    }),
+  }
+);

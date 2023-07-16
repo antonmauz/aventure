@@ -8,14 +8,20 @@ type Params = {
   id: string;
 };
 
-type Response = DTOBlogPost;
+type Response = DTOBlogPost | "no_blog_post";
 
 export const getBlogPost = controller<undefined, undefined, Params, Response>(
   async ({ params: { id }, res }) => {
     const blogPost = await databaseService.findBlogPostById(id);
 
-    // handle not found in DB
-    // res.status(400).send(error);
+    if (blogPost === null) {
+      res.status(400).send("no_blog_post");
+      return;
+    }
+
+    databaseService.countBlogAccess(id).catch(() => {
+      console.log("blog_access_not_counted");
+    });
 
     res.status(200).json(await toDTOBlogPost(blogPost));
   },

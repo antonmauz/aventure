@@ -28,17 +28,19 @@ export interface DatabaseBlogPost extends Document {
   destinations: Destination[];
   topics: Topic[];
   comments: DatabaseBlogComment[];
+  accessCounter: number;
   createdAt: Date;
 }
 
 const blogPostSchema = new Schema<DatabaseBlogPost>(
   {
-    authorId: { type: Schema.Types.ObjectId, ref: "user", required: true, index: true },
-    title: { type: String, required: true, index: true },
-    text: { type: String, required: true, index: true },
-    bannerImage: { type: String, required: true, index: true },
-    destinations: { type: [String], enum: DESTINATIONS, required: true, index: true },
-    topics: { type: [String], enum: TOPICS, required: true, index: true },
+    authorId: { type: Schema.Types.ObjectId, ref: "user", required: true },
+    title: { type: String, required: true },
+    text: { type: String, required: true },
+    bannerImage: { type: String, required: true },
+    destinations: { type: [String], enum: DESTINATIONS, required: true },
+    topics: { type: [String], enum: TOPICS, required: true },
+    accessCounter: { type: Number, required: true, default: 0 },
     comments: { type: [commentSchema], required: false, index: true },
   },
   { timestamps: true }

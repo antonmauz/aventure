@@ -16,6 +16,8 @@ import { findRestaurantsByCity } from "./restaurant/findRestaurantsbyCity";
 import { createRestaurantReview } from "./restaurant/createRestaurantReview";
 import { createRestaurantAccessibilityVerification } from "./verification/createRestaurantAccessibilityVerification";
 import { createHotelAccessibilityVerification } from "./verification/createHotelAccessibilityVerification";
+import { countBlogAccess } from "./blogPost/countBlogAccess";
+import { getAllBlogPosts } from "./blogPost/getAllBlogPosts";
 
 export { DatabaseRestaurant } from "./model/MongooseRestaurant";
 export { DatabaseUser } from "./model/MongooseUser";
@@ -46,6 +48,9 @@ export const databaseService = {
   createBlogComment,
   findBlogPostById,
   findBlogPosts,
+  getAllBlogPosts,
+  countBlogAccess,
+
   // <-- Train -->
   findTrainStations,
   findTrainStation,

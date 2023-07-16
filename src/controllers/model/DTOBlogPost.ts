@@ -20,5 +20,6 @@ export interface DTOBlogPost {
   topics: Topic[];
   title: string;
   text: string;
+  views: number;
   comments: BlogComment[];
 }

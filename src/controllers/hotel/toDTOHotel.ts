@@ -41,7 +41,7 @@ export const toDTOHotel = async ({
     address,
     reviews: mappedReviews,
     stars,
-    rating,
+    rating: rating ?? null,
     highlights,
     isVerified,
     images,

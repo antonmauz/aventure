@@ -1,23 +1,7 @@
 import { Document, model, Schema } from "mongoose";
 import { DatabaseUser } from "./MongooseUser";
 import { addressSchema, DatabaseAddress } from "./DatabaseAddress";
-
-const ACCESSIBILITY_AMENITIES = [
-  "wcWithHandles",
-  "elevatedWc",
-  "groundLevelShower",
-  "loweredSink",
-  "emergencyCord",
-  "grabBars",
-  "rampAccess",
-  "wheelchairAccessibleEntrance",
-  "accessibleParking",
-  "automaticDoors",
-  "brailleSignage",
-  "wideHallways",
-  "handrails",
-  "accessibleElevator",
-] as const;
+import { ACCESSIBILITY_AMENITIES } from "@constants";
 
 const HOTEL_AMENITIES = [
   "bar",
@@ -50,15 +34,16 @@ const reviewSchema = new Schema<DatabaseReview>(
 );
 
 export interface DatabaseHotel extends Document {
+  tripadvisorId: string;
   name: string;
   address: DatabaseAddress;
   reviews: DatabaseReview[];
   stars: (typeof STARS)[number];
-  rating: number;
-  highlights: string;
+  rating?: number;
+  highlights?: string;
   isVerified: boolean;
   images: string[];
-  phoneNumber: string;
+  phoneNumber?: string;
   accessibilityAmenities: AccessibilityAmenity[];
   amenities: HotelAmenity[];
   affiliateLink: string;
@@ -66,17 +51,18 @@ export interface DatabaseHotel extends Document {
 
 const hotelSchema = new Schema<DatabaseHotel>(
   {
+    tripadvisorId: { type: String, required: true, unique: true, index: true },
     name: { type: String, required: true },
     address: { type: addressSchema, required: true },
-    reviews: { type: [reviewSchema], required: true },
+    reviews: { type: [reviewSchema], required: true, default: [] },
     stars: { type: Number, enum: STARS, required: true },
-    rating: { type: Number, required: true },
-    highlights: { type: String, required: true },
+    rating: { type: Number, required: false },
+    highlights: { type: String, required: false },
     isVerified: { type: Boolean, required: true },
-    images: { type: [String], required: true },
-    phoneNumber: { type: String, required: true },
-    accessibilityAmenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: true },
-    amenities: { type: [String], enum: HOTEL_AMENITIES, required: true },
+    images: { type: [String], required: true, default: [] },
+    phoneNumber: { type: String, required: false },
+    accessibilityAmenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: true, default: [] },
+    amenities: { type: [String], enum: HOTEL_AMENITIES, required: true, default: [] },
     affiliateLink: { type: String, required: true },
   },
   { timestamps: true }

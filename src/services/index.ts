@@ -11,3 +11,4 @@ export type {
 
 export { databaseService } from "./database";
 export { tripadvisorService } from "./tripadvisor";
+export { deutscheBahnService } from "./deutscheBahn";

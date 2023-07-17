@@ -27,11 +27,11 @@ export interface DTOHotel {
   address: DTOAddress;
   reviews: DTOReview[];
   stars: (typeof STARS)[number];
-  rating: number;
-  highlights: string;
+  rating: number | null;
+  highlights?: string;
   isVerified: boolean;
   images: string[];
-  phoneNumber: string;
+  phoneNumber?: string;
   accessibilityAmenities: AccessibilityAmenity[];
   amenities: HotelAmenity[];
   affiliateLink: string;

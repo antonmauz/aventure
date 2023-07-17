@@ -5,14 +5,14 @@ import { DTOHotel } from "../model/DTOHotel";
 import { z } from "zod";
 
 type Query = {
-  city?: string;
+  searchTerm?: string;
 };
 
 type Response = DTOHotel[];
 
 export const getHotels = controller<undefined, undefined, undefined, Response, Query>(
-  async ({ query: { city }, res }) => {
-    const hotels = await databaseService.findHotelsByCity(city ?? "");
+  async ({ query: { searchTerm }, res }) => {
+    const hotels = await databaseService.findHotelsBySearchTerm(searchTerm ?? "");
 
     const mappedHotels = await Promise.all(hotels.map(toDTOHotel));
 
@@ -20,7 +20,7 @@ export const getHotels = controller<undefined, undefined, undefined, Response, Q
   },
   {
     querySchema: z.object({
-      city: z.string().optional(),
+      searchTerm: z.string().optional(),
     }),
   }
 );

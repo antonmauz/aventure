@@ -1,7 +1,11 @@
-import { findLocations } from "./findLocations";
+import { findLocationsBySearchQuery } from "./findLocationsBySearchQuery";
 import { getLocationDetails } from "./getLocationDetails";
+import { findLocationsByLocation } from "./findLocationsByLocation";
+import { getLocationPhotos } from "./getLocationPhotos";
 
 export const tripadvisorService = {
-  findLocations,
+  findLocationsBySearchQuery,
   getLocationDetails,
+  findLocationsByLocation,
+  getLocationPhotos,
 };

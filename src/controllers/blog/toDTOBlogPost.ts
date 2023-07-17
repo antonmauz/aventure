@@ -1,26 +1,13 @@
-import { DatabaseBlogPost, databaseService } from "@services";
+import { DatabaseBlogPost } from "@services";
 import { DTOBlogPost } from "../model/DTOBlogPost";
-
-const toAuthor = async (
-  authorId: DatabaseBlogPost["authorId"]
-): Promise<DTOBlogPost["comments"][number]["author"]> => {
-  const { firstName, surname, disabilityVerification, profileImage } = await databaseService.findUserById(
-    authorId
-  );
-
-  return {
-    name: `${firstName} ${surname}`,
-    isVerified: disabilityVerification?.status === "accepted" ?? false,
-    profileImage,
-  };
-};
+import { toDTOAuthor } from "../common/toDTOAuthor";
 
 const toBlogComment = async ({
   authorId,
   text,
   createdAt,
 }: DatabaseBlogPost["comments"][number]): Promise<DTOBlogPost["comments"][number]> => {
-  const author = await toAuthor(authorId);
+  const author = await toDTOAuthor(authorId);
 
   return {
     author,
@@ -41,7 +28,7 @@ export const toDTOBlogPost = async ({
   createdAt,
   accessCounter,
 }: DatabaseBlogPost): Promise<DTOBlogPost> => {
-  const author = await toAuthor(authorId);
+  const author = await toDTOAuthor(authorId);
 
   const mappedComments = await Promise.all(comments.map(toBlogComment));
 

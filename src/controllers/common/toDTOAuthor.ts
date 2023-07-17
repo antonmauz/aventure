@@ -6,6 +6,7 @@ export const toDTOAuthor = async (authorId: DatabaseReview["authorId"]) => {
   );
 
   return {
+    userId: authorId,
     name: `${firstName} ${surname}`,
     isVerified: disabilityVerification?.status === "accepted" ?? false,
     profileImage,

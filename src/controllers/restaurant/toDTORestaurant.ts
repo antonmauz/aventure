@@ -1,17 +1,6 @@
-import { DatabaseRestaurant, DatabaseReview, databaseService } from "@services";
+import { DatabaseRestaurant } from "@services";
 import { DTORestaurant } from "../model/DTORestaurant";
-
-const toAuthor = async (authorId: DatabaseReview["authorId"]) => {
-  const { firstName, surname, disabilityVerification, profileImage } = await databaseService.findUserById(
-    authorId
-  );
-
-  return {
-    name: `${firstName} ${surname}`,
-    isVerified: disabilityVerification?.status === "accepted" ?? false,
-    profileImage,
-  };
-};
+import { toDTOAuthor } from "../common/toDTOAuthor";
 
 const toReview = async ({
   authorId,
@@ -19,7 +8,8 @@ const toReview = async ({
   text,
   createdAt,
 }: DatabaseRestaurant["reviews"][number]): Promise<DTORestaurant["reviews"][number]> => {
-  const author = await toAuthor(authorId);
+  const author = await toDTOAuthor(authorId);
+
   return {
     author,
     rating,

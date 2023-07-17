@@ -18,6 +18,7 @@ import { createRestaurantAccessibilityVerification } from "./verification/create
 import { createHotelAccessibilityVerification } from "./verification/createHotelAccessibilityVerification";
 import { countBlogAccess } from "./blogPost/countBlogAccess";
 import { getAllBlogPosts } from "./blogPost/getAllBlogPosts";
+import { deleteBlogPost } from "./blogPost/deleteBlogPost";
 
 export { DatabaseRestaurant } from "./model/MongooseRestaurant";
 export { DatabaseUser } from "./model/MongooseUser";
@@ -37,11 +38,11 @@ export const databaseService = {
   updateUserById,
   // <-- RESTAURANT -->
   findRestaurantById,
-  findRestaurantsBySearchTerm: findRestaurantsBySearchTerm,
+  findRestaurantsBySearchTerm,
   createRestaurantReview,
   // <-- HOTEL -->
   findHotelById,
-  findHotelsBySearchTerm: findHotelsBySearchTerm,
+  findHotelsBySearchTerm,
   createHotelReview,
   // <-- BLOG -->
   createBlogPost,
@@ -50,6 +51,7 @@ export const databaseService = {
   findBlogPosts,
   getAllBlogPosts,
   countBlogAccess,
+  deleteBlogPost,
 
   // <-- Train -->
   findTrainStations,

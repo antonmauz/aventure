@@ -40,11 +40,11 @@ export interface DTORestaurant {
   name: string;
   address: DTOAddress;
   reviews: DTOReview[];
-  rating: number;
-  highlights: string;
+  rating: number | null;
+  highlights?: string;
   isVerified: boolean;
   images: string[];
-  phoneNumber: string;
+  phoneNumber?: string;
   cuisines: Cuisine[];
   accessibilityAmenities: AccessibilityAmenity[];
   affiliateLink: string;

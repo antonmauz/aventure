@@ -4,7 +4,7 @@ import { tripadvisorService } from "@services";
 export const getRestaurantsTripadvisor = async (req: express.Request, res: express.Response) => {
   // TODO add correct params
   const locations = await tripadvisorService
-    .findLocations("", {
+    .findLocationsBySearchQuery("", {
       language: "en",
     })
     .catch((error) => {

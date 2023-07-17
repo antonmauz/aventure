@@ -7,12 +7,12 @@ import { connectDB } from "./common";
 import { createBlogPost } from "./blogPost/createBlogPost";
 import { findBlogPostById } from "./blogPost/findBlogPostById";
 import { findBlogPosts } from "./blogPost/findBlogPosts";
-import { findHotelsByCity } from "./hotel/findHotelByCity";
+import { findHotelsBySearchTerm } from "./hotel/findHotelBySearchTerm";
 import { createHotelReview } from "./hotel/createHotelReview";
 import { createBlogComment } from "./blogPost/createBlogComment";
 import { findTrainStations } from "./train/findTrainStations";
 import { findTrainStation, findTrainStationByCsaIndex } from "./train/findTrainStation";
-import { findRestaurantsByCity } from "./restaurant/findRestaurantsbyCity";
+import { findRestaurantsBySearchTerm } from "./restaurant/findRestaurantsBySearchTerm";
 import { createRestaurantReview } from "./restaurant/createRestaurantReview";
 import { createRestaurantAccessibilityVerification } from "./verification/createRestaurantAccessibilityVerification";
 import { createHotelAccessibilityVerification } from "./verification/createHotelAccessibilityVerification";
@@ -37,11 +37,11 @@ export const databaseService = {
   updateUserById,
   // <-- RESTAURANT -->
   findRestaurantById,
-  findRestaurantsByCity,
+  findRestaurantsBySearchTerm: findRestaurantsBySearchTerm,
   createRestaurantReview,
   // <-- HOTEL -->
   findHotelById,
-  findHotelsByCity,
+  findHotelsBySearchTerm: findHotelsBySearchTerm,
   createHotelReview,
   // <-- BLOG -->
   createBlogPost,

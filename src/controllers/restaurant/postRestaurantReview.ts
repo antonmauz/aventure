@@ -22,7 +22,7 @@ export const postRestaurantReview = controller<AuthenticatedSession, Body, Param
       }
 
       const reviewsCount = restaurant.reviews.length;
-      const newRating = (restaurant.rating * reviewsCount + body.rating) / (reviewsCount + 1);
+      const newRating = ((restaurant.rating ?? 0) * reviewsCount + body.rating) / (reviewsCount + 1);
 
       const updatedRestaurant = await databaseService.createRestaurantReview(
         id,

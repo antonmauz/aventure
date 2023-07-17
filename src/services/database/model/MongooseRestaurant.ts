@@ -35,14 +35,15 @@ const reviewSchema = new Schema<DatabaseReview>(
 );
 
 export interface DatabaseRestaurant extends Document {
+  tripadvisorId: string;
   name: string;
   address: DatabaseAddress;
   reviews: DatabaseReview[];
-  rating: number;
-  highlights: string;
+  rating?: number;
+  highlights?: string;
   isVerified: boolean;
   images: string[];
-  phoneNumber: string;
+  phoneNumber?: string;
   cuisines: CUISINE[];
   accessibilityAmenities: AccessibilityAmenity[];
   affiliateLink: string;
@@ -50,16 +51,17 @@ export interface DatabaseRestaurant extends Document {
 
 const restaurantSchema = new Schema<DatabaseRestaurant>(
   {
+    tripadvisorId: { type: String, required: true, unique: true, index: true },
     name: { type: String, required: true },
     address: { type: addressSchema, required: true },
-    reviews: { type: [reviewSchema], required: true },
-    rating: { type: Number, required: true },
-    highlights: { type: String, required: true },
+    reviews: { type: [reviewSchema], required: true, default: [] },
+    rating: { type: Number, required: false },
+    highlights: { type: String, required: false },
     isVerified: { type: Boolean, required: true },
-    images: { type: [String], required: true },
-    phoneNumber: { type: String, required: true },
-    cuisines: { type: [String], enum: CUISINE, required: true },
-    accessibilityAmenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: true },
+    images: { type: [String], required: true, default: [] },
+    phoneNumber: { type: String, required: false },
+    cuisines: { type: [String], enum: CUISINE, required: true, default: [] },
+    accessibilityAmenities: { type: [String], enum: ACCESSIBILITY_AMENITIES, required: true, default: [] },
     affiliateLink: { type: String, required: true },
   },
   { timestamps: true }

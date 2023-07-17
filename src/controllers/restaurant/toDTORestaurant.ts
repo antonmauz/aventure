@@ -49,7 +49,7 @@ export const toDTORestaurant = async ({
     name,
     address,
     reviews: mappedReviews,
-    rating,
+    rating: rating ?? null,
     highlights,
     isVerified,
     images,

@@ -5,14 +5,14 @@ import { DTORestaurant } from "../model/DTORestaurant";
 import { z } from "zod";
 
 type Query = {
-  city?: string;
+  searchTerm?: string;
 };
 
 type Response = DTORestaurant[];
 
 export const getRestaurants = controller<undefined, undefined, undefined, Response, Query>(
-  async ({ query: { city }, res }) => {
-    const restaurants = await databaseService.findRestaurantsByCity(city ?? "");
+  async ({ query: { searchTerm }, res }) => {
+    const restaurants = await databaseService.findRestaurantsBySearchTerm(searchTerm ?? "");
 
     const mappedRestaurants = await Promise.all(restaurants.map(toDTORestaurant));
 
@@ -20,7 +20,7 @@ export const getRestaurants = controller<undefined, undefined, undefined, Respon
   },
   {
     querySchema: z.object({
-      city: z.string().optional(),
+      searchTerm: z.string().optional(),
     }),
   }
 );

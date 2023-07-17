@@ -5,6 +5,7 @@ export const getRestaurantsTripadvisor = async (req: express.Request, res: expre
   // TODO add correct params
   const locations = await tripadvisorService
     .findLocationsBySearchQuery("", {
+      category: "restaurants",
       language: "en",
     })
     .catch((error) => {

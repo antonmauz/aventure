@@ -36,3 +36,8 @@ export interface DTOHotel {
   amenities: HotelAmenity[];
   affiliateLink: string;
 }
+
+export interface DTOHotelName {
+  id: string;
+  name: string;
+}

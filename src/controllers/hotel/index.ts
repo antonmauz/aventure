@@ -3,9 +3,11 @@ import { getHotel } from "./getHotel";
 import { getHotels } from "./getHotels";
 import { postHotelReview } from "./postHotelReview";
 import { handleAuthentication } from "@middlewares";
+import { getHotelNames } from "./getHotelNames";
 
 const router = express.Router();
 
+router.get("/names", getHotelNames);
 router.get("/:id", getHotel);
 router.get("/", getHotels);
 

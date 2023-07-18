@@ -16,5 +16,4 @@ export interface DTOTrainJourney {
   startTrainStation: string;
   endTrainStation: string;
   connections: TrainConnection[];
-  affiliateLink: string;
 }

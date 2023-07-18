@@ -18,6 +18,17 @@ type Response =
     })
   | "registration_failed";
 
+const passwordSchema = z.string()
+  .refine(value => value.length >= 8, {
+    message: "Password must be at least 8 characters long",
+  })
+  .refine(value => /[a-zA-Z]/.test(value), {
+    message: "Password must contain at least one letter",
+  })
+  .refine(value => /\d/.test(value), {
+    message: "Password must contain at least one digit",
+  });
+
 export const signUp = controller<undefined, Body, undefined, Response>(
   async ({ body, res }) => {
     try {
@@ -52,7 +63,7 @@ export const signUp = controller<undefined, Body, undefined, Response>(
       firstName: z.string(),
       surname: z.string(),
       email: z.string(),
-      password: z.string(),
+      password: passwordSchema,
       disabilityVerification: z
         .object({
           idImage: z.string(),

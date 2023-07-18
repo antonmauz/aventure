@@ -24,7 +24,8 @@ export { DatabaseRestaurant } from "./model/MongooseRestaurant";
 export { DatabaseUser } from "./model/MongooseUser";
 export { DatabaseReview, DatabaseHotel } from "./model/MongooseHotel";
 export { DatabaseBlogPost } from "./model/MongooseBlogPost";
-export { DatabaseTrainStation } from "./model/MongooseTrainStation";
+export { DatabaseTrainStation, MongooseTrainStation } from "./model/MongooseTrainStation";
+export { DatabaseTrainConnection, MongooseTrainConnection } from "./model/MongooseTrainConnection";
 export { DatabaseHotelAccessibilityVerification } from "./model/MongooseHotelAccessibilityVerification";
 export { DatabaseRestaurantAccessibilityVerification } from "./model/MongooseRestaurantAccessibilityVerification";
 

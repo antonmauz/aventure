@@ -1,4 +1,4 @@
-export type {
+export {
   DatabaseRestaurant,
   DatabaseReview,
   DatabaseUser,
@@ -7,7 +7,10 @@ export type {
   DatabaseTrainStation,
   DatabaseHotelAccessibilityVerification,
   DatabaseRestaurantAccessibilityVerification,
+  DatabaseTrainConnection,
 } from "./database";
+
+export { MongooseTrainStation, MongooseTrainConnection } from "./database";
 
 export { databaseService } from "./database";
 export { tripadvisorService } from "./tripadvisor";

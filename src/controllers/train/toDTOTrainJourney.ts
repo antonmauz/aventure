@@ -93,7 +93,6 @@ const toDTOTrainJourney = async (csaConnections: CSAConnection[], date: Date): P
     startTrainStation: departureStation.name,
     endTrainStation: arrivalStation.name,
     connections: await Promise.all(filteredConnections.map((connection) => mapConnection(connection, date))),
-    affiliateLink: "www.google.com",
   };
 };
 

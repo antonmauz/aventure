@@ -14,7 +14,7 @@ type Filters = {
   stars?: number[];
   rating?: number[];
   accessibilityAmenities?: DTORestaurant["accessibilityAmenities"];
-  cuisine?: DTORestaurant["cuisines"];
+  cuisines?: DTORestaurant["cuisines"];
 };
 
 type Query = {
@@ -42,7 +42,7 @@ export const getRestaurants = controller<undefined, undefined, undefined, Respon
       mappedRestaurants?.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
     }
 
-    const { rating, accessibilityAmenities, cuisine } = filters ?? {};
+    const { rating, accessibilityAmenities, cuisines } = filters ?? {};
 
     if (filters?.isVerified) {
       mappedRestaurants = mappedRestaurants.filter((restaurant) => restaurant.isVerified);
@@ -50,9 +50,9 @@ export const getRestaurants = controller<undefined, undefined, undefined, Respon
     if (rating) {
       mappedRestaurants = mappedRestaurants.filter((restaurant) => rating.includes(restaurant.rating ?? 0));
     }
-    if (cuisine) {
+    if (cuisines) {
       mappedRestaurants = mappedRestaurants.filter((restaurant) =>
-        restaurant.cuisines.every((c) => cuisine.includes(c))
+        cuisines.every((c) => restaurant.cuisines.includes(c))
       );
     }
     if (accessibilityAmenities) {
@@ -82,7 +82,7 @@ export const getRestaurants = controller<undefined, undefined, undefined, Respon
           isVerified: z.string().transform((string) => string === "true"),
           rating: z.array(z.string().transform((string) => parseInt(string))).optional(),
           accessibilityAmenities: z.array(z.enum(ACCESSIBILITY_AMENITIES)).optional(),
-          cuisine: z.array(z.enum(CUISINES)).optional(),
+          cuisines: z.array(z.enum(CUISINES)).optional(),
         })
         .optional(),
     }),

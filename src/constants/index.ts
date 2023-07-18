@@ -3,3 +3,4 @@ export { ACCESSIBILITY_AMENITIES } from "./ACCESSIBILITY_AMENITIES";
 export { DESTINATIONS, TOPICS } from "./BlogPost";
 export { BAHN_CARD_OPTIONS } from "./BAHN_CARD_OPTIONS";
 export { HOTEL_AMENITIES } from "./HOTEL_AMENITIES";
+export { CUISINES } from "./CUISINES";

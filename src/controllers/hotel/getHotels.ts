@@ -10,7 +10,7 @@ const SORT = ["name", "rating", "stars"] as const;
 const PAGE_SIZE = 20;
 
 type Filters = {
-  isVerified?: boolean;
+  isVerified?: DTOHotel["isVerified"];
   stars?: number[];
   rating?: number[];
   amenities?: DTOHotel["amenities"];
@@ -18,8 +18,8 @@ type Filters = {
 };
 
 type Query = {
-  searchTerm?: string;
   page: number;
+  searchTerm?: string;
   sort: (typeof SORT)[number];
   filters?: Filters;
 };
@@ -44,11 +44,12 @@ export const getHotels = controller<undefined, undefined, undefined, Response, Q
       mappedHotels?.sort((a, b) => b.stars - a.stars);
     }
 
-    const { isVerified, stars, rating, amenities, accessibilityAmenities } = filters ?? {};
+    const { stars, rating, amenities, accessibilityAmenities } = filters ?? {};
 
-    if (isVerified) {
+    if (filters?.isVerified) {
       mappedHotels = mappedHotels?.filter((hotel) => hotel.isVerified);
     }
+
     if (stars && stars.length > 0) {
       mappedHotels = mappedHotels?.filter((hotel) => stars.includes(hotel.stars));
     }

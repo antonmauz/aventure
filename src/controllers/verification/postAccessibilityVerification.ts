@@ -21,43 +21,33 @@ export const postAccessibilityVerification = controller<AuthenticatedSession, Bo
     body: { hospitalityType, hospitalityId, accessibilityAmenity, proofImage },
     res,
   }) => {
-    if (hospitalityType === "hotel") {
-      // TODO move into db-service
-      await databaseService
-        .createHotelAccessibilityVerification({
+    try {
+      if (hospitalityType === "hotel") {
+        await databaseService.createHotelAccessibilityVerification({
           authorId: userId,
           hotelId: hospitalityId,
           accessibilityAmenity,
           proofImage,
-        })
-        .then((data) => {
-          console.log(data);
-          res.status(200).send("OK");
-        })
-        .catch((error) => {
-          console.log(error);
-
-          res.status(500).send("upload_failed");
-          return;
         });
-    } else {
-      await databaseService
-        .createRestaurantAccessibilityVerification({
+
+        res.status(200).send("OK");
+        return;
+      } else {
+        await databaseService.createRestaurantAccessibilityVerification({
           authorId: userId,
           restaurantId: hospitalityId,
           accessibilityAmenity,
           proofImage,
-        })
-        .then((data) => {
-          console.log(data);
-          res.status(200).send("OK");
-        })
-        .catch((error) => {
-          console.log(error);
-
-          res.status(500).send("upload_failed");
-          return;
         });
+
+        res.status(200).send("OK");
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+
+      res.status(500).send("upload_failed");
+      return;
     }
   },
   {

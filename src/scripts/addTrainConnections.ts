@@ -1,6 +1,9 @@
-import { databaseService, DatabaseTrainStation } from "@services";
-import { MongooseTrainConnection } from "../services/database/model/MongooseTrainConnection";
-import { MongooseTrainStation } from "../services/database/model/MongooseTrainStation";
+import {
+  databaseService,
+  DatabaseTrainStation,
+  MongooseTrainConnection,
+  MongooseTrainStation,
+} from "@services";
 
 import timetable from "./timetable.json";
 

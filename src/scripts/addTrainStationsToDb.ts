@@ -1,6 +1,5 @@
-import { MongooseTrainStation } from "../services/database/model/MongooseTrainStation";
 import { mappedStations } from "./mappedStations";
-import { databaseService } from "@services";
+import { databaseService, MongooseTrainStation } from "@services";
 
 databaseService.connectDB();
 

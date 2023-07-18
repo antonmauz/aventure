@@ -49,3 +49,8 @@ export interface DTORestaurant {
   accessibilityAmenities: AccessibilityAmenity[];
   affiliateLink: string;
 }
+
+export interface DTORestaurantName {
+  id: string;
+  name: string;
+}

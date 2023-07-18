@@ -3,9 +3,11 @@ import { getRestaurant } from "./getRestaurant";
 import { getRestaurants } from "./getRestaurants";
 import { handleAuthentication } from "@middlewares";
 import { postRestaurantReview } from "./postRestaurantReview";
+import { getRestaurantNames } from "./getRestaurantNames";
 
 const router = express.Router();
 
+router.get("/names", getRestaurantNames);
 router.get("/:id", getRestaurant);
 router.get("/", getRestaurants);
 

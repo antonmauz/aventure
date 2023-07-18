@@ -17,6 +17,6 @@ export interface DTOUser {
   dateOfBirth?: Date;
   bahnCard?: BahnCard;
   disabilityVerification?: DisabilityVerification;
-  createdAt: Date;
   accessibilityAmenities?: AccessibilityAmenity[];
+  createdAt: Date;
 }

@@ -36,7 +36,7 @@ export const signIn = controller<undefined, Body, undefined, Response>(
           });
         }
 
-        const token = sign({ id: user.id }, authConfig.secret, {
+        const accessToken = sign({ id: user.id }, authConfig.secret, {
           expiresIn: 86400, // 24 hours
         });
 
@@ -44,7 +44,7 @@ export const signIn = controller<undefined, Body, undefined, Response>(
 
         res.status(200).send({
           ...dtoUser,
-          accessToken: token,
+          accessToken,
         });
       })
       .catch((error) => {

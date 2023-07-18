@@ -1,6 +1,6 @@
+// Represents a train connection
 import { transformTrainJourneys } from "./transformTrainJourneys";
 
-// Represents a train connection
 export class CSAConnection {
   trainId: string;
   departureStation: number;

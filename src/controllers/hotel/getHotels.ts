@@ -47,23 +47,22 @@ export const getHotels = controller<undefined, undefined, undefined, Response, Q
     const { stars, rating, amenities, accessibilityAmenities } = filters ?? {};
 
     if (filters?.isVerified) {
-      mappedHotels = mappedHotels?.filter((hotel) => hotel.isVerified);
+      mappedHotels = mappedHotels.filter((hotel) => hotel.isVerified);
     }
-
-    if (stars && stars.length > 0) {
-      mappedHotels = mappedHotels?.filter((hotel) => stars.includes(hotel.stars));
+    if (stars) {
+      mappedHotels = mappedHotels.filter((hotel) => stars.includes(hotel.stars));
     }
-    if (rating && rating.length > 0) {
-      mappedHotels = mappedHotels?.filter((hotel) => rating.includes(hotel.rating ?? 0));
+    if (rating) {
+      mappedHotels = mappedHotels.filter((hotel) => rating.includes(hotel.rating ?? 0));
     }
-    if (amenities && amenities.length > 0) {
-      mappedHotels = mappedHotels?.filter((hotel) =>
-        hotel.amenities.some((amenity) => amenities.includes(amenity))
+    if (amenities) {
+      mappedHotels = mappedHotels.filter((hotel) =>
+        amenities.every((amenity) => hotel.amenities.includes(amenity))
       );
     }
-    if (accessibilityAmenities && accessibilityAmenities.length > 0) {
-      mappedHotels = mappedHotels?.filter((hotel) =>
-        hotel.accessibilityAmenities.some((amenity) => accessibilityAmenities.includes(amenity))
+    if (accessibilityAmenities) {
+      mappedHotels = mappedHotels.filter((hotel) =>
+        accessibilityAmenities.every((amenity) => hotel.accessibilityAmenities.includes(amenity))
       );
     }
 

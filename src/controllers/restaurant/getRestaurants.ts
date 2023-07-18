@@ -45,29 +45,26 @@ export const getRestaurants = controller<undefined, undefined, undefined, Respon
     const { rating, accessibilityAmenities, cuisine } = filters ?? {};
 
     if (filters?.isVerified) {
-      mappedRestaurants = mappedRestaurants?.filter((restaurant) => restaurant.isVerified);
+      mappedRestaurants = mappedRestaurants.filter((restaurant) => restaurant.isVerified);
     }
-
-    if (rating && rating.length > 0) {
-      mappedRestaurants = mappedRestaurants?.filter((restaurant) => rating.includes(restaurant.rating ?? 0));
+    if (rating) {
+      mappedRestaurants = mappedRestaurants.filter((restaurant) => rating.includes(restaurant.rating ?? 0));
     }
-
-    if (cuisine && cuisine.length > 0) {
-      mappedRestaurants = mappedRestaurants?.filter((restaurant) =>
-        restaurant.cuisines.some((c) => cuisine.includes(c))
+    if (cuisine) {
+      mappedRestaurants = mappedRestaurants.filter((restaurant) =>
+        restaurant.cuisines.every((c) => cuisine.includes(c))
       );
     }
-
-    if (accessibilityAmenities && accessibilityAmenities.length > 0) {
-      mappedRestaurants = mappedRestaurants?.filter((restaurant) =>
-        restaurant.accessibilityAmenities.some((amenity) => accessibilityAmenities.includes(amenity))
+    if (accessibilityAmenities) {
+      mappedRestaurants = mappedRestaurants.filter((restaurant) =>
+        accessibilityAmenities.every((amenity) => restaurant.accessibilityAmenities.includes(amenity))
       );
     }
 
     const startIndex = (page - 1) * PAGE_SIZE;
     const endIndex = startIndex + PAGE_SIZE;
 
-    const paginatedRestaurants = mappedRestaurants?.slice(startIndex, endIndex);
+    const paginatedRestaurants = mappedRestaurants.slice(startIndex, endIndex);
 
     res.status(200).json({
       resultsCount: mappedRestaurants.length,

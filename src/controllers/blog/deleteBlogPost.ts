@@ -18,9 +18,6 @@ export const deleteBlogPost = controller<AuthenticatedSession, undefined, Params
       return;
     }
 
-    console.log("authorId", blogPost.authorId.toString());
-    console.log("userId", userId);
-
     if (blogPost.authorId.toString() !== userId) {
       res.status(403).send("forbidden");
       return;

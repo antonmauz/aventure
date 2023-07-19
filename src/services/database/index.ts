@@ -19,11 +19,12 @@ import { createHotelAccessibilityVerification } from "./verification/createHotel
 import { countBlogAccess } from "./blogPost/countBlogAccess";
 import { getAllBlogPosts } from "./blogPost/getAllBlogPosts";
 import { deleteBlogPost } from "./blogPost/deleteBlogPost";
+import { deleteUserById } from "./user/deleteUser";
 
-export { DatabaseRestaurant } from "./model/MongooseRestaurant";
-export { DatabaseUser } from "./model/MongooseUser";
-export { DatabaseReview, DatabaseHotel } from "./model/MongooseHotel";
-export { DatabaseBlogPost } from "./model/MongooseBlogPost";
+export { DatabaseRestaurant, MongooseRestaurant } from "./model/MongooseRestaurant";
+export { DatabaseUser, MongooseUser } from "./model/MongooseUser";
+export { DatabaseReview, DatabaseHotel, MongooseHotel } from "./model/MongooseHotel";
+export { DatabaseBlogPost, MongooseBlogPost } from "./model/MongooseBlogPost";
 export { DatabaseTrainStation, MongooseTrainStation } from "./model/MongooseTrainStation";
 export { DatabaseTrainConnection, MongooseTrainConnection } from "./model/MongooseTrainConnection";
 export { DatabaseHotelAccessibilityVerification } from "./model/MongooseHotelAccessibilityVerification";
@@ -37,6 +38,7 @@ export const databaseService = {
   findUserByEmail,
   createUser,
   updateUserById,
+  deleteUserById,
   // <-- RESTAURANT -->
   findRestaurantById,
   findRestaurantsBySearchTerm,

@@ -10,7 +10,14 @@ export {
   DatabaseTrainConnection,
 } from "./database";
 
-export { MongooseTrainStation, MongooseTrainConnection } from "./database";
+export {
+  MongooseTrainStation,
+  MongooseTrainConnection,
+  MongooseHotel,
+  MongooseRestaurant,
+  MongooseBlogPost,
+  MongooseUser,
+} from "./database";
 
 export { databaseService } from "./database";
 export { tripadvisorService } from "./tripadvisor";

@@ -5,7 +5,7 @@ import { controller } from "../common/controller";
 import { z } from "zod";
 import { DESTINATIONS, TOPICS } from "@constants";
 
-const SORT = ["title", "createdAt", "author"] as const;
+const SORT = ["title", "createdAt"] as const;
 
 const PAGE_SIZE = 20;
 
@@ -31,26 +31,24 @@ export const getBlogPosts = controller<undefined, undefined, undefined, Response
   async ({ query: { searchTerm, page, sort, filters }, res }) => {
     const blogPosts = await databaseService.findBlogPosts(searchTerm ?? "");
 
-    let mappedBlogPosts = await Promise.all(blogPosts.map(toDTOBlogPost));
+    let filteredBlogPosts = blogPosts;
 
     if (sort === "title") {
-      mappedBlogPosts?.sort((a, b) => a.title.localeCompare(b.title));
+      filteredBlogPosts?.sort((a, b) => a.title.localeCompare(b.title));
     } else if (sort === "createdAt") {
-      mappedBlogPosts?.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
-    } else if (sort === "author") {
-      mappedBlogPosts?.sort((a, b) => a.author.name.localeCompare(b.author.name));
+      filteredBlogPosts?.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
     }
 
     const { topics, destinations } = filters ?? {};
 
     if (topics) {
-      mappedBlogPosts = mappedBlogPosts.filter((blogPost) =>
+      filteredBlogPosts = filteredBlogPosts.filter((blogPost) =>
         topics.every((topic) => blogPost.topics.includes(topic))
       );
     }
 
     if (destinations) {
-      mappedBlogPosts = mappedBlogPosts.filter((blogPost) =>
+      filteredBlogPosts = filteredBlogPosts.filter((blogPost) =>
         destinations.every((destination) => blogPost.destinations.includes(destination))
       );
     }
@@ -58,11 +56,13 @@ export const getBlogPosts = controller<undefined, undefined, undefined, Response
     const startIndex = (page - 1) * PAGE_SIZE;
     const endIndex = page * PAGE_SIZE;
 
-    const paginatedBlogPosts = mappedBlogPosts.slice(startIndex, endIndex);
+    const paginatedBlogPosts = filteredBlogPosts.slice(startIndex, endIndex);
 
-    res
-      .status(200)
-      .json({ resultsCount: mappedBlogPosts.length, pageSize: PAGE_SIZE, data: paginatedBlogPosts });
+    res.status(200).json({
+      resultsCount: filteredBlogPosts.length,
+      pageSize: PAGE_SIZE,
+      data: await Promise.all(paginatedBlogPosts.map(toDTOBlogPost)),
+    });
   },
   {
     querySchema: z.object({

@@ -34,34 +34,34 @@ export const getHotels = controller<undefined, undefined, undefined, Response, Q
   async ({ query: { searchTerm, page, sort, filters }, res }) => {
     const hotels = await databaseService.findHotelsBySearchTerm(searchTerm ?? "");
 
-    let mappedHotels = await Promise.all(hotels.map(toDTOHotel));
+    let filteredHotels = hotels;
 
     if (sort === "name") {
-      mappedHotels?.sort((a, b) => a.name.localeCompare(b.name));
+      filteredHotels?.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sort === "rating") {
-      mappedHotels?.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
+      filteredHotels?.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
     } else if (sort === "stars") {
-      mappedHotels?.sort((a, b) => b.stars - a.stars);
+      filteredHotels?.sort((a, b) => b.stars - a.stars);
     }
 
     const { stars, rating, amenities, accessibilityAmenities } = filters ?? {};
 
     if (filters?.isVerified) {
-      mappedHotels = mappedHotels.filter((hotel) => hotel.isVerified);
+      filteredHotels = filteredHotels.filter((hotel) => hotel.isVerified);
     }
     if (stars) {
-      mappedHotels = mappedHotels.filter((hotel) => stars.includes(hotel.stars));
+      filteredHotels = filteredHotels.filter((hotel) => stars.includes(hotel.stars));
     }
     if (rating) {
-      mappedHotels = mappedHotels.filter((hotel) => rating.includes(hotel.rating ?? 0));
+      filteredHotels = filteredHotels.filter((hotel) => rating.includes(hotel.rating ?? 0));
     }
     if (amenities) {
-      mappedHotels = mappedHotels.filter((hotel) =>
+      filteredHotels = filteredHotels.filter((hotel) =>
         amenities.every((amenity) => hotel.amenities.includes(amenity))
       );
     }
     if (accessibilityAmenities) {
-      mappedHotels = mappedHotels.filter((hotel) =>
+      filteredHotels = filteredHotels.filter((hotel) =>
         accessibilityAmenities.every((amenity) => hotel.accessibilityAmenities.includes(amenity))
       );
     }
@@ -69,9 +69,13 @@ export const getHotels = controller<undefined, undefined, undefined, Response, Q
     const startIndex = (page - 1) * PAGE_SIZE;
     const endIndex = page * PAGE_SIZE;
 
-    const paginatedHotels = mappedHotels.slice(startIndex, endIndex);
+    const paginatedHotels = filteredHotels.slice(startIndex, endIndex);
 
-    res.status(200).json({ resultsCount: mappedHotels.length, pageSize: PAGE_SIZE, data: paginatedHotels });
+    res.status(200).json({
+      resultsCount: filteredHotels.length,
+      pageSize: PAGE_SIZE,
+      data: await Promise.all(paginatedHotels.map(toDTOHotel)),
+    });
   },
   {
     querySchema: z.object({

@@ -34,29 +34,31 @@ export const getRestaurants = controller<undefined, undefined, undefined, Respon
   async ({ query: { searchTerm, page, sort, filters }, res }) => {
     const restaurants = await databaseService.findRestaurantsBySearchTerm(searchTerm ?? "");
 
-    let mappedRestaurants = await Promise.all(restaurants.map(toDTORestaurant));
+    let filteredRestaurants = restaurants;
 
     if (sort === "name") {
-      mappedRestaurants?.sort((a, b) => a.name.localeCompare(b.name));
+      filteredRestaurants?.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sort === "rating") {
-      mappedRestaurants?.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
+      filteredRestaurants?.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
     }
 
     const { rating, accessibilityAmenities, cuisines } = filters ?? {};
 
     if (filters?.isVerified) {
-      mappedRestaurants = mappedRestaurants.filter((restaurant) => restaurant.isVerified);
+      filteredRestaurants = filteredRestaurants.filter((restaurant) => restaurant.isVerified);
     }
     if (rating) {
-      mappedRestaurants = mappedRestaurants.filter((restaurant) => rating.includes(restaurant.rating ?? 0));
+      filteredRestaurants = filteredRestaurants.filter((restaurant) =>
+        rating.includes(restaurant.rating ?? 0)
+      );
     }
     if (cuisines) {
-      mappedRestaurants = mappedRestaurants.filter((restaurant) =>
+      filteredRestaurants = filteredRestaurants.filter((restaurant) =>
         cuisines.every((c) => restaurant.cuisines.includes(c))
       );
     }
     if (accessibilityAmenities) {
-      mappedRestaurants = mappedRestaurants.filter((restaurant) =>
+      filteredRestaurants = filteredRestaurants.filter((restaurant) =>
         accessibilityAmenities.every((amenity) => restaurant.accessibilityAmenities.includes(amenity))
       );
     }
@@ -64,12 +66,12 @@ export const getRestaurants = controller<undefined, undefined, undefined, Respon
     const startIndex = (page - 1) * PAGE_SIZE;
     const endIndex = startIndex + PAGE_SIZE;
 
-    const paginatedRestaurants = mappedRestaurants.slice(startIndex, endIndex);
+    const paginatedRestaurants = filteredRestaurants.slice(startIndex, endIndex);
 
     res.status(200).json({
-      resultsCount: mappedRestaurants.length,
+      resultsCount: filteredRestaurants.length,
       pageSize: PAGE_SIZE,
-      data: paginatedRestaurants,
+      data: await Promise.all(paginatedRestaurants.map(toDTORestaurant)),
     });
   },
   {

@@ -21,6 +21,13 @@ export const postHotelReview = controller<AuthenticatedSession, Body, Params, Re
         return;
       }
 
+      const review = hotel.reviews.find((review) => review.authorId === userId);
+
+      if (review) {
+        res.status(403).send("forbidden");
+        return;
+      }
+
       const reviewsCount = hotel.reviews.length;
       const newRating = ((hotel.rating ?? 0) * reviewsCount + body.rating) / (reviewsCount + 1);
 

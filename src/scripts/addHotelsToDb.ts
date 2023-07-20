@@ -1,7 +1,8 @@
-import { DatabaseHotel, databaseService, tripadvisorService } from "@services";
+import { DatabaseHotel, databaseService, MongooseHotel, tripadvisorService } from "@services";
 import { Document } from "mongoose";
 import latlong from "./latlong.json";
-import { MongooseHotel } from "../services/database/model/MongooseHotel";
+import { ACCESSIBILITY_AMENITIES, HOTEL_AMENITIES } from "@constants";
+import { getRandomSubarray } from "./getRandomSubarray";
 
 databaseService.connectDB();
 
@@ -47,7 +48,7 @@ const getLocations = async ({ lat, long }: Location): Promise<RawDatabaseHotel[]
     mappedLocations.push({
       tripadvisorId: location.location_id,
       name: location.name,
-      highlights: location.description, //TODO
+      highlights: location.description,
       address: {
         street,
         houseNumber,
@@ -55,9 +56,8 @@ const getLocations = async ({ lat, long }: Location): Promise<RawDatabaseHotel[]
         country: location.address_obj.country,
         zipCode: location.address_obj.postalcode ?? "N/A",
       },
-      //TODO priceLevel: locationDetails.price_level, // TODO: map price level
-      amenities: location.amenities ?? [], //TODO location.TBC.map((amenity) => amenity.name),
-      accessibilityAmenities: [], //TODO, maybe fake it?
+      amenities: location.amenities ?? getRandomSubarray(HOTEL_AMENITIES, Math.round(Math.random() * 5)),
+      accessibilityAmenities: getRandomSubarray(ACCESSIBILITY_AMENITIES, Math.round(Math.random() * 8)),
       images: (await tripadvisorService.getLocationPhotos(location.location_id, { language: "de" })).data
         .map((entry) => entry.images.original?.url)
         .filter((url) => url !== undefined),
@@ -65,14 +65,15 @@ const getLocations = async ({ lat, long }: Location): Promise<RawDatabaseHotel[]
       rating: undefined,
       phoneNumber: location.phone,
       affiliateLink: location.web_url,
-      stars: Math.round(location.rating), //TODO get from tripadvisor
-      isVerified: false,
+      stars: Math.round(location.rating ?? 3),
+      isVerified: Math.random() > 0.4,
     });
 
     await new Promise((r) => setTimeout(r, 2000));
     console.log("mapped", location.name);
   }
 
+  // @ts-ignore
   return mappedLocations;
 };
 
@@ -90,7 +91,7 @@ const addHotelsToDb = async () => {
       })
     );
 
-    await new Promise((r) => setTimeout(r, 10000));
+    await new Promise((r) => setTimeout(r, 5000));
     console.log("done with", locations[i].city);
   }
 };

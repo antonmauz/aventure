@@ -1,7 +1,8 @@
-import { DatabaseRestaurant, databaseService, tripadvisorService } from "@services";
+import { DatabaseRestaurant, databaseService, MongooseRestaurant, tripadvisorService } from "@services";
 import { Document } from "mongoose";
-import { MongooseRestaurant } from "../services/database/model/MongooseRestaurant";
 import latlong from "./latlong.json";
+import { getRandomSubarray } from "./getRandomSubarray";
+import { ACCESSIBILITY_AMENITIES } from "@constants";
 
 databaseService.connectDB();
 
@@ -66,7 +67,7 @@ const getLocations = async ({ lat, long }: Location): Promise<RawDatabaseRestaur
     mappedLocations.push({
       tripadvisorId: location.location_id,
       name: location.name,
-      highlights: location.description, //TODO
+      highlights: location.description,
       address: {
         street,
         houseNumber,
@@ -78,8 +79,7 @@ const getLocations = async ({ lat, long }: Location): Promise<RawDatabaseRestaur
         location.cuisine
           ?.filter((cuisine) => CUISINES.includes(cuisine.name))
           .map((cuisine) => cuisine.name) ?? ([] as DatabaseRestaurant["cuisines"]),
-      //TODO priceLevel: locationDetails.price_level, // TODO: map price level
-      accessibilityAmenities: [], //TODO, maybe fake it?
+      accessibilityAmenities: getRandomSubarray(ACCESSIBILITY_AMENITIES, Math.round(Math.random() * 8)),
       images: (await tripadvisorService.getLocationPhotos(location.location_id, { language: "de" })).data
         .map((entry) => entry.images.original?.url)
         .filter((url) => url !== undefined),
@@ -87,13 +87,14 @@ const getLocations = async ({ lat, long }: Location): Promise<RawDatabaseRestaur
       rating: undefined,
       phoneNumber: location.phone,
       affiliateLink: location.web_url,
-      isVerified: false,
+      isVerified: Math.random() > 0.4,
     });
 
     await new Promise((r) => setTimeout(r, 2000));
     console.log("mapped", location.name);
   }
 
+  // @ts-ignore
   return mappedLocations;
 };
 
@@ -111,7 +112,7 @@ const addRestaurantsToDb = async () => {
       })
     );
 
-    await new Promise((r) => setTimeout(r, 10000));
+    await new Promise((r) => setTimeout(r, 5000));
     console.log("done with", locations[i].city);
   }
 };

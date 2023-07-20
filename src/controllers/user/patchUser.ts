@@ -6,14 +6,25 @@ import { toDTOUser } from "./toDTOUser";
 import { z } from "zod";
 import { ACCESSIBILITY_AMENITIES, BAHN_CARD_OPTIONS } from "@constants";
 
-type Body = Partial<Pick<DTOUser, "firstName" | "surname" | "email" | "dateOfBirth" | "profileImage">>;
+type Body = Partial<Pick<DTOUser, "firstName" | "surname" | "email" | "dateOfBirth" | "profileImage">> & {
+  disabilityVerification?: Pick<NonNullable<DTOUser["disabilityVerification"]>, "idImage" | "userImage">;
+};
 
 type Response = DTOUser | unknown;
 
 export const patchUser = controller<AuthenticatedSession, Body, undefined, Response>(
   async ({ session: { userId }, body, res }) => {
     try {
-      const updatedUser = await databaseService.updateUserById(userId, body);
+      const updatedUser = await databaseService.updateUserById(userId, {
+        ...body,
+        disabilityVerification: body.disabilityVerification
+          ? {
+              idImage: body.disabilityVerification.idImage,
+              userImage: body.disabilityVerification.userImage,
+              status: "new",
+            }
+          : undefined,
+      });
 
       res.status(200).send(toDTOUser(updatedUser));
     } catch (error) {

@@ -66,3 +66,7 @@ It correctly bundles the server and optimizes the build for the best performance
 
 The build is minified and the filenames include the hashes.\
 Your server is ready to be deployed!
+
+## Additional Information
+
+Some commits are from `cdans` and `cdans-forget`, which belong to Christoph Dansard.
